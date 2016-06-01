@@ -38,6 +38,9 @@ Start: HIDDEN AND VISIBLE UTILITIES
 /* =====================
 End:  HIDDEN AND VISIBLE UTILITIES
 ======================== */
+%relative{
+  position: relative;
+}
 %global-block{
   min-height: 1px;
   @include resp-min(sm){
@@ -48,11 +51,11 @@ End:  HIDDEN AND VISIBLE UTILITIES
     padding-left: 5px;
     padding-right: 5px; 
   }
-  position: relative; 
+  @extend %relative;
 }
 .row{
   @include default-after();
-  position: relative;
+  @extend %relative;
 }
 [class*="col-"] {
   @extend %global-block;
@@ -91,5 +94,5 @@ End:  HIDDEN AND VISIBLE UTILITIES
 section{
   @extend .row;
   @extend .padding-block;
-  position: relative;
+  @extend %relative;
 }

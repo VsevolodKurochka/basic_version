@@ -4,7 +4,6 @@ body{
   @include size(text_default);
   line-height: 1.42857143;
 }
-
 .toggle{
   &-subtitle-no-margin{
     .subtitle{
@@ -16,15 +15,15 @@ body{
     @include resp-min(sm){
       &-big-margin{
        margin-bottom: 150px;
-       &:last-child{
-        margin-bottom: 75px;
+        &:last-child{
+          margin-bottom: 75px;
+        }
       }
-      }
-    }
-    &-small-margin{
-      margin-bottom: 50px;
-      &:last-child{
-        margin-bottom: 0;
+      &-small-margin{
+        margin-bottom: 50px;
+        &:last-child{
+          margin-bottom: 0;
+        }
       }
     }
     &-img{
@@ -33,12 +32,6 @@ body{
   }
   @include resp-min(sm){
     //ODD - нечетное
-    // .toggle-inner-right:nth-child(odd) .toggle-inner-text,
-    // .toggle-inner-right:nth-child(even) .toggle-inner-img,
-    // .toggle-inner-left:nth-child(odd) .toggle-inner-img,
-    // .toggle-inner-left:nth-child(even) .toggle-inner-text{
-    //   float: left;
-    // }
     .toggle-inner-right:nth-child(odd) .toggle-inner-img,
     .toggle-inner-right:nth-child(even) .toggle-inner-text,
     .toggle-inner-left:nth-child(odd) .toggle-inner-text,
@@ -53,64 +46,51 @@ body{
       }
     }   
   }
-  @include resp-min(sm){
-    .toggle-inner-left:nth-child(even){
-      .toggle-inner-text{
-        .subtitle,p{
-          text-align: right;
-        }
-      }
-    }   
-  }
 }
 img{
-  display: inline-block;
+  @extend .block-inline;
   max-width: 100%;
 }
-button{
+.text,.block{
+    &-inline{
+      display: inline-block;
+    }
+    &-center{
+      text-align: center;
+    }
+}
+input{
+  &:focus{
+    &::-webkit-input-placeholder{
+      color: transparent;
+    }
+    &:-moz-placeholder {
+      color: transparent;
+    }
+    &::-moz-placeholder {
+      color: transparent;
+    }
+    &:-ms-input-placeholder {
+      color: transparent;
+    }
+  }
+}
+
+/* ===================== 
+Start: TEXT      
+======================== */
+a,button{
   &:hover{
     cursor: pointer;
   }
 }
-.block-center{
-  text-align: center;
-}
-input:focus::-webkit-input-placeholder {
-  color: transparent;
-}
 
-input:focus:-moz-placeholder {
-  color: transparent;
-}
-
-input:focus::-moz-placeholder {
-  color: transparent;
-}
-
-input:focus:-ms-input-placeholder {
-  color: transparent;
-}
-.inline-block{
-  display: inline-block;
-} 
-/* ===================== 
-Start: TEXT      
-======================== */
-// p{
-//   @include size(big);
-// }
-a:hover{
-  cursor: pointer;
-}
-.text-center{
-  text-align: center;
-}
 .ttu{
   text-transform: uppercase;
 }
 h1,h2,h3,h4,h5,h6{
   @extend .bold;
-  text-transform: uppercase;
+  @extend .ttu;
 }
 .h1{
   line-height: 100%;
@@ -139,6 +119,7 @@ h1,h2,h3,h4,h5,h6{
   }
   
 }
+/* #{$sm} and > */
 @include resp-min(sm){
   .h1{
     @include size(big_title);
@@ -150,17 +131,19 @@ h1,h2,h3,h4,h5,h6{
     margin-bottom: 100px;
   }
 }
+/* #{$md} and > */
 @include resp-min(md){
   .h3{
     @include size(default_title);
-    
   }
 }
+/* #{$md} and < */
 @include resp-max(md){
   .h3{
     @include size(text_big);
   }
 }
+/* #{$sm} and < */
 @include resp-max(sm){
   .h1{
     @include size(default_title);
@@ -175,7 +158,7 @@ h1,h2,h3,h4,h5,h6{
     margin-bottom: 50px;
   }
 }
-
+/* #{$xs} and > */
 @include resp-max(xs){
   .h1{
     @include size(default_title);
@@ -196,21 +179,21 @@ End:  TEXT
 Start: BUTTON      
 ======================== */
 .btn {
-  display: inline-block;
   border: none;
   border-radius: 3px;
+  font-weight: bold;
   max-width: 100%;
   padding: 25px 30px;
   position: relative;
-  font-size: 18px;
-  text-transform: uppercase;
-  @include color("white");
-  @extend .bold;
-  font-weight: bold;
   overflow: hidden;
   transition: all .3s;
-  z-index: 2;
   text-decoration: none;
+  z-index: 2;
+  @extend .block-inline;
+  @extend .ttu;
+  @extend .bold;
+  @include size(text_default);
+  @include color("white");
   &:before{
     content: "";
     position: absolute;

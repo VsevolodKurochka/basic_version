@@ -121,6 +121,10 @@ Start: COLOR AND SIZE
   font-size: 21px;
 }
 
+.text_title {
+  font-size: 24px;
+}
+
 .small_title {
   font-size: 30px;
 }
@@ -386,9 +390,12 @@ Start: HIDDEN AND VISIBLE UTILITIES
 /* =====================
 End:  HIDDEN AND VISIBLE UTILITIES
 ======================== */
+[class*="col-"], .container, .container-inner, .row, section, .toggle-inner, .header, .footer {
+  position: relative;
+}
+
 [class*="col-"], .container, .container-inner {
   min-height: 1px;
-  position: relative;
 }
 @media (min-width: 768px) {
   [class*="col-"], .container, .container-inner {
@@ -403,9 +410,6 @@ End:  HIDDEN AND VISIBLE UTILITIES
   }
 }
 
-.row, .container, .container-inner, section, .toggle-inner, .header, .footer {
-  position: relative;
-}
 .row:after, .container:after, .container-inner:after, section:after, .toggle-inner:after, .header:after, .footer:after, .row:before, .container:before, .container-inner:before, section:before, .toggle-inner:before, .header:before, .footer:before {
   content: "";
   display: table;
@@ -449,10 +453,6 @@ End:  HIDDEN AND VISIBLE UTILITIES
     padding-top: 50px;
     padding-bottom: 50px;
   }
-}
-
-section {
-  position: relative;
 }
 
 /* =====================
@@ -515,12 +515,12 @@ body {
   .toggle-inner-big-margin:last-child {
     margin-bottom: 75px;
   }
-}
-.toggle-inner-small-margin {
-  margin-bottom: 50px;
-}
-.toggle-inner-small-margin:last-child {
-  margin-bottom: 0;
+  .toggle-inner-small-margin {
+    margin-bottom: 50px;
+  }
+  .toggle-inner-small-margin:last-child {
+    margin-bottom: 0;
+  }
 }
 @media (min-width: 768px) {
   .toggle .toggle-inner-right:nth-child(odd) .toggle-inner-img,
@@ -533,61 +533,39 @@ body {
     text-align: right;
   }
 }
-@media (min-width: 768px) {
-  .toggle .toggle-inner-left:nth-child(even) .toggle-inner-text .subtitle, .toggle .toggle-inner-left:nth-child(even) .toggle-inner-text p {
-    text-align: right;
-  }
-}
 
 img {
-  display: inline-block;
   max-width: 100%;
 }
 
-button:hover {
-  cursor: pointer;
+.text-inline, .block-inline, img, .btn {
+  display: inline-block;
 }
-
-.block-center, .toggle-inner-img {
+.text-center, .block-center, .toggle-inner-img {
   text-align: center;
 }
 
 input:focus::-webkit-input-placeholder {
   color: transparent;
 }
-
 input:focus:-moz-placeholder {
   color: transparent;
 }
-
 input:focus::-moz-placeholder {
   color: transparent;
 }
-
 input:focus:-ms-input-placeholder {
   color: transparent;
-}
-
-.inline-block {
-  display: inline-block;
 }
 
 /* ===================== 
 Start: TEXT      
 ======================== */
-a:hover {
+a:hover, button:hover {
   cursor: pointer;
 }
 
-.text-center {
-  text-align: center;
-}
-
-.ttu {
-  text-transform: uppercase;
-}
-
-h1, h2, h3, h4, h5, h6 {
+.ttu, h1, h2, h3, h4, h5, h6, .btn {
   text-transform: uppercase;
 }
 
@@ -625,6 +603,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* 768px and > */
 @media (min-width: 768px) {
   .h1 {
     font-size: 80px;
@@ -638,16 +617,19 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 100px;
   }
 }
+/* 992px and > */
 @media (min-width: 992px) {
   .h3 {
     font-size: 36px;
   }
 }
+/* 992px and < */
 @media (max-width: 991px) {
   .h3 {
     font-size: 21px;
   }
 }
+/* 768px and < */
 @media (max-width: 767px) {
   .h1 {
     font-size: 36px;
@@ -664,6 +646,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 50px;
   }
 }
+/* 480px and > */
 @media (max-width: 479px) {
   .h1 {
     font-size: 36px;
@@ -680,20 +663,18 @@ End:  TEXT
 Start: BUTTON      
 ======================== */
 .btn {
-  display: inline-block;
   border: none;
   border-radius: 3px;
+  font-weight: bold;
   max-width: 100%;
   padding: 25px 30px;
   position: relative;
-  font-size: 18px;
-  text-transform: uppercase;
-  color: #fff;
-  font-weight: bold;
   overflow: hidden;
   transition: all .3s;
-  z-index: 2;
   text-decoration: none;
+  z-index: 2;
+  font-size: 18px;
+  color: #fff;
 }
 .btn:before {
   content: "";
