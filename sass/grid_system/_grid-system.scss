@@ -1,0 +1,95 @@
+/* ===================== 
+Start: COLUMNS      
+======================== */
+@include make-column(xs,"not-push","not-pull","not-offset");
+@include resp-min(sm){
+  @include make-column(sm,"not-push","not-pull","not-offset");
+}
+@include resp-min(md){
+  @include make-column(md,"not-push","not-pull","not-offset");
+}
+@include resp-min(lg){
+  @include make-column(lg,"not-push","not-pull","not-offset");
+}
+
+/* =====================
+End:  COLUMNS
+======================== */
+
+/* ===================== 
+Start: HIDDEN AND VISIBLE UTILITIES      
+======================== */
+@media (min-width: $lg) {
+  @include visibility-hidden(lg);
+  @include visibility-visible(lg);
+}
+@media (max-width: $lg-max) and (min-width: $md){
+  @include visibility-hidden(md);
+  @include visibility-visible(md);
+}
+@media (max-width: $md-max) and (min-width: $sm){
+  @include visibility-hidden(sm);
+  @include visibility-visible(sm);
+}
+@media (max-width: $sm){
+  @include visibility-hidden(xs);
+  @include visibility-visible(xs);
+}
+/* =====================
+End:  HIDDEN AND VISIBLE UTILITIES
+======================== */
+%global-block{
+  min-height: 1px;
+  @include resp-min(sm){
+    padding-left: $gutter;
+    padding-right: $gutter; 
+  }
+  @include resp-max(sm){
+    padding-left: 5px;
+    padding-right: 5px; 
+  }
+  position: relative; 
+}
+.row{
+  @include default-after();
+  position: relative;
+}
+[class*="col-"] {
+  @extend %global-block;
+  float: left;
+  .h3{
+    text-align: left;
+    margin-bottom: 15px;
+  }
+}
+.container, .container-inner{
+  @extend %global-block;
+  @extend .row;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container{
+  @include resp-min(lg){
+    width: $container;
+  }
+  &-inner{
+    @include resp-min(lg){
+      width: $container-small;
+    }
+  }
+}
+.padding-block{
+  @include resp-min(sm){
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+  @include resp-max(sm){
+    padding-top: 50px;
+    padding-bottom: 50px;
+  } 
+}
+section{
+  @extend .row;
+  @extend .padding-block;
+  position: relative;
+}

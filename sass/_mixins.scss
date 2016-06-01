@@ -1,0 +1,108 @@
+/* ===================== 
+Start: COLOR AND SIZE      
+======================== */
+/* COLOR */
+@mixin color($color){
+	$value: map-get($colors, $color);
+	@if $value != null{
+		color: $value
+	}
+	@else{
+		@error 'Sorry, no colors #{$color}';
+	}
+}
+@each $color-name, $color-value in $colors{
+	.#{$color-name}{
+		color: #{$color-value};
+	}
+}
+
+/*SIZE*/
+@mixin size($size){
+	$value: map-get($sizes, $size);
+	@if $value != null{
+		font-size: $value;
+	}
+	@else{
+		@error 'Sorry, no size #{$size}';
+	}
+}
+@each $size-name, $size-value in $sizes{
+	.#{$size-name}{
+		font-size: #{$size-value};
+	}
+}
+
+/* =====================
+End:  COLOR AND SIZE
+======================== */
+// MIXIN AFTER AND BEFORE
+@mixin default-after(){
+  &:after, &:before{
+    content: "";
+    display: table;
+  }
+  &:after{
+    clear: both;
+  }
+}
+
+//MIXIN FONT
+@mixin connect-font($font,$class_name: $font){
+  @font-face{
+    font-family: $font;
+    src: local("#{$font}"), 
+    url(../fonts/#{$font}.otf);
+  }
+  @if $class_name != null{
+    .#{$class_name}{
+      font-family: $font;
+    }
+  }@else{
+    .#{$font}{
+      font-family: $font;
+    }
+  }
+}
+
+// MIXIN BACKGROUND
+@mixin bg($url, $pos, $repeat, $size){
+	background: url($url) $pos $repeat;
+	background-size: $size;
+}
+//CREATE COLUMNS
+@mixin make-column($class,$push: "push",$pull: "pull",$offset: "offset"){
+  @for $i from 1 through $columns{
+    @if $class != null{
+      .col-#{$class}-#{$i}{
+        width: ($width/$columns) * $i;
+      }      
+    }
+    @if $push != "not-push"{
+      .col-#{$class}-push-#{$i}{
+        left: ($width/$columns) * $i;
+      }      
+    }
+    @if $pull != "not-pull"{
+      .col-#{$class}-pull-#{$i}{
+        right: ($width/$columns) * $i;
+      }
+    }
+    @if $offset != "not-offset" {
+      .col-#{$class}-offset-#{$i}{
+        margin-left: ($width/$columns) * $i;
+      }
+    }
+  }
+}
+// HIDDEN AND VISIBLE UTILITIES
+@mixin visibility-hidden($hidden){
+  .hidden-#{$hidden}{
+    display: none !important;
+  }
+}
+@mixin visibility-visible($visible){
+  .visible-#{$visible}{
+    display: block !important;
+  }
+}
