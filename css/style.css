@@ -390,7 +390,12 @@ Start: HIDDEN AND VISIBLE UTILITIES
 /* =====================
 End:  HIDDEN AND VISIBLE UTILITIES
 ======================== */
-[class*="col-"], .container, .container-inner, .row, section, .toggle-inner, .header, .footer {
+[class*="col-"], .container, .container-inner, .clearfix,
+.row,
+section,
+.toggle-inner,
+.header,
+.footer {
   position: relative;
 }
 
@@ -410,11 +415,32 @@ End:  HIDDEN AND VISIBLE UTILITIES
   }
 }
 
-.row:after, .container:after, .container-inner:after, section:after, .toggle-inner:after, .header:after, .footer:after, .row:before, .container:before, .container-inner:before, section:before, .toggle-inner:before, .header:before, .footer:before {
+.clearfix:after, .clearfix:before,
+.row:after,
+.container:after,
+.container-inner:after,
+section:after,
+.toggle-inner:after,
+.header:after,
+.footer:after,
+.row:before,
+.container:before,
+.container-inner:before,
+section:before,
+.toggle-inner:before,
+.header:before,
+.footer:before {
   content: "";
   display: table;
 }
-.row:after, .container:after, .container-inner:after, section:after, .toggle-inner:after, .header:after, .footer:after {
+.clearfix:after,
+.row:after,
+.container:after,
+.container-inner:after,
+section:after,
+.toggle-inner:after,
+.header:after,
+.footer:after {
   clear: both;
 }
 
@@ -576,31 +602,9 @@ a:hover, button:hover {
 .h3 {
   text-align: center;
 }
-.h3 span {
-  font-size: 21px;
-}
-
-@media (min-width: 992px) {
-  .h3.small-title {
-    font-size: 30px;
-  }
-}
 
 .subtitle {
   color: #5e7c9c;
-}
-@media (min-width: 768px) {
-  .subtitle {
-    font-size: 21px;
-    margin-bottom: 45px;
-  }
-}
-@media (max-width: 767px) {
-  .subtitle {
-    font-size: 18px;
-    text-align: center;
-    margin: 20px 0;
-  }
 }
 
 /* 768px and > */
@@ -616,11 +620,19 @@ a:hover, button:hover {
   .h3 {
     margin-bottom: 100px;
   }
+
+  .subtitle {
+    font-size: 21px;
+    margin-bottom: 45px;
+  }
 }
 /* 992px and > */
 @media (min-width: 992px) {
   .h3 {
     font-size: 36px;
+  }
+  .h3.small-title {
+    font-size: 30px;
   }
 }
 /* 992px and < */
@@ -644,6 +656,12 @@ a:hover, button:hover {
   .h3 {
     font-size: 18px;
     margin-bottom: 50px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    text-align: center;
+    margin: 20px 0;
   }
 }
 /* 480px and > */
@@ -886,8 +904,36 @@ Start: START FOOTER
   }
 }
 
+.copyright {
+  color: #fff;
+}
+@media (min-width: 992px) {
+  .copyright {
+    margin-top: 170px;
+  }
+}
+.copyright ul {
+  text-align: center;
+}
+.copyright ul li {
+  display: inline-block;
+  padding: 10px;
+}
+@media (max-width: 991px) {
+  .copyright ul li {
+    width: 100%;
+  }
+}
+.copyright ul li a {
+  color: inherit;
+  text-decoration: none;
+}
+
 /* =====================
 End:  START FOOTER
+======================== */
+/* ===================== 
+Start: MODAL      
 ======================== */
 .fade {
   opacity: 0;
@@ -1095,104 +1141,8 @@ End:  START FOOTER
   position: fixed;
 }
 
-.nav-tabs {
-  text-align: center;
-}
-
-@media (min-width: 992px) {
-  .nav-tabs > li {
-    display: inline-block;
-  }
-}
-@media (max-width: 991px) {
-  .nav-tabs > li {
-    display: block;
-    margin-bottom: 15px;
-  }
-}
-.nav-tabs > li > a {
-  margin-right: 2px;
-  line-height: 1.42857143;
-  border: 1px solid transparent;
-  border-radius: 4px 4px 0 0;
-}
-
-.nav-tabs > li > a:hover {
-  border-color: #eee #eee #ddd;
-}
-
-.nav-tabs > li.active > a,
-.nav-tabs > li.active > a:hover,
-.nav-tabs > li.active > a:focus {
-  color: #555;
-  cursor: default;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-bottom-color: transparent;
-}
-
-.nav-tabs.nav-justified {
-  width: 100%;
-  border-bottom: 0;
-}
-
-.nav-tabs.nav-justified > li {
-  float: none;
-}
-
-.nav-tabs.nav-justified > li > a {
-  margin-bottom: 5px;
-  text-align: center;
-}
-
-.nav-tabs.nav-justified > .dropdown .dropdown-menu {
-  top: auto;
-  left: auto;
-}
-
-@media (min-width: 768px) {
-  .nav-tabs.nav-justified > li {
-    display: table-cell;
-    width: 1%;
-  }
-
-  .nav-tabs.nav-justified > li > a {
-    margin-bottom: 0;
-  }
-}
-.nav-tabs.nav-justified > li > a {
-  margin-right: 0;
-  border-radius: 4px;
-}
-
-.nav-tabs.nav-justified > .active > a,
-.nav-tabs.nav-justified > .active > a:hover,
-.nav-tabs.nav-justified > .active > a:focus {
-  border: 1px solid #ddd;
-}
-
-@media (min-width: 768px) {
-  .nav-tabs.nav-justified > li > a {
-    border-bottom: 1px solid #ddd;
-    border-radius: 4px 4px 0 0;
-  }
-
-  .nav-tabs.nav-justified > .active > a,
-  .nav-tabs.nav-justified > .active > a:hover,
-  .nav-tabs.nav-justified > .active > a:focus {
-    border-bottom-color: #fff;
-  }
-}
-.tab-content > .tab-pane {
-  display: none;
-}
-
-.tab-content > .active {
-  display: block;
-}
-
 /* =====================
-End:  TAB STYLES
+End:  MODAL
 ======================== */
 /* ===================== 
 Start: CAROUSEL      
@@ -1562,6 +1512,108 @@ Start: ANIMATIONS
 
 /* =====================
 End:  ANIMATIONS
+======================== */
+/* ===================== 
+Start: TAB STYLES      
+======================== */
+.nav-tabs {
+  text-align: center;
+}
+
+@media (min-width: 992px) {
+  .nav-tabs > li {
+    display: inline-block;
+  }
+}
+@media (max-width: 991px) {
+  .nav-tabs > li {
+    display: block;
+    margin-bottom: 15px;
+  }
+}
+.nav-tabs > li > a {
+  margin-right: 2px;
+  line-height: 1.42857143;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+}
+
+.nav-tabs > li > a:hover {
+  border-color: #eee #eee #ddd;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color: #555;
+  cursor: default;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+}
+
+.nav-tabs.nav-justified {
+  width: 100%;
+  border-bottom: 0;
+}
+
+.nav-tabs.nav-justified > li {
+  float: none;
+}
+
+.nav-tabs.nav-justified > li > a {
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.nav-tabs.nav-justified > .dropdown .dropdown-menu {
+  top: auto;
+  left: auto;
+}
+
+@media (min-width: 768px) {
+  .nav-tabs.nav-justified > li {
+    display: table-cell;
+    width: 1%;
+  }
+
+  .nav-tabs.nav-justified > li > a {
+    margin-bottom: 0;
+  }
+}
+.nav-tabs.nav-justified > li > a {
+  margin-right: 0;
+  border-radius: 4px;
+}
+
+.nav-tabs.nav-justified > .active > a,
+.nav-tabs.nav-justified > .active > a:hover,
+.nav-tabs.nav-justified > .active > a:focus {
+  border: 1px solid #ddd;
+}
+
+@media (min-width: 768px) {
+  .nav-tabs.nav-justified > li > a {
+    border-bottom: 1px solid #ddd;
+    border-radius: 4px 4px 0 0;
+  }
+
+  .nav-tabs.nav-justified > .active > a,
+  .nav-tabs.nav-justified > .active > a:hover,
+  .nav-tabs.nav-justified > .active > a:focus {
+    border-bottom-color: #fff;
+  }
+}
+.tab-content > .tab-pane {
+  display: none;
+}
+
+.tab-content > .active {
+  display: block;
+}
+
+/* =====================
+End:  TAB STYLES
 ======================== */
 /* =====================
 End:  DIFFERENT BLOCKS

@@ -8,8 +8,7 @@ Start: START FOOTER
 	@include bg("../img/bg-footer.jpg", 0 0, no-repeat,cover);
 	&-row{
 		@include resp-min(md){
-			margin-top: 170px;
-			
+			margin-top: 170px;		
 		}
 		.list{
 			@include resp-min(sm){
@@ -29,6 +28,26 @@ Start: START FOOTER
 	&-wrapper-form{
 		@include resp-max(md){
 			margin-top: 50px;
+		}
+	}
+}
+.copyright{
+	@include resp-min(md){
+		margin-top: 170px;		
+	}
+	@include color("white");
+	ul{
+		text-align: center;
+		li{	
+			@include resp-max(md){
+				width: 100%;
+			}
+			display: inline-block;
+			padding: 10px;
+			a{
+				color: inherit;
+				text-decoration: none;
+			}
 		}
 	}
 }

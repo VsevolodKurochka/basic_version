@@ -75,7 +75,6 @@ input{
     }
   }
 }
-
 /* ===================== 
 Start: TEXT      
 ======================== */
@@ -84,7 +83,6 @@ a,button{
     cursor: pointer;
   }
 }
-
 .ttu{
   text-transform: uppercase;
 }
@@ -97,27 +95,9 @@ h1,h2,h3,h4,h5,h6{
 }
 .h3{
   text-align: center;
-  span{
-    @include size(text_big);
-  }
-}
-.h3.small-title{
-  @include resp-min(md){
-    @include size(small_title);
-  }
 }
 .subtitle{
   @include color("blue-light");
-  @include resp-min(sm){
-    @include size(text_big);
-    margin-bottom: 45px;
-  }
-  @include resp-max(sm){
-    @include size(text_default);
-    text-align: center;
-    margin: 20px 0;
-  }
-  
 }
 /* #{$sm} and > */
 @include resp-min(sm){
@@ -130,11 +110,18 @@ h1,h2,h3,h4,h5,h6{
   .h3{
     margin-bottom: 100px;
   }
+  .subtitle{
+    @include size(text_big);
+    margin-bottom: 45px;
+  }
 }
 /* #{$md} and > */
 @include resp-min(md){
   .h3{
     @include size(default_title);
+    &.small-title{
+      @include size(small_title);
+    }
   }
 }
 /* #{$md} and < */
@@ -156,6 +143,11 @@ h1,h2,h3,h4,h5,h6{
   .h3{
     @include size(text_default);
     margin-bottom: 50px;
+  }
+  .subtitle{
+    @include size(text_default);
+    text-align: center;
+    margin: 20px 0;
   }
 }
 /* #{$xs} and > */

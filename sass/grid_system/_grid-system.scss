@@ -53,6 +53,7 @@ End:  HIDDEN AND VISIBLE UTILITIES
   }
   @extend %relative;
 }
+.clearfix,
 .row{
   @include default-after();
   @extend %relative;
