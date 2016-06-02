@@ -48,15 +48,17 @@ End:  HIDDEN AND VISIBLE UTILITIES
     padding-right: $gutter; 
   }
   @include resp-max(sm){
-    padding-left: 5px;
-    padding-right: 5px; 
+    padding-left: $gutter / 2;
+    padding-right: $gutter / 2; 
   }
   @extend %relative;
 }
-.clearfix,
-.row{
+.clearfix{
   @include default-after();
   @extend %relative;
+}
+.row{
+  @extend .clearfix;
 }
 [class*="col-"] {
   @extend %global-block;
@@ -68,7 +70,7 @@ End:  HIDDEN AND VISIBLE UTILITIES
 }
 .container, .container-inner{
   @extend %global-block;
-  @extend .row;
+  @extend .clearfix;
   margin-left: auto;
   margin-right: auto;
 }
@@ -93,7 +95,20 @@ End:  HIDDEN AND VISIBLE UTILITIES
   } 
 }
 section{
-  @extend .row;
+  @extend .clearfix;
   @extend .padding-block;
+  padding-left: 15px;
+  padding-right: 15px;
   @extend %relative;
 }
+
+// @each $breakpoint-name, $breakpoint-value in $breakpoints{
+//   @include resp-min(#{$breakpoint-name}){
+//     .pull-#{$breakpoint-name}-right{
+//       float: right;
+//     }
+//     .pull-#{$breakpoint-name}-left{
+//       float: left;
+//     }
+//   }
+// }

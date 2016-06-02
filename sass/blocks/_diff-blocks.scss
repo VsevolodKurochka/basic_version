@@ -1,0 +1,98 @@
+/* ===================== 
+Start: BUTTON      
+======================== */
+.btn {
+  border: none;
+  border-radius: 3px;
+  font-weight: bold;
+  max-width: 100%;
+  padding: 25px 30px;
+  position: relative;
+  overflow: hidden;
+  transition: all .3s;
+  text-decoration: none;
+  z-index: 2;
+  @extend .block-inline;
+  @extend .ttu;
+  @extend .bold;
+  @include size(text_default);
+  @include color("white");
+  &:before{
+    content: "";
+    position: absolute;
+    transition: all .3s;
+    z-index: -1;
+  }
+  &-corporative{
+    background-color: map-get($colors, "corporative");
+    &:before{
+      width: 100%;
+      height: 0;
+      top: 50%;
+      left: 50%;
+      background-color: #FFBA75;
+      opacity: 0;
+      transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    }
+    &:hover{
+      @include color("black");
+      &:before{
+        height: calc(450% - 40px);
+        opacity: 1;
+      }
+    }    
+  }
+}
+/* =====================
+End:  BUTTON
+======================== */
+    
+/* ===================== 
+Start: TOGGLER      
+======================== */
+.toggle{
+  &-subtitle-no-margin{
+    .subtitle{
+      margin-bottom: 0;
+    }
+  }
+  &-inner{
+    @extend .clearfix;
+    @include resp-min(sm){
+      &-big-margin{
+       margin-bottom: 150px;
+        &:last-child{
+          margin-bottom: 75px;
+        }
+      }
+      &-small-margin{
+        margin-bottom: 50px;
+        &:last-child{
+          margin-bottom: 0;
+        }
+      }
+    }
+    &-img{
+      @extend .block-center;
+    }
+  }
+  @include resp-min(sm){
+    //ODD - нечетное
+    .toggle-inner-right:nth-child(odd) .toggle-inner-img,
+    .toggle-inner-right:nth-child(even) .toggle-inner-text,
+    .toggle-inner-left:nth-child(odd) .toggle-inner-text,
+    .toggle-inner-left:nth-child(even).toggle-inner-img {      
+        float: right;
+    }
+    .toggle-inner-right:nth-child(even){
+      .toggle-inner-text{
+        .subtitle,p{
+          text-align: right;
+        }
+      }
+    }   
+  }
+}
+/* =====================
+End:  TOGGLER
+======================== */

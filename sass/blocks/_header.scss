@@ -3,22 +3,16 @@
 Start: HEADER      
 ======================== */
 .header {
-	@extend .row;
+	@extend .clearfix;
 	padding: 10px 0 25px;
 	min-height: 50px;
 	@include bg('../img/header.jpg', 0 0, no-repeat,cover);
 	&-logo{
-		// img{
-		// 	max-width: 350px;
-		// }
 		@include resp-min(md){
 			float: left;
 		}
 		@include resp-max(md){
 			text-align: center;
-			img{
-				display: inline-block;
-			}
 		}
 	}
 	&-phone{
@@ -73,17 +67,11 @@ Start: HEADER
 		display: none;
 		position: relative;
 	}
-	.header{
-		&-phone, &-menu{
-			@include resp-max(md){
-				text-align: center;
-			}
-		}		
+	.header{			
 		&-phone{
 			float: right;
 		}
 	}
-
 }
 @include resp-max(md){
 	.header{
@@ -99,6 +87,11 @@ Start: HEADER
 		    	right: 0;
 		    	left: auto;
 		    	overflow-y: auto;
+			}
+		}
+		&-phone, &-menu{
+			@include resp-max(md){
+				text-align: center;
 			}
 		}
 	}

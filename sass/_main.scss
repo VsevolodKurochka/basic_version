@@ -4,53 +4,6 @@ body{
   @include size(text_default);
   line-height: 1.42857143;
 }
-.toggle{
-  &-subtitle-no-margin{
-    .subtitle{
-      margin-bottom: 0;
-    }
-  }
-  &-inner{
-    @extend .row;
-    @include resp-min(sm){
-      &-big-margin{
-       margin-bottom: 150px;
-        &:last-child{
-          margin-bottom: 75px;
-        }
-      }
-      &-small-margin{
-        margin-bottom: 50px;
-        &:last-child{
-          margin-bottom: 0;
-        }
-      }
-    }
-    &-img{
-      @extend .block-center;
-    }
-  }
-  @include resp-min(sm){
-    //ODD - нечетное
-    .toggle-inner-right:nth-child(odd) .toggle-inner-img,
-    .toggle-inner-right:nth-child(even) .toggle-inner-text,
-    .toggle-inner-left:nth-child(odd) .toggle-inner-text,
-    .toggle-inner-left:nth-child(even).toggle-inner-img {      
-        float: right;
-    }
-    .toggle-inner-right:nth-child(even){
-      .toggle-inner-text{
-        .subtitle,p{
-          text-align: right;
-        }
-      }
-    }   
-  }
-}
-img{
-  @extend .block-inline;
-  max-width: 100%;
-}
 .text,.block{
     &-inline{
       display: inline-block;
@@ -58,6 +11,10 @@ img{
     &-center{
       text-align: center;
     }
+}
+img{
+  @extend .block-inline;
+  max-width: 100%;
 }
 input{
   &:focus{
@@ -75,144 +32,40 @@ input{
     }
   }
 }
-/* ===================== 
-Start: TEXT      
-======================== */
+
+.hide {
+  display: none !important;
+}
+
+.display-none {
+  display: none;
+}
+
+.show {
+  display: block !important;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.text-hide {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.affix {
+  position: fixed;
+}
 a,button{
   &:hover{
     cursor: pointer;
   }
 }
-.ttu{
-  text-transform: uppercase;
-}
-h1,h2,h3,h4,h5,h6{
-  @extend .bold;
-  @extend .ttu;
-}
-.h1{
-  line-height: 100%;
-}
-.h3{
-  text-align: center;
-}
-.subtitle{
-  @include color("blue-light");
-}
-/* #{$sm} and > */
-@include resp-min(sm){
-  .h1{
-    @include size(big_title);
-  }
-  .h2{
-    @include size(text_big);
-  }
-  .h3{
-    margin-bottom: 100px;
-  }
-  .subtitle{
-    @include size(text_big);
-    margin-bottom: 45px;
-  }
-}
-/* #{$md} and > */
-@include resp-min(md){
-  .h3{
-    @include size(default_title);
-    &.small-title{
-      @include size(small_title);
-    }
-  }
-}
-/* #{$md} and < */
-@include resp-max(md){
-  .h3{
-    @include size(text_big);
-  }
-}
-/* #{$sm} and < */
-@include resp-max(sm){
-  .h1{
-    @include size(default_title);
-    margin: 15px 0;
-  }
-  .h2{
-    @include size(text_default);
-    margin: 15px 0;
-  }
-  .h3{
-    @include size(text_default);
-    margin-bottom: 50px;
-  }
-  .subtitle{
-    @include size(text_default);
-    text-align: center;
-    margin: 20px 0;
-  }
-}
-/* #{$xs} and > */
-@include resp-max(xs){
-  .h1{
-    @include size(default_title);
-  }
-  .h2{
-
-  }
-  .h3{
-    @include size(text_default);
-  }
-}
-/* =====================
-End:  TEXT
-======================== */
-
-    
-/* ===================== 
-Start: BUTTON      
-======================== */
-.btn {
-  border: none;
-  border-radius: 3px;
-  font-weight: bold;
-  max-width: 100%;
-  padding: 25px 30px;
-  position: relative;
-  overflow: hidden;
-  transition: all .3s;
-  text-decoration: none;
-  z-index: 2;
-  @extend .block-inline;
-  @extend .ttu;
-  @extend .bold;
-  @include size(text_default);
-  @include color("white");
-  &:before{
-    content: "";
-    position: absolute;
-    transition: all .3s;
-    z-index: -1;
-  }
-}
-.btn-corporative{
-  background-color: map-get($colors, "corporative");
-  &:before{
-    width: 100%;
-    height: 0;
-    top: 50%;
-    left: 50%;
-    background-color: #FFBA75;
-    opacity: 0;
-    transform: translateX(-50%) translateY(-50%) rotate(45deg);
-  }
-  &:hover{
-    @include color("black");
-    &:before{
-      height: calc(450% - 40px);
-      opacity: 1;
-    }
-  }
-}
-/* =====================
-End:  BUTTON
-======================== */
-  

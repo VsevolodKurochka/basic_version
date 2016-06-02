@@ -2,7 +2,7 @@
 Start: START FOOTER      
 ======================== */
 .footer{
-	@extend .row;
+	@extend .clearfix;
 	padding: 70px 0;
 	@include color("white");
 	@include bg("../img/bg-footer.jpg", 0 0, no-repeat,cover);
