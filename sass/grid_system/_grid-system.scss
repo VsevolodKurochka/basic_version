@@ -3,13 +3,13 @@ Start: COLUMNS
 ======================== */
 @include make-column(xs,"not-push","not-pull","not-offset");
 @include resp-min(sm){
-  @include make-column(sm,"not-push","not-pull","not-offset");
+  @include make-column(sm,"push","pull","offset");
 }
 @include resp-min(md){
-  @include make-column(md,"not-push","not-pull","not-offset");
+  @include make-column(md,"push","pull","offset");
 }
 @include resp-min(lg){
-  @include make-column(lg,"not-push","not-pull","not-offset");
+  @include make-column(lg,"push","pull","offset");
 }
 
 /* =====================
@@ -19,21 +19,25 @@ End:  COLUMNS
 /* ===================== 
 Start: HIDDEN AND VISIBLE UTILITIES      
 ======================== */
-@media (min-width: $lg) {
+@include resp-min(lg){
   @include visibility-hidden(lg);
   @include visibility-visible(lg);
 }
-@media (max-width: $lg-max) and (min-width: $md){
-  @include visibility-hidden(md);
-  @include visibility-visible(md);
+@include resp-min(md){
+  @include resp-max(lg){
+    @include visibility-hidden(md);
+    @include visibility-visible(md);    
+  }
 }
-@media (max-width: $md-max) and (min-width: $sm){
-  @include visibility-hidden(sm);
-  @include visibility-visible(sm);
+@include resp-min(sm){
+  @include resp-max(md){
+    @include visibility-hidden(sm);
+    @include visibility-visible(sm);   
+  }
 }
-@media (max-width: $sm){
+@include resp-max(sm){
   @include visibility-hidden(xs);
-  @include visibility-visible(xs);
+  @include visibility-visible(xs); 
 }
 /* =====================
 End:  HIDDEN AND VISIBLE UTILITIES
@@ -53,12 +57,17 @@ End:  HIDDEN AND VISIBLE UTILITIES
   }
   @extend %relative;
 }
-.clearfix{
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cf{
   @include default-after();
   @extend %relative;
 }
 .row{
-  @extend .clearfix;
+  @extend .cf;
 }
 [class*="col-"] {
   @extend %global-block;
@@ -68,11 +77,11 @@ End:  HIDDEN AND VISIBLE UTILITIES
     margin-bottom: 15px;
   }
 }
+
 .container, .container-inner{
   @extend %global-block;
-  @extend .clearfix;
-  margin-left: auto;
-  margin-right: auto;
+  @extend .cf;
+  @extend .center-block;
 }
 .container{
   @include resp-min(lg){
@@ -95,10 +104,8 @@ End:  HIDDEN AND VISIBLE UTILITIES
   } 
 }
 section{
-  @extend .clearfix;
+  @extend .cf;
   @extend .padding-block;
-  padding-left: 15px;
-  padding-right: 15px;
   @extend %relative;
 }
 

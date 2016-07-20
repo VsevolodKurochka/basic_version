@@ -4,12 +4,12 @@ Start: TAB STYLES
 .nav-tabs {
   text-align: center;
 }
-@include resp-min(md){
+@media (min-width: 992px){
   .nav-tabs > li {
     display: inline-block;
   } 
 }
-@include resp-max(md){
+@media (max-width: 991px){
   .nav-tabs > li{
     display: block;
     margin-bottom: 15px;

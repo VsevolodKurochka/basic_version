@@ -3,7 +3,7 @@
 Start: HEADER      
 ======================== */
 .header {
-	@extend .clearfix;
+	@extend .cf;
 	padding: 10px 0 25px;
 	min-height: 50px;
 	@include bg('../img/header.jpg', 0 0, no-repeat,cover);

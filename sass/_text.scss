@@ -1,25 +1,36 @@
 .ttu{
   text-transform: uppercase;
 }
-@for $i from 1 through 6 {
-  h#{$i}{
-    @extend .bold;
-    @extend .ttu;    
+.h{
+  &1,&2{
+    @extend .ttu;
+  }
+  &1{
+    line-height: 100%;
+    margin: 25px 0;
+    @extend .black_font;
+  }
+  &2{
+    @extend .regular;
+    font-weight: 100;
+  }
+  &3{
+    text-align: center;
   }
 }
-.h1{
-  line-height: 100%;
-}
-.h3{
-  text-align: center;
-}
 .subtitle{
-  @include color("blue-light");
+  //@include color("blue-light");
 }
-/* #{$sm} and > */
+.column-title{
+  @include color("green");
+  margin-bottom: 30px;
+}
 @include resp-min(sm){
   .h1{
     @include size(big_title);
+    &-span{
+      font-size: 115px;
+    }
   }
   .h2{
     @include size(text_big);
@@ -32,25 +43,29 @@
     margin-bottom: 45px;
   }
 }
-/* #{$md} and > */
 @include resp-min(md){
   .h3{
-    @include size(default_title);
+    @include size(normal_title);
     &.small-title{
       @include size(small_title);
     }
   }
-}
-/* #{$md} and < */
-@include resp-max(md){
-  .h3{
-    @include size(text_big);
+  .column-title{
+    @include size(small_title);
   }
 }
-/* #{$sm} and < */
+@include resp-max(md){
+  .h3{
+    @include size(default_title);
+  }
+  .column-title{
+    text-align: center;
+    @include size(text_title);
+  }
+}
 @include resp-max(sm){
   .h1{
-    @include size(default_title);
+    @include size(normal_title);
     margin: 15px 0;
   }
   .h2{
@@ -58,7 +73,7 @@
     margin: 15px 0;
   }
   .h3{
-    @include size(text_default);
+    @include size(normal_title);
     margin-bottom: 50px;
   }
   .subtitle{
@@ -67,7 +82,6 @@
     margin: 20px 0;
   }
 }
-/* #{$xs} and > */
 @include resp-max(xs){
   .h1{
     @include size(default_title);
@@ -76,6 +90,6 @@
 
   }
   .h3{
-    @include size(text_default);
+    @include size(text_title);
   }
 }

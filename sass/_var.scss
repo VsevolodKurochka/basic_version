@@ -7,10 +7,6 @@ $container-small 	: 1050px;
 
 // COLOR
 $colors:(
-	"blue-light" 	: #5e7c9c,
-	"blue-dark"  	: #365494,
-	"blue-bg"    	: #3c599b,
-	"yellow"     	: #ffd334,
 	"black"      	: #000,
 	"white"      	: #fff,
 	"green"      	: #5bb85d,
@@ -19,6 +15,7 @@ $colors:(
 
 // SIZE
 $sizes: (
+	text_smaller    : 12px,
 	text_small      : 14px,
 	text_default    : 18px,
 	text_big   		: 21px,

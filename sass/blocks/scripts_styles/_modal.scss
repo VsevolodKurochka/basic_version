@@ -1,6 +1,27 @@
 /* ===================== 
 Start: MODAL      
 ======================== */
+.main-form {
+  width: 250px;
+  margin: 0 auto;
+}
+
+.main-form input {
+  border: 1px solid #eeeeee;
+  border-radius: 5px;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  color: #000;
+  font-style: italic;
+}
+
+.main-form .btn {
+  width: 100%;
+}
 .fade {
   opacity: 0;
   -webkit-transition: opacity 0.15s linear;
@@ -138,7 +159,10 @@ Start: MODAL
     width: 300px;
     margin: 30px auto;
   }
-
+  .modal-dialog-big{
+    width: 600px;
+    margin: 30px auto;
+  }
   .modal-sm {
     width: 300px;
   }
@@ -159,12 +183,6 @@ Start: MODAL
 .modal-header:after,
 .modal-footer:after {
   clear: both;
-}
-
-.center-block {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 /* =====================
 End:  MODAL

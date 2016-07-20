@@ -6,21 +6,6 @@ $breakpoints: (
 	exs: 320px
 );
 
-$lg: map-get($breakpoints, lg);
-$lg-max: $lg - 1px;
-
-$md: map-get($breakpoints, md);
-$md-max: $md - 1px;
-
-$sm: map-get($breakpoints, sm);
-$sm-max: $sm - 1px;
-
-$xs: map-get($breakpoints, xs);
-$xs-max: $xs - 1px;
-
-$exs: map-get($breakpoints, exs);
-$exs-max: $exs - 1px;
-
 $error: "This variable we do not have, sorry. Please try to change variable";
 @mixin resp-min($breakpoint){
 	$value: map-get($breakpoints,$breakpoint);

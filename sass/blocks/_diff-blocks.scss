@@ -4,43 +4,68 @@ Start: BUTTON
 .btn {
   border: none;
   border-radius: 3px;
-  font-weight: bold;
   max-width: 100%;
-  padding: 25px 30px;
+  padding: 10px 40px;
   position: relative;
   overflow: hidden;
   transition: all .3s;
   text-decoration: none;
   z-index: 2;
   @extend .block-inline;
-  @extend .ttu;
   @extend .bold;
   @include size(text_default);
   @include color("white");
-  &:before{
-    content: "";
-    position: absolute;
-    transition: all .3s;
-    z-index: -1;
-  }
-  &-corporative{
-    background-color: map-get($colors, "corporative");
-    &:before{
+  &-effect{
+   &:before{
+      content: "";
+      position: absolute;
+      transition: all .3s;
+      z-index: -1;
       width: 100%;
       height: 0;
       top: 50%;
-      left: 50%;
-      background-color: #FFBA75;
+      left: 50%; 
       opacity: 0;
       transform: translateX(-50%) translateY(-50%) rotate(45deg);
-    }
+    }   
     &:hover{
-      @include color("black");
       &:before{
         height: calc(450% - 40px);
         opacity: 1;
       }
+    }
+  }
+
+  &-red{
+    background-image: linear-gradient(to top, #ff1313, #ff655a);
+    box-shadow: 0 6px 16px rgba(248,41,32,.49), inset 0 -4px rgba(0,0,0,.15);
+    border-radius: 32px;
+    &:before{
+      background-color: #FFBA75;
+    }
+    &:hover{
+      @include color("black");
     }    
+  }
+  &-green{
+    background-image: linear-gradient(to top, #02c167, #00ef7e 99%);
+    box-shadow: 0 6px 16px rgba(2,193,103,.49), inset 0 -4px rgba(0,0,0,.15);
+    border-radius: 25px;
+    background-color: #f44336;
+    &:hover{
+      background-image: linear-gradient(to top, #00ef7e ,#02c167 99%);
+    }
+    &:before{
+      background-color: #FFBA75;
+    }
+  }
+  &-single{
+    @include resp-min(sm){
+      margin-top: 70px;
+    }
+    @include resp-max(sm){
+      margin-top: 35px;
+    }
   }
 }
 /* =====================
@@ -57,7 +82,7 @@ Start: TOGGLER
     }
   }
   &-inner{
-    @extend .clearfix;
+    @extend .cf;
     @include resp-min(sm){
       &-big-margin{
        margin-bottom: 150px;
@@ -96,3 +121,44 @@ Start: TOGGLER
 /* =====================
 End:  TOGGLER
 ======================== */
+.list{
+  li{
+    position: relative; 
+    &:after{
+      content: "";
+      position: absolute;
+      top: 0;
+    }
+    @include resp-min(sm){
+      margin-bottom: 15px;
+      &:after{
+        left: 0;
+      }
+    }
+    @include resp-max(sm){
+      text-align: center;
+      margin-bottom: 30px;
+      &:after{
+        left: 50%;
+      }
+    }
+  }
+  &-cancel{
+    li{
+      @include resp-min(sm){
+        padding-left: 50px;
+      }
+      @include resp-max(sm){
+        padding-top: 40px;
+        &:after{
+          margin-left: -18.5px;
+        }
+      }
+      &:after{
+        width: 37px;
+        height: 37px;
+        @include bg("../img/cancel.png", 0 0, no-repeat, cover);
+      }
+    }
+  }
+}
