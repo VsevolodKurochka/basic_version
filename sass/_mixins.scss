@@ -1,52 +1,3 @@
-/* ===================== 
-Start: COLOR AND SIZE      
-======================== */
-/* COLOR */
-@mixin color($color){
-	$value: map-get($colors, $color);
-	@if $value != null{
-		color: $value
-	}
-	@else{
-		@error 'Sorry, no colors #{$color}';
-	}
-}
-@each $color-name, $color-value in $colors{
-	.#{$color-name}{
-		color: #{$color-value};
-	}
-}
-
-/*SIZE*/
-@mixin size($size){
-	$value: map-get($sizes, $size);
-	@if $value != null{
-		font-size: $value;
-	}
-	@else{
-		@error 'Sorry, no size #{$size}';
-	}
-}
-@each $size-name, $size-value in $sizes{
-	.#{$size-name}{
-		font-size: #{$size-value};
-	}
-}
-
-/* =====================
-End:  COLOR AND SIZE
-======================== */
-// MIXIN AFTER AND BEFORE
-@mixin default-after(){
-  &:after, &:before{
-    content: "";
-    display: table;
-  }
-  &:after{
-    clear: both;
-  }
-}
-
 //MIXIN FONT
 @mixin connect-font($font,$class_name: $font){
   @font-face{
@@ -74,22 +25,22 @@ End:  COLOR AND SIZE
 @mixin make-column($class,$push: "push",$pull: "pull",$offset: "offset"){
   @for $i from 1 through $columns{
     @if $class != null{
-      .col-#{$class}-#{$i}{
+      .vcol-#{$class}-#{$i}{
         width: ($width/$columns) * $i;
       }      
     }
     @if $push != "not-push"{
-      .col-#{$class}-push-#{$i}{
+      .vcol-#{$class}-push-#{$i}{
         left: ($width/$columns) * $i;
       }      
     }
     @if $pull != "not-pull"{
-      .col-#{$class}-pull-#{$i}{
+      .vcol-#{$class}-pull-#{$i}{
         right: ($width/$columns) * $i;
       }
     }
     @if $offset != "not-offset" {
-      .col-#{$class}-offset-#{$i}{
+      .vcol-#{$class}-offset-#{$i}{
         margin-left: ($width/$columns) * $i;
       }
     }

@@ -4,35 +4,10 @@ body{
   @include size(text_default);
   line-height: 1.42857143;
 }
-.text,.block{
-    &-inline{
-      display: inline-block;
-    }
-    &-center{
-      text-align: center;
-    }
-}
-.display-none,
-.hide,
-.hidden {
-  display: none !important;
-}
-.display-block,
-.show {
-  display: block !important;
-}
-.invisible {
-  visibility: hidden;
-}
-.text-hide {
-  font: 0/0 a;
-  color: transparent;
-  text-shadow: none;
-  background-color: transparent;
-  border: 0;
-}
-.affix {
-  position: fixed;
+.block{
+  &-inline{
+    display: inline-block;
+  }
 }
 img{
   @extend .block-inline;
@@ -55,7 +30,5 @@ input{
   }
 }
 a,button{
-  &:hover{
-    cursor: pointer;
-  }
+  cursor: pointer;
 }

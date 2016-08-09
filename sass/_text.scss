@@ -1,95 +1,103 @@
 .ttu{
   text-transform: uppercase;
 }
+.tdu{
+  text-decoration: underline;
+}
 .h{
-  &1,&2{
-    @extend .ttu;
-  }
   &1{
-    line-height: 100%;
-    margin: 25px 0;
-    @extend .black_font;
+    line-height: 1.1;
+    margin: 0 0 25px;
+    
   }
   &2{
     @extend .regular;
     font-weight: 100;
   }
+  &4{
+    color: #272727;
+    &.s-m{
+      margin-bottom: 25px;
+    }
+    &.b-m{
+      margin-bottom: 40px;
+    }
+  }
   &3{
     text-align: center;
   }
 }
-.subtitle{
-  //@include color("blue-light");
-}
-.column-title{
-  @include color("green");
-  margin-bottom: 30px;
-}
 @include resp-min(sm){
   .h1{
-    @include size(big_title);
-    &-span{
-      font-size: 115px;
-    }
+    font-size: 50px;
   }
   .h2{
-    @include size(text_big);
+    @include size(text_title);
   }
   .h3{
-    margin-bottom: 100px;
+    margin-bottom: 20px;
+    &.m-m{
+      margin-bottom: 50px;
+    }
+    &.b-m{
+      margin-bottom: 70px;
+    }
   }
-  .subtitle{
-    @include size(text_big);
-    margin-bottom: 45px;
+  .h4{
+    @include size(text_title);
   }
 }
 @include resp-min(md){
   .h3{
-    @include size(normal_title);
-    &.small-title{
-      @include size(small_title);
-    }
-  }
-  .column-title{
-    @include size(small_title);
+    @include size(default_title);
   }
 }
 @include resp-max(md){
   .h3{
     @include size(default_title);
   }
-  .column-title{
-    text-align: center;
-    @include size(text_title);
-  }
 }
 @include resp-max(sm){
-  .h1{
-    @include size(normal_title);
-    margin: 15px 0;
-  }
-  .h2{
-    @include size(text_default);
-    margin: 15px 0;
-  }
-  .h3{
-    @include size(normal_title);
-    margin-bottom: 50px;
-  }
-  .subtitle{
-    @include size(text_default);
-    text-align: center;
-    margin: 20px 0;
+  .h{
+    &1{
+      @include size(normal_title);
+      margin: 15px 0;
+    }
+    &2{
+      @include size(text_default);
+      margin: 15px 0;
+    }
+    &3{
+      @include size(text_title);
+      margin-bottom: 30px;
+    }
   }
 }
 @include resp-max(xs){
-  .h1{
-    @include size(default_title);
+  .h{
+    &1{
+      @include size(default_title);
+    }
+    &3{
+      @include size(text_big);
+    }
   }
-  .h2{
-
+}
+.text{
+  &-center{
+    text-align: center;
   }
-  .h3{
-    @include size(text_title);
+  &-left{
+    text-align: left;
+  }
+  &-right{
+    text-align: right;
+  }
+}
+@each $br-name, $br-value in $breakpoints{
+  @include resp-max($br-name){
+    .max-#{$br-name}-center{
+      text-align: center;
+    }
   }
 }

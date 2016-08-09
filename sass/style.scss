@@ -14,14 +14,6 @@ End:  RESET
 
 // MEDIA
 @import '_media.scss'; 
-		
-/* ===================== 
-Start: TEXT      
-======================== */
-@import '_text.scss';
-/* =====================
-End:  TEXT
-======================== */
 
 /* ===================== 
 Start: GRID SYSTEM      
@@ -29,6 +21,20 @@ Start: GRID SYSTEM
 @import 'grid_system/_grid-system.scss'; 
 /* =====================
 End:  GRID SYSTEM
+======================== */
+
+
+
+//COLOR SIZE
+@import '_color-size.scss';
+
+
+/* ===================== 
+Start: TEXT      
+======================== */
+@import '_text.scss';
+/* =====================
+End:  TEXT
 ======================== */
 
 //======================
