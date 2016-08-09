@@ -1,10 +1,10 @@
 $(document).ready(function(){
-		var header_menu_name = 'menu_box',
+		var header_menu_name = 'header-menu',
 			header_menu = $('.' + header_menu_name),
 			navbar_toggle = $('.navbar-toggle');
 		function toggler(){
 			navbar_toggle.toggleClass('navbar-toggle-open');
-			header_menu.slideToggle("slow");
+			header_menu.toggleClass('header-menu-open');
 		}
 		navbar_toggle.click(function(e){
 			toggler();
