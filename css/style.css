@@ -421,7 +421,7 @@ Start: HIDDEN AND VISIBLE UTILITIES
 /* =====================
 End:  HIDDEN AND VISIBLE UTILITIES
 ======================== */
-.relative, [class*="col-"], .vcontainer, .vcontainer-small, .cf, .row, .vsection, .header, .footer, .toggle-inner, .modal-header, .modal-body, .modal-footer, .header-menu ul li a, .btn, .modal-dialog, .modal-content {
+.relative, [class*="col-"], .vcontainer, .vcontainer-small, .cf, .row, .vsection, .header, .toggle-inner, .footer, .modal-header, .modal-body, .modal-footer, .header-menu ul li a, .btn, .modal-dialog, .modal-content {
   position: relative;
 }
 
@@ -437,11 +437,11 @@ End:  HIDDEN AND VISIBLE UTILITIES
   margin-right: auto;
 }
 
-.cf:after, .row:after, .vcontainer:after, .vcontainer-small:after, .vsection:after, .header:after, .footer:after, .toggle-inner:after, .modal-header:after, .modal-body:after, .modal-footer:after, .cf:before, .row:before, .vcontainer:before, .vcontainer-small:before, .vsection:before, .header:before, .footer:before, .toggle-inner:before, .modal-header:before, .modal-body:before, .modal-footer:before {
+.cf:after, .row:after, .vcontainer:after, .vcontainer-small:after, .vsection:after, .header:after, .toggle-inner:after, .footer:after, .modal-header:after, .modal-body:after, .modal-footer:after, .cf:before, .row:before, .vcontainer:before, .vcontainer-small:before, .vsection:before, .header:before, .toggle-inner:before, .footer:before, .modal-header:before, .modal-body:before, .modal-footer:before {
   content: "";
   display: table;
 }
-.cf:after, .row:after, .vcontainer:after, .vcontainer-small:after, .vsection:after, .header:after, .footer:after, .toggle-inner:after, .modal-header:after, .modal-body:after, .modal-footer:after {
+.cf:after, .row:after, .vcontainer:after, .vcontainer-small:after, .vsection:after, .header:after, .toggle-inner:after, .footer:after, .modal-header:after, .modal-body:after, .modal-footer:after {
   clear: both;
 }
 
@@ -632,30 +632,6 @@ Start: COLOR AND SIZE
   font-size: 18px;
 }
 
-.text_big {
-  font-size: 21px;
-}
-
-.text_title {
-  font-size: 24px;
-}
-
-.small_title {
-  font-size: 30px;
-}
-
-.default_title {
-  font-size: 36px;
-}
-
-.normal_title {
-  font-size: 48px;
-}
-
-.big_title {
-  font-size: 80px;
-}
-
 /* =====================
 End:  COLOR AND SIZE
 ======================== */
@@ -749,11 +725,11 @@ Start: TEXT
 .tdu {
   text-decoration: underline;
 }
-.tdn, .header-menu ul li a, .footer a, .btn {
+.tdn, .header-menu ul li a, .btn, .footer a {
   text-decoration: none;
 }
 
-.text-center, .h3, .footer, .toggle-inner-img, .modal-title {
+.text-center, .h3, .toggle-inner-img, .footer, .modal-title {
   text-align: center;
 }
 .text-left {
@@ -863,7 +839,7 @@ body {
   line-height: 1.42857143;
 }
 
-.block-inline, img, .header-phone, .header-menu ul li, .footer-b, .btn {
+.block-inline, img, .header-phone, .header-menu ul li, .btn, .footer-b {
   display: inline-block;
 }
 
@@ -1000,21 +976,6 @@ Start: HEADER
 }
 /* =====================
 End:  HEADER
-======================== */
-/* ===================== 
-Start: START FOOTER      
-======================== */
-.footer {
-  padding: 10px 15px;
-  background-color: #131313;
-}
-.footer-b {
-  vertical-align: middle;
-  margin: 0 15px;
-}
-
-/* =====================
-End:  START FOOTER
 ======================== */
 .transition, .header-menu, .header-menu ul li a:after, .btn, .btn-effect:before, .main-form input {
   transition: all .5s;
@@ -1178,6 +1139,21 @@ End:  START FOOTER
   width: 100%;
 }
 
+/* ===================== 
+Start: START FOOTER      
+======================== */
+.footer {
+  padding: 10px 15px;
+  background-color: #131313;
+}
+.footer-b {
+  vertical-align: middle;
+  margin: 0 15px;
+}
+
+/* =====================
+End:  START FOOTER
+======================== */
 .fade {
   opacity: 0;
   -webkit-transition: opacity 0.15s linear;
