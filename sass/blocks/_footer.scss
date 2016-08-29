@@ -8,13 +8,13 @@ Start: START FOOTER
 	@extend .text-center;
 	@extend .white;
 	&-b{
-		display: inline-block;
+		@extend .block-inline;
 		vertical-align: middle;
 		margin: 0 15px;
 	}
 	a{
-		text-decoration: none;
-		@extend .light;
+		@extend .tdn;
+		@extend .light !optional;
 	}
 }
 /* =====================

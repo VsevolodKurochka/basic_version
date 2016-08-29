@@ -16,8 +16,22 @@
   }
 }
 
+//MIXIN SIZES
+@mixin font-size($fs-map, $fs-breakpoints: $breakpoints){
+  @each $fs-breakpoint, $fs-font-size in $fs-map {
+    $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
+    @if $fs-breakpoint != null{
+      @media (min-width: $fs-breakpoint){
+        font-size: $fs-font-size;
+      }
+    }@else{
+      @error 'No size';
+    }
+  } 
+}
+
 // MIXIN BACKGROUND
-@mixin bg($url, $pos, $repeat, $size){
+@mixin bg($url, $pos: 0 0, $repeat: no-repeat, $size: cover){
 	background: url($url) $pos $repeat;
 	background-size: $size;
 }
@@ -56,4 +70,32 @@
   .visible-#{$visible}{
     display: block !important;
   }
+}
+// @mixin diffBrowsers($property){
+//   -ms-#{$property}
+// }
+@mixin transform($transform){
+  -webkit-transform: $transform;
+      -ms-transform: $transform;
+       -o-transform: $transform;
+          transform: $transform; 
+}
+@mixin border($border){
+  -webkit-border-radius: $border; 
+     -moz-border-radius: $border; 
+          border-radius: $border;  
+}
+@mixin transition($transition){
+  -webkit-transition: $transition;
+       -o-transition: $transition;
+          transition: $transition;
+}
+@mixin shadow($shadow){
+  -webkit-box-shadow: $shadow;
+     -moz-box-shadow: $shadow;
+          box-shadow: $shadow;
+}
+@mixin pseudo($contentText: ""){
+  content: $contentText;
+  position: absolute;
 }

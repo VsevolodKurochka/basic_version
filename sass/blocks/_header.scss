@@ -5,36 +5,33 @@ Start: HEADER
 	@extend .cf;
 	padding: 10px 0 25px;
 	min-height: 50px;
-	@include bg('../img/header.jpg', 0 0, no-repeat,cover);
+	@include bg('../img/header.jpg');
 	&-phone{
+		@extend .block-inline;
 		padding: 0.5em 0;
 		@include color("corporative");
 		@extend .bold;
 		@include size(text_default);
 	}
 	&-menu{
-		& *{
-			@include color("white");
-		}
-		transition: all ease .5s;
+		@extend .transition;
 		ul{
 			li{
-				display: inline-block;
+				@extend .block-inline;
 				padding: 1em 0.5em;
-       			vertical-align: middle;
+   			vertical-align: middle;
 				a{
-					text-decoration: none;
-					position: relative;
+					@extend .tdn;
+					@extend .relative;
 					&:after{
-						content: "";
-						position: absolute;
 						top: 100%;
 						left: 0;
 						width: 0;
 						height: 1px;
-						background-color: map-get($colors,corporative);
-    					transition: all ease .5s;
-    					border-radius: 10px;
+						background-color: map-get($colors,"corporative");
+  					@include border(10px);
+  					@extend .pseudo;
+  					@extend .transition;
 					}
 					&:hover{
 						&:after{
@@ -45,38 +42,32 @@ Start: HEADER
 			}
 		}
 	}
-	&-container-text{
-		@include resp-min(sm){
-			margin-top: 50px;
-		}
-		@include color("white");
-	}
 }
 @include resp-min(md){
+	.header{
+		&-container-text{
+			margin-top: 50px;
+		}
+	}
 	.navbar-toggle{
 		display: none;
-		position: relative;
 	}
 }
 @include resp-max(md){
 	.header{
 		&-menu{
-		    display: block;
-		    width: 200px;
-		    position: fixed;
-		    right: -200px;
-		    top: 30px;
-		    background-color: #ddd;
-		    z-index: 10;
-		    &-open{
-		    	right: 0;
-		    	left: auto;
-		    	overflow-y: auto;
-			}
-		}
-		&-menu{
-			@include resp-max(md){
-				text-align: center;
+	    display: block;
+	    width: 200px;
+	    position: fixed;
+	    right: -200px;
+	    top: 30px;
+	    background-color: #ddd;
+	    z-index: 10;
+	    text-align: center;
+	    &-open{
+	    	right: 0;
+	    	left: auto;
+	    	overflow-y: auto;
 			}
 		}
 	}
@@ -84,39 +75,38 @@ Start: HEADER
 		position: fixed;
 		top: 0;
 		right: 0;
-		z-index: 11;		
-	}
-}
-.navbar-toggle{
-    float: right;
-    padding: 9px 10px;
-    background-color: #EAEAEA;
-    border: none;
-    border-radius: 4px;
-    &-open{
-    	.icon-bar-1{
-		    transform: rotate(45deg) translate(5px,5px);
-    	}
-    	.icon-bar-2{
-			opacity: 0;
-    	}
-    	.icon-bar-3{
-			transform: rotate(-45deg) translate(4px, -3px);
-    	}
-    }
-	.icon-bar{
+		z-index: 11;	
+	  padding: 10px;
+	  background-color: map-get($colors, "corporative");
+	  border: none;
+	  transition: all ease .5s;
+	  &-open{
+	  	background-color: #ffaa54;
+	  	.icon-bar-1{
+	  		@include transform(rotate(45deg) translate(5px,5px));
+	  	}
+	  	.icon-bar-2{
+				opacity: 0;
+	  	}
+	  	.icon-bar-3{
+	  		@include transform( rotate(-45deg) translate(4px, -3px) );
+	  	}
+	  }
+		.icon-bar{
 	    display: block;
 	    width: 22px;
 	    height: 2px;
-	    border-radius: 1px;
-        background-color: #888;
-        transition: all ease .25s;
-        transform-origin: 50% 100%;
-	}
-	.icon-bar:not(.icon-bar-1){
-		margin-top: 4px;
+	    background-color: #888;
+	    @include border(1px);
+	    @include transition(all ease .25s);.
+	    transform-origin: 50% 100%;
+	    &:not(.icon-bar-1){
+	    	margin-top: 4px;
+	    }
+		}
 	}
 }
+
 /* =====================
 End:  HEADER
 ======================== */
