@@ -9,38 +9,88 @@ Start: HEADER
 	&-phone{
 		@extend .block-inline;
 		padding: 0.5em 0;
-		@include color("corporative");
+		color: setColor(corp);
 		@extend .bold;
 		@include size(text_default);
 	}
 	&-menu{
 		@extend .transition;
-		ul{
-			li{
-				@extend .block-inline;
-				padding: 1em 0.5em;
-   			vertical-align: middle;
-				a{
-					@extend .tdn;
-					@extend .relative;
+		li{
+			display: inline-block;
+			padding: 1em 0.5em;
+ 			vertical-align: middle;
+			a{
+				@extend .tdn;
+				@extend .relative;
+				color: inherit;
+				&:after{
+					top: 100%;
+					left: 0;
+					width: 0;
+					height: 1px;
+					background-color: setColor(corp);
+					@include border(10px);
+					@extend .pseudo;
+					@extend .transition;
+				}
+				&:hover{
 					&:after{
-						top: 100%;
-						left: 0;
-						width: 0;
-						height: 1px;
-						background-color: map-get($colors,"corporative");
-  					@include border(10px);
-  					@extend .pseudo;
-  					@extend .transition;
-					}
-					&:hover{
-						&:after{
-							width: 100%;
-						}
+						width: 100%;
 					}
 				}
 			}
 		}
+		&-hidden{
+			display: block;
+			
+		}
+	}
+	&-inf{
+		&-logo{
+			padding: 7.5px;
+		  background-color: #545454;
+		  width: 100%;
+		  img{
+		  	max-width: 200px;
+		  }
+		}
+		&-tagline{
+			color: setColor(light);
+		  font-size: 12px;
+		  padding: 7.5px;
+		  border-bottom: 1px solid setColor(black,dark);
+		  @extend .ttu;
+		  @extend .bold
+		}
+		&-btn{
+			position: absolute;
+			right: 5px;
+			top: 5px;
+			background-color: transparent;
+			border: none;
+			outline: none;
+		  width: 25px;
+		  height: 22px;
+		  
+			&:after,
+			&:before{
+				@extend .pseudo;
+				left: 0;
+				top: 20px;
+				margin-top: -11px;
+				display: block;
+				width: 100%;
+				height: 2px;
+				background-color: setColor(corp);
+			  transform-origin: 50% 100%;
+			}
+			&:before{
+				@include transform(rotate(45deg));
+			}
+			&:after{
+				@include transform(rotate(-45deg));
+			}
+		}			
 	}
 }
 @include resp-min(md){
@@ -49,41 +99,51 @@ Start: HEADER
 			margin-top: 50px;
 		}
 	}
+	.header-menu-hidden,
 	.navbar-toggle{
 		display: none;
 	}
 }
 @include resp-max(md){
 	.header{
+		padding-top: 40px;
 		&-menu{
+			padding: 0;
 	    display: block;
-	    width: 200px;
+	    width: 100%;
+	    height: 100%;
 	    position: fixed;
-	    right: -200px;
-	    top: 30px;
-	    background-color: #ddd;
-	    z-index: 10;
+	    left: -100%;
+	    top: 0;
+      background-color: #d8b38e;
+	    z-index: 1000;
 	    text-align: center;
+	    li{
+	    	display: block;
+	    }
 	    &-open{
-	    	right: 0;
-	    	left: auto;
+	    	left: 0;
 	    	overflow-y: auto;
+			}
+			&-push{
+				left: 100%;
 			}
 		}
 	}
 	.navbar-toggle{
 		position: fixed;
-		top: 0;
-		right: 0;
+		top: -1px;
+		right: -1px;
 		z-index: 11;	
 	  padding: 10px;
-	  background-color: map-get($colors, "corporative");
+	  background-color: setColor(corp);
 	  border: none;
 	  transition: all ease .5s;
+	  outline: none;
 	  &-open{
-	  	background-color: #ffaa54;
+	  	background-color: setColor(corp, light);
 	  	.icon-bar-1{
-	  		@include transform(rotate(45deg) translate(5px,5px));
+	  		@include transform( rotate(45deg) translate(5px,5px) );
 	  	}
 	  	.icon-bar-2{
 				opacity: 0;
@@ -96,9 +156,9 @@ Start: HEADER
 	    display: block;
 	    width: 22px;
 	    height: 2px;
-	    background-color: #888;
+	    background-color: setColor(black);
 	    @include border(1px);
-	    @include transition(all ease .25s);.
+	    @include transition(all ease .25s);
 	    transform-origin: 50% 100%;
 	    &:not(.icon-bar-1){
 	    	margin-top: 4px;

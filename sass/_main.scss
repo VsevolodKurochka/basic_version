@@ -1,13 +1,14 @@
 body{
-  @extend .regular;
-  @include color("black");
-  @include size(text_default);
-  line-height: 1.42857143;
-}
-.block{
-  &-inline{
-    display: inline-block;
+  @each $property, $value in $defaultFont{
+    #{$property}: #{$value};
   }
+  @include resp-max(md){
+    overflow-x: hidden;
+    position: relative;
+    left: 0;
+    transition: all ease .5s;
+  }
+  
 }
 img{
   @extend .block-inline;

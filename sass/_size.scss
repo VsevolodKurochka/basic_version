@@ -1,0 +1,12 @@
+/* ===================== 
+Start: SIZE      
+======================== */
+//$sizes in _config.scss
+@each $size-name, $size-value in $sizes{
+	.#{$size-name}{
+		font-size: #{$size-value};
+	}
+}
+/* =====================
+End:  SIZE
+======================== */

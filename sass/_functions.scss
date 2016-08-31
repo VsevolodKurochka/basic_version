@@ -1,0 +1,4 @@
+//GET COLOR FUNCTION
+@function setColor($color, $tone: base){
+  @return map-get(map-get($colors, $color), $tone);
+}

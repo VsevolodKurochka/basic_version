@@ -29,6 +29,15 @@
     }
   } 
 }
+@mixin size($size){
+  $value: map-get($sizes, $size);
+  @if $value != null{
+    font-size: $value;
+  }
+  @else{
+    @error 'Sorry, no size #{$size}';
+  }
+}
 
 // MIXIN BACKGROUND
 @mixin bg($url, $pos: 0 0, $repeat: no-repeat, $size: cover){
@@ -71,6 +80,7 @@
     display: block !important;
   }
 }
+
 // @mixin diffBrowsers($property){
 //   -ms-#{$property}
 // }

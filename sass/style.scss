@@ -6,11 +6,14 @@ Start: RESET
 End:  RESET
 ======================== */
 
-// VARIABLES
-@import '_var.scss';
+//CONFIG
+@import "_config.scss";
 
 // MIXINS
 @import '_mixins.scss';
+
+//FUNCTIONS
+@import "_functions.scss";
 
 // MEDIA
 @import '_media.scss'; 
@@ -22,12 +25,15 @@ Start: GRID SYSTEM
 /* =====================
 End:  GRID SYSTEM
 ======================== */
-
-
-
+/* ===================== 
+Start: MAIN STYLES      
+======================== */
+@import '_main.scss';
+/* =====================
+End:  MAIN STYLES
+======================== */
 //COLOR SIZE
-@import '_color-size.scss';
-
+@import '_size.scss';
 
 /* ===================== 
 Start: TEXT      
@@ -41,14 +47,6 @@ End:  TEXT
 //FONTS
 @import '_fonts.scss'; 
 //======================
-
-/* ===================== 
-Start: MAIN STYLES      
-======================== */
-@import '_main.scss';
-/* =====================
-End:  MAIN STYLES
-======================== */
 
 /* ===================== 
 Start: DIFFERENT BLOCKS      
