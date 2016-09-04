@@ -35,7 +35,8 @@ $grid-system: (
 	width 								: 100%,
 	gutter 								: 15px,
 	containerWidth 				: 1170px,
-	containerSmallWidth 	: 970px
+	containerSmallWidth 	: 970px,
+	menuExists            : false
 );
 
 $columns         	: map-get($grid-system, columns);

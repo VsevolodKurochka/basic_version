@@ -11,25 +11,29 @@
   @extend .bold;
   @extend .transition;
   @include size(text_default);
-  //@include color("white");
   &-effect{
-   &:before{
+    &:before{
       @extend .pseudo;
       @extend .transition;
-      z-index: -1;
-      width: 100%;
-      height: 0;
-      top: 50%;
-      left: 50%; 
-      opacity: 0;
-      @include transform(translateX(-50%) translateY(-50%) rotate(45deg));
-    }   
-    &:hover{
-      &:before{
-        height: calc(450% - 40px);
-        opacity: 1;
-      }
     }
+    &-1{
+      @extend .btn-effect;
+      &:before{
+        z-index: -1;
+        width: 100%;
+        height: 0;
+        top: 50%;
+        left: 50%; 
+        opacity: 0;
+        @include transform(translateX(-50%) translateY(-50%) rotate(45deg));
+      }
+      &:hover{
+        &:before{
+          height: calc(450% - 40px);
+          opacity: 1;
+        }
+      }   
+    } 
   }
   &-single{
     @include resp-min(sm){
