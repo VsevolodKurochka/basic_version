@@ -47,24 +47,25 @@
 //CREATE COLUMNS
 @mixin make-column($class,$push: "push",$pull: "pull",$offset: "offset"){
   @for $i from 1 through $columns{
+    $defaultValue: ($width/$columns) * $i;
     @if $class != null{
       .vcol-#{$class}-#{$i}{
-        width: ($width/$columns) * $i;
+        width: $defaultValue;
       }      
     }
-    @if $push != "not-push"{
+    @if $push == "push"{
       .vcol-#{$class}-push-#{$i}{
-        left: ($width/$columns) * $i;
+        left: $defaultValue;
       }      
     }
-    @if $pull != "not-pull"{
+    @if $pull == "pull"{
       .vcol-#{$class}-pull-#{$i}{
-        right: ($width/$columns) * $i;
+        right: $defaultValue;
       }
     }
-    @if $offset != "not-offset" {
+    @if $offset == "offset" {
       .vcol-#{$class}-offset-#{$i}{
-        margin-left: ($width/$columns) * $i;
+        margin-left: $defaultValue;
       }
     }
   }

@@ -1,0 +1,20 @@
+.header {
+	@extend .cf;
+	padding: 10px 0 25px;
+	min-height: 50px;
+	@include bg('../img/header.jpg');
+	&-text{
+		@extend .block-inline;
+		padding: 0.5em 0;
+		color: setColor(corp);
+		@extend .bold;
+	}
+	@include resp-max(md){
+		padding-top: 40px;
+	}
+	@include resp-min(md){
+		&-container-text{
+			margin-top: 50px;
+		}
+	}
+}

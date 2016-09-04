@@ -1,0 +1,6 @@
+.transition{
+  transition: all ease .5s;
+}
+.pseudo{
+  @include pseudo();
+}

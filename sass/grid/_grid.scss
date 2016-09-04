@@ -6,7 +6,7 @@ Start: COLUMNS
   @include make-column(sm,"not-push","not-pull","not-offset");
 }
 @include resp-min(md){
-  @include make-column(md,"push","pull","not-offset");
+  @include make-column(md,"not-push","not-pull","not-offset");
 }
 @include resp-min(lg){
   @include make-column(lg,"not-push","not-pull","not-offset");
@@ -126,21 +126,21 @@ End:  HIDDEN AND VISIBLE UTILITIES
     .text-#{$br-name}-right{
       text-align: right;
     }
-    // .pull-#{$breakpoint-name}-left{
-    //   float: left;
-    // }
+    .pull-#{$br-name}-left{
+      float: left;
+    }
   }
   @include resp-max($br-name){
     .max-#{$br-name}-negative{
       margin-left: -15px;
       margin-right: -15px;
     }
-    .max-#{$br-name}-nom{
-      margin-bottom: 0 !important;
-    }
-    .max-#{$br-name}-block{
-      display: block;
-    }
+    // .max-#{$br-name}-nom{
+    //   margin-bottom: 0 !important;
+    // }
+    // .max-#{$br-name}-block{
+    //   display: block;
+    // }
   }
 }
 .no-m{

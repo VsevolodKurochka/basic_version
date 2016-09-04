@@ -1,57 +1,19 @@
-/* ===================== 
-Start: RESET      
-======================== */
-@import '_reset.scss';
-/* =====================
-End:  RESET
-======================== */
-
-//CONFIG
-@import "_config.scss";
-
-// MIXINS
-@import '_mixins.scss';
-
-//FUNCTIONS
-@import "_functions.scss";
-
-// MEDIA
-@import '_media.scss'; 
+@import 'base/_base.scss';
 
 /* ===================== 
 Start: GRID SYSTEM      
 ======================== */
-@import 'grid_system/_grid-system.scss'; 
+@import 'grid/_grid.scss'; 
 /* =====================
 End:  GRID SYSTEM
 ======================== */
+
 /* ===================== 
 Start: MAIN STYLES      
 ======================== */
-@import '_main.scss';
+@import 'components/_components.scss';
 /* =====================
 End:  MAIN STYLES
 ======================== */
-//COLOR SIZE
-@import '_size.scss';
 
-/* ===================== 
-Start: TEXT      
-======================== */
-@import '_text.scss';
-/* =====================
-End:  TEXT
-======================== */
-
-//======================
-//FONTS
-@import '_fonts.scss'; 
-//======================
-
-/* ===================== 
-Start: DIFFERENT BLOCKS      
-======================== */
-@import 'blocks/_main.scss';
-/* =====================
-End:  DIFFERENT BLOCKS
-======================== */
+@import 'layouts/_layouts.scss';

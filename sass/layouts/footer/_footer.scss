@@ -6,7 +6,6 @@ Start: START FOOTER
 	padding: 10px 15px;
 	background-color: #131313;
 	@extend .text-center;
-	//@extend .white;
 	&-b{
 		@extend .block-inline;
 		vertical-align: middle;

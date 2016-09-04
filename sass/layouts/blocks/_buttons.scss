@@ -1,0 +1,42 @@
+.btn {
+  border: none;
+  max-width: 100%;
+  padding: 10px 40px;
+  overflow: hidden;
+  z-index: 2;
+  @include border(3px);
+  @extend .relative;
+  @extend .block-inline;
+  @extend .tdn;
+  @extend .bold;
+  @extend .transition;
+  @include size(text_default);
+  //@include color("white");
+  &-effect{
+   &:before{
+      @extend .pseudo;
+      @extend .transition;
+      z-index: -1;
+      width: 100%;
+      height: 0;
+      top: 50%;
+      left: 50%; 
+      opacity: 0;
+      @include transform(translateX(-50%) translateY(-50%) rotate(45deg));
+    }   
+    &:hover{
+      &:before{
+        height: calc(450% - 40px);
+        opacity: 1;
+      }
+    }
+  }
+  &-single{
+    @include resp-min(sm){
+      margin-top: 70px;
+    }
+    @include resp-max(sm){
+      margin-top: 35px;
+    }
+  }
+}
