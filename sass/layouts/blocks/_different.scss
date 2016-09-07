@@ -82,3 +82,8 @@
     width: 100%;
   }
 }
+@for $i from 1 through 5{
+  .example-col-#{$i}{
+    width: 15%;
+  }
+}

@@ -794,41 +794,37 @@ End:  HEADER
 .list li:after {
   top: 0;
 }
+.list-cancel li:after {
+  width: 37px;
+  height: 37px;
+  background: url("../img/cancel.png") 0 0 no-repeat;
+  background-size: cover;
+}
 @media (min-width: 768px) {
-  .list li {
+  .list {
     margin-bottom: 15px;
   }
-  .list li:after {
+  .list:after {
     left: 0;
   }
-}
-@media (max-width: 767px) {
-  .list li {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  .list li:after {
-    left: 50%;
-  }
-}
-@media (min-width: 768px) {
   .list-cancel li {
     padding-left: 50px;
   }
 }
 @media (max-width: 767px) {
+  .list {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .list:after {
+    left: 50%;
+  }
   .list-cancel li {
     padding-top: 40px;
   }
   .list-cancel li:after {
     margin-left: -18.5px;
   }
-}
-.list-cancel li:after {
-  width: 37px;
-  height: 37px;
-  background: url("../img/cancel.png") 0 0 no-repeat;
-  background-size: cover;
 }
 
 .toggle-subtitle-no-margin .subtitle {
@@ -895,6 +891,26 @@ End:  HEADER
 }
 .main-form .btn {
   width: 100%;
+}
+
+.example-col-1 {
+  width: 15%;
+}
+
+.example-col-2 {
+  width: 15%;
+}
+
+.example-col-3 {
+  width: 15%;
+}
+
+.example-col-4 {
+  width: 15%;
+}
+
+.example-col-5 {
+  width: 15%;
 }
 
 /* ===================== 

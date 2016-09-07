@@ -2,13 +2,6 @@ body{
   @each $property, $value in $defaultFont{
     #{$property}: #{$value};
   }
-  // @include resp-max(md){
-  //   overflow-x: hidden;
-  //   position: relative;
-  //   left: 0;
-  //   transition: all ease .5s;
-  // }
-  
 }
 img{
   @extend .block-inline;
