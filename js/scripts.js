@@ -3,12 +3,12 @@ $(document).ready(function(){
 		var header_menu_name 	= 'header-menu',
 				header_menu 			= $('.' + header_menu_name),
 				button_menu 			= $('.btn-menu'),
-				button_menu_class = $('.btn-menu-class'),
+				//button_menu_class = $(button_menu + '-class'),
 				body 							= $(".body");
 
 		function toggler(){
 			body.toggleClass("header-menu-push");
-			button_menu_class.toggleClass('navbar-toggle-open');
+			button_menu.toggleClass('navbar-toggle-open');
 			header_menu.toggleClass('header-menu-open');
 		}
 		button_menu.click(function(e){
@@ -27,6 +27,14 @@ $(document).ready(function(){
 			$('body,html').animate({
 				scrollTop: $(href).offset().top
 			},2000);
+			return false;
+		});
+		$('.anchor-menu').click(function(){
+			var href = $(this).attr('href');
+			$('body,html').animate({
+				scrollTop: $(href).offset().top
+			},2000);
+			toggler();
 			return false;
 		});
 		$(window).on('hashchange', function(e){

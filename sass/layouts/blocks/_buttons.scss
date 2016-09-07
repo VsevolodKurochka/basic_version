@@ -1,16 +1,20 @@
 .btn {
   border: none;
   max-width: 100%;
-  padding: 10px 40px;
+  padding: 10px 20px;
   overflow: hidden;
-  z-index: 2;
-  @include border(3px);
+  z-index: 1;
+  font-size: 16px;
+  @include borderR(3px);
   @extend .relative;
   @extend .block-inline;
   @extend .tdn;
   @extend .bold;
   @extend .transition;
-  @include size(text_default);
+  @include resp-min(xs){
+    @include size(text_default);
+    padding: 10px 40px;
+  }
   &-effect{
     &:before{
       @extend .pseudo;
@@ -34,6 +38,9 @@
         }
       }   
     } 
+  }
+  &-green{
+    background-color: #ddd;
   }
   &-single{
     @include resp-min(sm){

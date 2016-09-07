@@ -1,3 +1,39 @@
+//MIXIN MEDIA
+$error: "This variable we do not have, sorry. Please try to change variable";
+@mixin resp-min($breakpoint){
+  $value: map-get($breakpoints,$breakpoint);
+  @if $value != null  {
+    @media (min-width: $value ) {
+      @content;
+    }
+  }
+  @else{
+     @error $error + " #{$breakpoint}";
+  }
+}
+@mixin resp-max($breakpoint){
+  $value: map-get($breakpoints,$breakpoint);
+  @if $value != null { 
+    @media (max-width: $value - 1px) {
+      @content;
+    } 
+  }
+  @else{
+     @error $error + " #{$breakpoint}";
+  }
+}
+// @mixin resp($breakpoint){
+//   $value: map-get($breakpoints,$breakpoint);
+//   @if $value != null { 
+//     @media (max-width: $value) {
+//       @content;
+//     } 
+//   }
+//   @else{
+//      @error $error + " #{$breakpoint}";
+//   }
+// }
+
 //MIXIN FONT
 @mixin connect-font($font,$class_name: $font){
   @font-face{
@@ -91,10 +127,10 @@
        -o-transform: $transform;
           transform: $transform; 
 }
-@mixin border($border){
-  -webkit-border-radius: $border; 
-     -moz-border-radius: $border; 
-          border-radius: $border;  
+@mixin borderR($borderR){
+  -webkit-border-radius: $borderR; 
+     -moz-border-radius: $borderR; 
+          border-radius: $borderR;  
 }
 @mixin transition($transition){
   -webkit-transition: $transition;

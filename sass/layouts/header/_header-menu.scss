@@ -4,7 +4,7 @@
 			@extend .transition;
 			li{
 				display: inline-block;
-				padding: 1em 0.5em;
+				padding: 15px 5px;
 	 			vertical-align: middle;
 				a{
 					@extend .tdn;
@@ -16,7 +16,7 @@
 						width: 0;
 						height: 1px;
 						background-color: setColor(corp);
-						@include border(10px);
+						@include borderR(10px);
 						@extend .pseudo;
 						@extend .transition;
 					}
@@ -64,6 +64,18 @@
 				  border: none;
 				  transition: all ease .5s;
 				  outline: none;
+				  .icon-bar{
+				    display: block;
+				    width: 22px;
+				    height: 2px;
+				    background-color: setColor(black);
+				    @include borderR(1px);
+				    @include transition(all ease .25s);
+				    transform-origin: 50% 100%;
+				    &:not(.icon-bar-1){
+				    	margin-top: 4px;
+				    }
+					}	
 				  &-open{
 				  	background-color: setColor(corp, light);
 				  	.icon-bar-1{
@@ -76,18 +88,7 @@
 				  		@include transform( rotate(-45deg) translate(4px, -3px) );
 				  	}
 				  }
-					.icon-bar{
-				    display: block;
-				    width: 22px;
-				    height: 2px;
-				    background-color: setColor(black);
-				    @include border(1px);
-				    @include transition(all ease .25s);
-				    transform-origin: 50% 100%;
-				    &:not(.icon-bar-1){
-				    	margin-top: 4px;
-				    }
-					}
+					
 				}
 			}
 		}

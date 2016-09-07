@@ -19,6 +19,9 @@ End:  COLUMNS
 /* ===================== 
 Start: HIDDEN AND VISIBLE UTILITIES      
 ======================== */
+%visible{
+
+}
 .visible-xs,
 .visible-sm,
 .visible-md,
@@ -63,6 +66,7 @@ End:  HIDDEN AND VISIBLE UTILITIES
   margin-right: auto;
 }
 .cf{
+  @extend .relative;
   &:after, &:before{
     content: "";
     display: table;
@@ -70,9 +74,8 @@ End:  HIDDEN AND VISIBLE UTILITIES
   &:after{
     clear: both;
   }
-  @extend .relative;
 }
-.row{
+.vrow{
   @extend .cf;
   margin-left: -$gutter;
   margin-right: -$gutter;
@@ -106,11 +109,11 @@ End:  HIDDEN AND VISIBLE UTILITIES
   @extend %padding-block;
   @extend .relative;
   @include resp-max(lg){
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: $gutter;
+    padding-right: $gutter;
   }
 }
-.pull{
+.vpull{
   &-left{
     float: left;
   }
@@ -120,13 +123,13 @@ End:  HIDDEN AND VISIBLE UTILITIES
 }
 @each $br-name, $br-value in $breakpoints{
   @include resp-min($br-name){
-    .pull-#{$br-name}-right{
+    .vpull-#{$br-name}-right{
       float: right;
     }
     .text-#{$br-name}-right{
       text-align: right;
     }
-    .pull-#{$br-name}-left{
+    .vpull-#{$br-name}-left{
       float: left;
     }
   }
