@@ -39,7 +39,7 @@
 		    width: 100%;
 		    height: 100%;
 		    position: fixed;
-		    left: -100%;
+		    #{$menuDirection}: -100%;
 		    top: 0;
 	      background-color: #d8b38e;
 		    z-index: 1000;
@@ -48,16 +48,16 @@
 		    	display: block;
 		    }
 		    &-open{
-		    	left: 0;
+		    	#{$menuDirection}: 0;
 		    	overflow-y: auto;
 				}
 				&-push{
-					left: 100%;
+					#{$menuDirection}: 100%;
 				}
 				&-btn{
 					position: fixed;
 					top: -1px;
-					right: -1px;
+					#{$menuDirection}: -1px;
 					z-index: 11;	
 				  padding: 10px;
 				  background-color: setColor(corp);
@@ -93,7 +93,8 @@
 			}
 		}
 		@include resp-min(md){
-			&-menu-hidden,
+			&-menu-breakpoint,
+			&-inf,
 			&-menu-btn{
 				display: none;
 			}

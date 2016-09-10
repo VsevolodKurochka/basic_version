@@ -73,6 +73,24 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 End:  RESET
 ======================== */
 /* ===================== 
+Start: SIZE      
+======================== */
+.text_smaller {
+  font-size: 12px;
+}
+
+.text_small {
+  font-size: 14px;
+}
+
+.text_default {
+  font-size: 18px;
+}
+
+/* =====================
+End:  SIZE
+======================== */
+/* ===================== 
 Start: GRID SYSTEM      
 ======================== */
 /* ===================== 
@@ -487,7 +505,7 @@ End:  HIDDEN AND VISIBLE UTILITIES
   margin-bottom: 0 !important;
 }
 
-.block-inline, img, .header-text, .btn, .footer-b {
+.block-inline, img, .header-text, .btn, .main-form input, .footer-b {
   display: inline-block;
 }
 
@@ -800,7 +818,7 @@ Start: HEADER
   .header-menu-btn {
     position: fixed;
     top: -1px;
-    right: -1px;
+    left: -1px;
     z-index: 11;
     padding: 10px;
     background-color: #ff8001;
@@ -844,7 +862,7 @@ Start: HEADER
   }
 }
 @media (min-width: 1025px) {
-  .header-menu-hidden, .header-menu-btn {
+  .header-menu-breakpoint, .header-inf, .header-menu-btn {
     display: none;
   }
 }
@@ -1031,8 +1049,9 @@ End:  HEADER
 }
 .main-form input {
   border: 1px solid #eeeeee;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
   border-radius: 5px;
-  display: inline-block;
   text-align: left;
   width: 100%;
   max-width: 100%;
@@ -1043,28 +1062,11 @@ End:  HEADER
   outline: none;
   box-shadow: 0px 0px 10px 1px rgba(253, 188, 48, 0.17);
 }
+.main-form input:focus {
+  border-color: #ff8001;
+}
 .main-form .btn {
   width: 100%;
-}
-
-.example-col-1 {
-  width: 15%;
-}
-
-.example-col-2 {
-  width: 15%;
-}
-
-.example-col-3 {
-  width: 15%;
-}
-
-.example-col-4 {
-  width: 15%;
-}
-
-.example-col-5 {
-  width: 15%;
 }
 
 /* ===================== 
