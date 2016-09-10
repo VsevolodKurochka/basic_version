@@ -61,8 +61,8 @@
   @extend .center-block;
   input{
     border: 1px solid #eeeeee;
-    border-radius: 5px;
-    display: inline-block;
+    @include borderR(5px);
+    @extend .block-inline;
     text-align: left;
     width: 100%;
     max-width: 100%;
@@ -75,15 +75,10 @@
     @extend .regular;
     @extend .transition;
     &:focus{
-      //border-color: map-get($colors, "corporative");
+      border-color: setColor(corp);
     }
   }
   .btn{
     width: 100%;
-  }
-}
-@for $i from 1 through 5{
-  .example-col-#{$i}{
-    width: 15%;
   }
 }
