@@ -4,8 +4,12 @@ $(document).ready(function(){
 		var header_menu_name 	= 'header-menu',
 				header_menu 			= $('.' + header_menu_name),
 				button_menu 			= $('.btn-menu'),
-				body 							= $(".body");
-
+				body 							= $(".body"),
+				responsiveBr      = 1024,
+				visibility        = "in visible",
+		 		backdrop = $("<div />", {
+					class: "vmodal-backdrop fade"
+				});
 		//MENU
 			//SCRIPTS
 			function toggler(){
@@ -25,12 +29,18 @@ $(document).ready(function(){
 				toggler();
 				return false;
 			});
-			body.hammer().on("swiperight", function(){
-				toggler();
-			});
-			body.hammer().on("swipeleft", function(){
-				toggler();
-			});
+			function menuSwipe(){
+				if ( $(document).width() <= responsiveBr ) {
+					body.hammer().on("swiperight", function(){
+						toggler();
+					}).on("swipeleft", function(){
+						toggler();
+					});
+				}
+			}
+			menuSwipe();
+			$(window).resize(menuSwipe);
+			
 		// $(document).click(function(e){
 		// 	if( header_menu.hasClass(header_menu_name + '-open') ) {
 		// 		if ( ! $(e.target).is('.'+header_menu_name + ', .'+header_menu_name+"*") ) {
@@ -47,8 +57,35 @@ $(document).ready(function(){
 			},2000);
 			return false;
 		});
-		var attr = $(".clicker").attr("data-open");
-		$(".clicker").click(function(){
-			$(attr).slideToggle();
+		
+		$('[data-modal="modal"]').click(function(){
+			var thisTarget = $(this).attr("data-modal-target");
+			$(thisTarget).addClass(visibility);
+			body.append(backdrop).addClass("vmodal-open");
+			backdrop.addClass(visibility);
 		});
+		$('[data-close="modal"]').click(function(){
+			$(this).closest(".vmodal").removeClass(visibility);
+			backdrop.removeClass(visibility);
+			body.removeClass("vmodal-open");
+		});
+		$(window).click(function(e){
+			if ( backdrop.length > 0 ) {
+				if ( $(e.target).is(".vmodal") ) {
+					$(".vmodal.in").removeClass(visibility);
+					backdrop.removeClass(visibility);
+					body.removeClass("vmodal-open");
+					console.log("document clicked");
+				}
+			}
+		});
+		// backdrop.click(function(){
+		// 	$(".vmodal.in").removeClass(visibility);
+		// 	backdrop.removeClass(visibility);
+		// 	console.log("backdrop clicked");
+		// });
+		
+		// $(".vmodal").click(function(){
+		// 	console.log("vmodal clicked");
+		// });
 });	

@@ -1,6 +1,6 @@
 //MIXIN MEDIA
 $error: "This variable we do not have, sorry. Please try to change variable";
-@mixin resp-min($breakpoint){
+@mixin resp-min($breakpoint, $breakpoints: $breakpoints){
   $value: map-get($breakpoints,$breakpoint);
   @if $value != null  {
     @media (min-width: $value ) {
@@ -11,7 +11,7 @@ $error: "This variable we do not have, sorry. Please try to change variable";
      @error $error + " #{$breakpoint}";
   }
 }
-@mixin resp-max($breakpoint){
+@mixin resp-max($breakpoint, $breakpoints: $breakpoints){
   $value: map-get($breakpoints,$breakpoint);
   @if $value != null { 
     @media (max-width: $value - 1px) {

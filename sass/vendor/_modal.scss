@@ -1,65 +1,61 @@
-.fade {
-  opacity: 0;
-  @include transition(opacity 0.15s linear);
-  &.in{
-    opacity: 1;
-  }
+%visibility{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
 }
-.modal{
-  display: none;
+.vmodal{
+  @extend %visibility;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
   overflow: hidden;
-  z-index: 99999999999;
+  z-index: 1001;
   -webkit-overflow-scrolling: touch;
   outline: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  @extend .modal-fixed;
-  &-fixed{
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
+  // @include resp-min(sm){
+  //   max-width: 600px;
+  //   left: 50%;
+  //   margin-left: -300px;
+  // }
   &-open{
     overflow: hidden;
-    .modal{
+    // padding-right: 17px;
+    // .main{
+    //   margin-right: -17px;
+    // }
+    .vmodal{
       overflow-x: hidden;
       overflow-y: auto;
     }
   }
-  &-transparent{
-    background-color: rgba(0, 0, 0, 0.9);
-    .modal-content{
-      background-color: transparent;
-      border: none;
-      box-shadow: none;
-    }
-    .close{
-      color: #fff;
-      @extend .light;
-      @include resp-min(sm){
-        top: -15px;
-        right: -85px;
-        font-size: 80px;
-      }
-    }
-  }
-  &.fade{
-    .modal-dialog{
-      @include transform(translate(0, -25%));
-      @include transition(transform 0.3s ease-out);
-    }
-  } 
-  &.in{
-    .modal-dialog{
-      @include transform(translate(0, 0));
-    }
-  } 
+  
+  
   &-dialog{
     @extend .relative;
     width: 100%;
     margin: 70px auto;
+    opacity: 0;
+    @include transition(all ease 0.5s);
+    @include transform(scale(0.7) translate(0, -150%) );
   }
+  &.in{
+    .vmodal-dialog{
+      //top: 0;
+      opacity: 1;
+      @include transform(scale(1) translate(0, 0) );
+
+    }
+  } 
+  // &.fade{
+  //   .vmodal-dialog{
+  //     @include transform(translate(0, -25%));
+  //   }
+  // } 
+  
+
   &-content{
     @extend .relative;
     background-color: #fff;
@@ -69,8 +65,8 @@
     outline: 0;
   }
   &-backdrop{
-    @extend .modal-fixed;
-    z-index: 1040;
+    @extend %visibility;
+    z-index: 1000;
     background-color: #000000;
     &.fade{
       opacity: 0;
@@ -88,6 +84,23 @@
     height: 50px;
     overflow: scroll;    
   }
+  // &-transparent{
+  //   background-color: rgba(0, 0, 0, 0.9);
+  //   .modal-content{
+  //     background-color: transparent;
+  //     border: none;
+  //     box-shadow: none;
+  //   }
+  //   .vmodal-close{
+  //     color: #fff;
+  //     @extend .light;
+  //     @include resp-min(sm){
+  //       top: -15px;
+  //       right: -85px;
+  //       font-size: 80px;
+  //     }
+  //   }
+  // }
   &-header{
     padding: 15px 30px 0 30px;
   }
@@ -102,7 +115,7 @@
   &-footer{
     padding: 15px;  
   }
-  .close{
+  &-close{
     background-color: transparent;
     border: none;
     font-size: 40px;
@@ -140,4 +153,7 @@
       @include borderR(6px);
     }
   }
+}
+.visible{
+  visibility: visible;
 }

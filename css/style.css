@@ -343,7 +343,7 @@ Start: HIDDEN AND VISIBLE UTILITIES
 /* =====================
 End:  HIDDEN AND VISIBLE UTILITIES
 ======================== */
-.relative, [class*="col-"], .vcontainer, .vcontainer-small, .cf, .vrow, .vsection, .header, .toggle-inner, .footer, .modal-header, .modal-body, .modal-footer, .header-menu li a, .btn, .list li, .modal-dialog, .modal-content {
+.relative, [class*="col-"], .vcontainer, .vcontainer-small, .cf, .vrow, .vsection, .header, .toggle-inner, .footer, .vmodal-header, .vmodal-body, .vmodal-footer, .header-menu li a, .btn, .list li, .vmodal-dialog, .vmodal-content {
   position: relative;
 }
 
@@ -359,11 +359,11 @@ End:  HIDDEN AND VISIBLE UTILITIES
   margin-right: auto;
 }
 
-.cf:after, .vrow:after, .vcontainer:after, .vcontainer-small:after, .vsection:after, .header:after, .toggle-inner:after, .footer:after, .modal-header:after, .modal-body:after, .modal-footer:after, .cf:before, .vrow:before, .vcontainer:before, .vcontainer-small:before, .vsection:before, .header:before, .toggle-inner:before, .footer:before, .modal-header:before, .modal-body:before, .modal-footer:before {
+.cf:after, .vrow:after, .vcontainer:after, .vcontainer-small:after, .vsection:after, .header:after, .toggle-inner:after, .footer:after, .vmodal-header:after, .vmodal-body:after, .vmodal-footer:after, .cf:before, .vrow:before, .vcontainer:before, .vcontainer-small:before, .vsection:before, .header:before, .toggle-inner:before, .footer:before, .vmodal-header:before, .vmodal-body:before, .vmodal-footer:before {
   content: "";
   display: table;
 }
-.cf:after, .vrow:after, .vcontainer:after, .vcontainer-small:after, .vsection:after, .header:after, .toggle-inner:after, .footer:after, .modal-header:after, .modal-body:after, .modal-footer:after {
+.cf:after, .vrow:after, .vcontainer:after, .vcontainer-small:after, .vsection:after, .header:after, .toggle-inner:after, .footer:after, .vmodal-header:after, .vmodal-body:after, .vmodal-footer:after {
   clear: both;
 }
 
@@ -515,11 +515,29 @@ End:  GRID SYSTEM
 /* ===================== 
 Start: MAIN STYLES      
 ======================== */
-body {
+.body {
   color: #000;
   font-family: ProximaRegular;
   font-size: 18px;
   line-height: 1.42857;
+}
+@media (min-width: 1025px) {
+  .body {
+    -webkit-user-select: all !important;
+    /* Chrome 49+ */
+    -moz-user-select: all !important;
+    /* Firefox 43+ */
+    -ms-user-select: all !important;
+    /* No support yet */
+  }
+}
+@media (max-width: 1024px) {
+  .body {
+    left: 0;
+    position: relative;
+    overflow-x: hidden;
+    transition: all ease .5s;
+  }
 }
 
 img {
@@ -550,7 +568,7 @@ Start: Connect fonts
   font-family: ProximaRegular;
   src: local("ProximaRegular"), url(../fonts/ProximaRegular.otf);
 }
-.regular, .h2, .main-form input, .modal-title {
+.regular, .h2, .main-form input, .vmodal-title {
   font-family: ProximaRegular;
 }
 
@@ -566,7 +584,7 @@ Start: Connect fonts
   font-family: ProximaLight;
   src: local("ProximaLight"), url(../fonts/ProximaLight.otf);
 }
-.light, .footer a, .modal-transparent .close {
+.light, .footer a {
   font-family: ProximaLight;
 }
 
@@ -672,7 +690,7 @@ End:  Connect fonts
   text-decoration: none;
 }
 
-.text-center, .h3, .toggle-inner-img, .footer, .modal-title {
+.text-center, .h3, .toggle-inner-img, .footer, .vmodal-title {
   text-align: center;
 }
 .text-left {
@@ -1084,76 +1102,51 @@ Start: START FOOTER
 /* =====================
 End:  START FOOTER
 ======================== */
-.fade {
-  opacity: 0;
-  -webkit-transition: opacity 0.15s linear;
-  -o-transition: opacity 0.15s linear;
-  transition: opacity 0.15s linear;
-}
-.fade.in {
-  opacity: 1;
-}
-
-.modal {
-  display: none;
-  overflow: hidden;
-  z-index: 99999999999;
-  -webkit-overflow-scrolling: touch;
-  outline: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-.modal-fixed, .modal, .modal-backdrop {
+.vmodal, .vmodal-backdrop {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  visibility: hidden;
 }
-.modal-open {
+
+.vmodal {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  overflow: hidden;
+  z-index: 1001;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+}
+.vmodal-open {
   overflow: hidden;
 }
-.modal-open .modal {
+.vmodal-open .vmodal {
   overflow-x: hidden;
   overflow-y: auto;
 }
-.modal-transparent {
-  background-color: rgba(0, 0, 0, 0.9);
-}
-.modal-transparent .modal-content {
-  background-color: transparent;
-  border: none;
-  box-shadow: none;
-}
-.modal-transparent .close {
-  color: #fff;
-}
-@media (min-width: 768px) {
-  .modal-transparent .close {
-    top: -15px;
-    right: -85px;
-    font-size: 80px;
-  }
-}
-.modal.fade .modal-dialog {
-  -webkit-transform: translate(0, -25%);
-  -ms-transform: translate(0, -25%);
-  -o-transform: translate(0, -25%);
-  transform: translate(0, -25%);
-  -webkit-transition: transform 0.3s ease-out;
-  -o-transition: transform 0.3s ease-out;
-  transition: transform 0.3s ease-out;
-}
-.modal.in .modal-dialog {
-  -webkit-transform: translate(0, 0);
-  -ms-transform: translate(0, 0);
-  -o-transform: translate(0, 0);
-  transform: translate(0, 0);
-}
-.modal-dialog {
+.vmodal-dialog {
   width: 100%;
   margin: 70px auto;
+  opacity: 0;
+  -webkit-transition: all ease 0.5s;
+  -o-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  -webkit-transform: scale(0.7) translate(0, -150%);
+  -ms-transform: scale(0.7) translate(0, -150%);
+  -o-transform: scale(0.7) translate(0, -150%);
+  transform: scale(0.7) translate(0, -150%);
 }
-.modal-content {
+.vmodal.in .vmodal-dialog {
+  opacity: 1;
+  -webkit-transform: scale(1) translate(0, 0);
+  -ms-transform: scale(1) translate(0, 0);
+  -o-transform: scale(1) translate(0, 0);
+  transform: scale(1) translate(0, 0);
+}
+.vmodal-content {
   background-color: #fff;
   -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
@@ -1162,32 +1155,32 @@ End:  START FOOTER
   background-clip: padding-box;
   outline: 0;
 }
-.modal-backdrop {
-  z-index: 1040;
+.vmodal-backdrop {
+  z-index: 1000;
   background-color: #000000;
 }
-.modal-backdrop.fade {
+.vmodal-backdrop.fade {
   opacity: 0;
   filter: alpha(opacity=0);
 }
-.modal-backdrop.in {
+.vmodal-backdrop.in {
   opacity: 0.5;
   filter: alpha(opacity=50);
 }
-.modal-scrollbar-measure {
+.vmodal-scrollbar-measure {
   position: absolute;
   top: -9999px;
   width: 50px;
   height: 50px;
   overflow: scroll;
 }
-.modal-header {
+.vmodal-header {
   padding: 15px 30px 0 30px;
 }
-.modal-body, .modal-footer {
+.vmodal-body, .vmodal-footer {
   padding: 15px;
 }
-.modal .close {
+.vmodal-close {
   background-color: transparent;
   border: none;
   font-size: 40px;
@@ -1197,26 +1190,30 @@ End:  START FOOTER
   top: 0px;
   right: 0px;
 }
-.modal-title-text {
+.vmodal-title-text {
   text-align: center;
   padding: 5px;
   margin-top: 25px;
 }
-.modal ul li {
+.vmodal ul li {
   margin-bottom: 10px;
   padding-left: 10px;
 }
 @media (min-width: 768px) {
-  .modal-dialog {
+  .vmodal-dialog {
     width: 400px;
   }
-  .modal-dialog-big {
+  .vmodal-dialog-big {
     width: 600px;
     margin: 30px auto;
   }
-  .modal-content {
+  .vmodal-content {
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
   }
+}
+
+.visible {
+  visibility: visible;
 }
