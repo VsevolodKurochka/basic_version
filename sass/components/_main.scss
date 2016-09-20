@@ -1,12 +1,12 @@
-.body{
+body{
   @each $property, $value in $defaultFont{
     #{$property}: #{$value};
   }
   
   @include resp-min(menuViewBreakpoint, $grid-system){
-    -webkit-user-select: all !important;  /* Chrome 49+ */
-    -moz-user-select: all !important;     /* Firefox 43+ */
-    -ms-user-select: all !important;      /* No support yet */
+    -webkit-user-select: all;  /* Chrome 49+ */
+    -moz-user-select: all;     /* Firefox 43+ */
+    -ms-user-select: all;      /* No support yet */
     //user-select: all !important;          /* Likely future */ 
   }
   @include resp-max(menuViewBreakpoint, $grid-system){

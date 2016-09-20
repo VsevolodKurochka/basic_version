@@ -297,10 +297,7 @@ End:  COLUMNS
 /* ===================== 
 Start: HIDDEN AND VISIBLE UTILITIES      
 ======================== */
-.visible-xs,
-.visible-sm,
-.visible-md,
-.visible-lg {
+.visible-lg, .visible-md, .visible-sm, .visible-xs, .visible-exs {
   display: none !important;
 }
 
@@ -337,6 +334,11 @@ Start: HIDDEN AND VISIBLE UTILITIES
   }
 
   .visible-xs {
+    display: block !important;
+  }
+}
+@media (min-width: 320px) and (max-width: 479px) {
+  .visible-exs {
     display: block !important;
   }
 }
@@ -515,24 +517,24 @@ End:  GRID SYSTEM
 /* ===================== 
 Start: MAIN STYLES      
 ======================== */
-.body {
+body {
   color: #000;
   font-family: ProximaRegular;
   font-size: 18px;
   line-height: 1.42857;
 }
 @media (min-width: 1025px) {
-  .body {
-    -webkit-user-select: all !important;
+  body {
+    -webkit-user-select: all;
     /* Chrome 49+ */
-    -moz-user-select: all !important;
+    -moz-user-select: all;
     /* Firefox 43+ */
-    -ms-user-select: all !important;
+    -ms-user-select: all;
     /* No support yet */
   }
 }
 @media (max-width: 1024px) {
-  .body {
+  body {
     left: 0;
     position: relative;
     overflow-x: hidden;
@@ -1085,6 +1087,28 @@ End:  HEADER
 }
 .main-form .btn {
   width: 100%;
+}
+
+.fixed {
+  position: fixed;
+  width: 100%;
+  left: 0;
+}
+.fixed.bottom {
+  bottom: 0;
+}
+
+.development {
+  padding: 15px;
+  background-color: #000;
+  color: #fff;
+}
+
+.test {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 /* ===================== 

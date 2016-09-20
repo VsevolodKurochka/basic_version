@@ -146,3 +146,8 @@ $error: "This variable we do not have, sorry. Please try to change variable";
   content: $contentText;
   position: absolute;
 }
+@mixin pseudoBlock($dirHor: left, $dirHorValue: 0, $dirVert: top, $dirVertValue: 0){
+  @include pseudo();
+  #{$dirHor}: $dirHorValue;
+  #{$dirVert}: $dirVertValue;
+}

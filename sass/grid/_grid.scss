@@ -20,13 +20,12 @@ End:  COLUMNS
 Start: HIDDEN AND VISIBLE UTILITIES      
 ======================== */
 %visible{
-
-}
-.visible-xs,
-.visible-sm,
-.visible-md,
-.visible-lg{
   display: none !important;
+}
+@each $br-name, $br-value in $breakpoints{
+  .visible-#{$br-name}{
+    @extend %visible;
+  }
 }
 @include resp-min(lg){
   @include visibility-hidden(lg);
@@ -47,6 +46,11 @@ Start: HIDDEN AND VISIBLE UTILITIES
 @include resp-max(sm){
   @include visibility-hidden(xs);
   @include visibility-visible(xs); 
+}
+@include resp-min(exs){
+  @include resp-max(xs){
+    @include visibility-visible(exs);
+  }
 }
 /* =====================
 End:  HIDDEN AND VISIBLE UTILITIES

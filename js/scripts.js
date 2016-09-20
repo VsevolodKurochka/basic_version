@@ -60,9 +60,13 @@ $(document).ready(function(){
 		
 		$('[data-modal="modal"]').click(function(){
 			var thisTarget = $(this).attr("data-modal-target");
-			$(thisTarget).addClass(visibility);
-			body.append(backdrop).addClass("vmodal-open");
-			backdrop.addClass(visibility);
+			if ( thisTarget ) {
+				$(thisTarget).addClass(visibility);
+				body.append(backdrop).addClass("vmodal-open");
+				backdrop.addClass(visibility);
+			}else{
+				console.log("Need attribtue [data-modal-target].");
+			}
 		});
 		$('[data-close="modal"]').click(function(){
 			$(this).closest(".vmodal").removeClass(visibility);
@@ -79,13 +83,7 @@ $(document).ready(function(){
 				}
 			}
 		});
-		// backdrop.click(function(){
-		// 	$(".vmodal.in").removeClass(visibility);
-		// 	backdrop.removeClass(visibility);
-		// 	console.log("backdrop clicked");
-		// });
-		
-		// $(".vmodal").click(function(){
-		// 	console.log("vmodal clicked");
-		// });
+		//DEVELOPE
+		// var widthDevice = $(window).width();
+		// $(".development").html(widthDevice);
 });	
