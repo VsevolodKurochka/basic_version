@@ -1,3 +1,11 @@
+.fade {
+  opacity: 0;
+  @include transition(all ease 0.5s);
+  &.in{
+    opacity: 1;
+  }
+}
+
 %visibility{
   position: fixed;
   top: 0;
