@@ -112,10 +112,10 @@ End:  HIDDEN AND VISIBLE UTILITIES
   @extend .cf;
   @extend %padding-block;
   @extend .relative;
-  @include resp-max(lg){
-    padding-left: $gutter;
-    padding-right: $gutter;
-  }
+  // @include resp-max(lg){
+  //   padding-left: $gutter;
+  //   padding-right: $gutter;
+  // }
 }
 .vpull{
   &-left{

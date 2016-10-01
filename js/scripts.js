@@ -3,9 +3,7 @@ $(document).ready(function(){
 		// VARIABLES
 		var header_menu_name 	= 'header-menu',
 				header_menu 			= $('.' + header_menu_name),
-				button_menu 			= $('.btn-menu'),
-				body 							= $(".body"),
-				responsiveBr      = 1024,
+				body 							= $("body"),
 				visibility        = "in visible",
 		 		backdrop = $("<div />", {
 					class: "vmodal-backdrop fade"
@@ -13,13 +11,13 @@ $(document).ready(function(){
 		//MENU
 			//SCRIPTS
 			function toggler(){
-				body.toggleClass("header-menu-push");
-				button_menu.toggleClass('navbar-toggle-open');
-				header_menu.toggleClass('header-menu-open');
+				header_menu.toggleClass('active');
 			}
-			button_menu.click(function(e){
+			$("[data-menu]").click(function(){
+				var menu_href = $(this).attr("data-menu");
+				$("[data-menu]").removeClass("active");
+				$(this).toggleClass("active");
 				toggler();
-				e.stopPropagation();
 			});
 			$('.anchor-menu').click(function(){
 				var href = $(this).attr('href');
@@ -29,17 +27,17 @@ $(document).ready(function(){
 				toggler();
 				return false;
 			});
-			function menuSwipe(){
-				if ( $(document).width() <= responsiveBr ) {
-					body.hammer().on("swiperight", function(){
-						toggler();
-					}).on("swipeleft", function(){
-						toggler();
-					});
-				}
-			}
-			menuSwipe();
-			$(window).resize(menuSwipe);
+			// function menuSwipe(){
+			// 	if ( $(document).width() <= responsiveBr ) {
+			// 		body.hammer().on("swiperight", function(){
+			// 			toggler();
+			// 		}).on("swipeleft", function(){
+			// 			toggler();
+			// 		});
+			// 	}
+			// }
+			// menuSwipe();
+			// $(window).resize(menuSwipe);
 			
 		// $(document).click(function(e){
 		// 	if( header_menu.hasClass(header_menu_name + '-open') ) {

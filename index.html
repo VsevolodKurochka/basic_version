@@ -13,7 +13,6 @@
 	<link rel="stylesheet" href="css/style.css">
 	<!-- Jquery, Bootstrap, WOW, Masked Input -->
 	<script src="js/min.scripts.js"></script>
-	<script src="js/hammer.js"></script>
 	<script src="js/scripts.js"></script>
 
 	<!--<script src="js/modal.min.js"></script>-->
@@ -26,13 +25,11 @@
 					<div class="vcol-xs-12 vcol-md-4 max-md-center">
 						<div class="header-logo">
 							<img src="img/logo.png" alt="">
-							<div class="test">
-								<button type="button" class="header-menu-btn btn-menu navbar-toggle">
-		              <span class="icon-bar icon-bar-1"></span>
-		              <span class="icon-bar icon-bar-2"></span>
-		              <span class="icon-bar icon-bar-3"></span>
-		            </button>
-	            </div>
+							<button type="button" class="header-menu-btn" data-menu=".header-menu">
+	              <span class="icon-bar icon-bar-1"></span>
+	              <span class="icon-bar icon-bar-2"></span>
+	              <span class="icon-bar icon-bar-3"></span>
+	            </button>
           	</div>
 					</div>
 					<div class="vcol-xs-12 vcol-md-3 vpull-md-right text-md-right max-md-center">
@@ -40,11 +37,11 @@
 							<p>+38 (063) 505 62 63</p>
 						</div>
 					</div>	
-					<div class="vcol-xs-5 header-menu">
+					<div class="vcol-xs-5 header-menu appear-top">
 						<div class="header-inf">
 							<div class="cf header-inf-logo">								
 								<img src="img/logo.png" alt="">
-								<button type="button" class="header-inf-btn btn-menu"></button>
+								<button type="button" class="header-inf-btn " data-menu=".header-menu"></button>
 							</div>
 							<div class="header-inf-tagline">
 								<p>COMPANY_TAGLINE</p>
@@ -73,11 +70,9 @@
 			</div>
 		</section>
 	</main>
-	<div class="fixed bottom development">
-		
-	</div>
+	<div class="fixed bottom development"></div>
 	<!-- section.vsection>.vcontainer>.vrow>h3.h3 -->
-<!-- <button class="btn btn-effect btn-orange" data-modal="modal" data-modal-target="#modaltest">Забронировать место в онлайн группе</button> -->
+<!-- <button class="btn btn-effect btn-orange" data-modal="modal" data-modal-target="#modaltest"></button> -->
 <div class="vmodal fade" id="modaltest">
   <div class="vmodal-dialog">
     <div class="vmodal-content text-center">

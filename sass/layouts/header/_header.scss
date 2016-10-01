@@ -1,6 +1,6 @@
 .header {
 	@extend .cf;
-	padding: 10px 0 25px;
+	padding-bottom: 25px;
 	min-height: 50px;
 	@include bg('../img/header.jpg');
 	&-text{
@@ -10,9 +10,12 @@
 		@extend .bold;
 	}
 	@include resp-max(md){
-		padding-top: 40px;
+		&-logo{
+			margin-top: 40px;
+		}
 	}
 	@include resp-min(md){
+		padding-top: 10px;
 		&-container-text{
 			margin-top: 50px;
 		}
