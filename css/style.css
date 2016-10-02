@@ -345,7 +345,7 @@ Start: HIDDEN AND VISIBLE UTILITIES
 /* =====================
 End:  HIDDEN AND VISIBLE UTILITIES
 ======================== */
-.relative, [class*="col-"], .vcontainer, .vcontainer-small, .cf, .vrow, .vsection, .header, .toggle-inner, .footer, .vmodal-header, .vmodal-body, .vmodal-footer, .header-menu li a, .btn, .list li, .vmodal-dialog, .vmodal-content {
+.relative, [class*="col-"], .vcontainer, .vcontainer-small, .cf, .vrow, .vsection, .header, .footer, .vmodal-header, .vmodal-body, .vmodal-footer, .header-menu li a, .btn, .list li, .vmodal-dialog, .vmodal-content {
   position: relative;
 }
 
@@ -361,11 +361,11 @@ End:  HIDDEN AND VISIBLE UTILITIES
   margin-right: auto;
 }
 
-.cf:after, .vrow:after, .vcontainer:after, .vcontainer-small:after, .vsection:after, .header:after, .toggle-inner:after, .footer:after, .vmodal-header:after, .vmodal-body:after, .vmodal-footer:after, .cf:before, .vrow:before, .vcontainer:before, .vcontainer-small:before, .vsection:before, .header:before, .toggle-inner:before, .footer:before, .vmodal-header:before, .vmodal-body:before, .vmodal-footer:before {
+.cf:after, .vrow:after, .vcontainer:after, .vcontainer-small:after, .vsection:after, .header:after, .footer:after, .vmodal-header:after, .vmodal-body:after, .vmodal-footer:after, .cf:before, .vrow:before, .vcontainer:before, .vcontainer-small:before, .vsection:before, .header:before, .footer:before, .vmodal-header:before, .vmodal-body:before, .vmodal-footer:before {
   content: "";
   display: table;
 }
-.cf:after, .vrow:after, .vcontainer:after, .vcontainer-small:after, .vsection:after, .header:after, .toggle-inner:after, .footer:after, .vmodal-header:after, .vmodal-body:after, .vmodal-footer:after {
+.cf:after, .vrow:after, .vcontainer:after, .vcontainer-small:after, .vsection:after, .header:after, .footer:after, .vmodal-header:after, .vmodal-body:after, .vmodal-footer:after {
   clear: both;
 }
 
@@ -544,7 +544,7 @@ Start: Connect fonts
   font-family: ProximaRegular;
   src: local("ProximaRegular"), url(../fonts/ProximaRegular.otf);
 }
-.regular, body, .h2, .main-form input, .vmodal-title {
+.regular, body, .h2, .main-form input {
   font-family: ProximaRegular;
 }
 
@@ -552,7 +552,7 @@ Start: Connect fonts
   font-family: ProximaBold;
   src: local("ProximaBold"), url(../fonts/ProximaBold.otf);
 }
-.bold, .header-text, .header-inf-tagline, .btn {
+.bold, .header-text, .header-inf-tagline, .btn, .vmodal-title {
   font-family: ProximaBold;
 }
 
@@ -666,7 +666,7 @@ End:  Connect fonts
   text-decoration: none;
 }
 
-.text-center, .h3, .toggle-inner-img, .footer, .vmodal-title {
+.text-center, .h3, .footer, .vmodal-title {
   text-align: center;
 }
 .text-left {
@@ -824,7 +824,7 @@ Start: HEADER
   .header-menu-btn {
     position: fixed;
     top: -1px;
-    left: -1px;
+    : -1px;
     z-index: 11;
     padding: 10px;
     background-color: #ff8001;
@@ -924,14 +924,14 @@ End:  HEADER
 ======================== */
 .btn {
   border: none;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
   max-width: 100%;
   padding: 10px 20px;
   overflow: hidden;
   z-index: 1;
   font-size: 16px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
 }
 @media (min-width: 480px) {
   .btn {
@@ -955,8 +955,8 @@ End:  HEADER
   height: calc(450% - 40px);
   opacity: 1;
 }
-.btn-green {
-  background-color: #ddd;
+.btn-corp {
+  background-color: #ff8001;
 }
 @media (min-width: 768px) {
   .btn-single {
@@ -1002,35 +1002,6 @@ End:  HEADER
   }
   .list-cancel li {
     padding-left: 50px;
-  }
-}
-
-.toggle-subtitle-no-margin .subtitle {
-  margin-bottom: 0;
-}
-@media (min-width: 768px) {
-  .toggle-inner-big-margin {
-    margin-bottom: 150px;
-  }
-  .toggle-inner-big-margin:last-child {
-    margin-bottom: 75px;
-  }
-  .toggle-inner-small-margin {
-    margin-bottom: 50px;
-  }
-  .toggle-inner-small-margin:last-child {
-    margin-bottom: 0;
-  }
-}
-@media (min-width: 768px) {
-  .toggle .toggle-inner-right:nth-child(odd) .toggle-inner-img,
-  .toggle .toggle-inner-right:nth-child(even) .toggle-inner-text,
-  .toggle .toggle-inner-left:nth-child(odd) .toggle-inner-text,
-  .toggle .toggle-inner-left:nth-child(even).toggle-inner-img {
-    float: right;
-  }
-  .toggle .toggle-inner-right:nth-child(even) .toggle-inner-text .subtitle, .toggle .toggle-inner-right:nth-child(even) .toggle-inner-text p {
-    text-align: right;
   }
 }
 
@@ -1199,6 +1170,9 @@ End:  START FOOTER
 }
 .vmodal-body, .vmodal-footer {
   padding: 15px;
+}
+.vmodal-body {
+  font-size: 15px;
 }
 .vmodal-close {
   background-color: transparent;

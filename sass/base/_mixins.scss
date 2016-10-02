@@ -22,17 +22,6 @@ $error: "This variable we do not have, sorry. Please try to change variable";
      @error $error + " #{$breakpoint}";
   }
 }
-// @mixin resp($breakpoint){
-//   $value: map-get($breakpoints,$breakpoint);
-//   @if $value != null { 
-//     @media (max-width: $value) {
-//       @content;
-//     } 
-//   }
-//   @else{
-//      @error $error + " #{$breakpoint}";
-//   }
-// }
 
 //MIXIN FONT
 @mixin connect-font($font,$class_name: $font){
@@ -85,22 +74,22 @@ $error: "This variable we do not have, sorry. Please try to change variable";
   @for $i from 1 through $columns{
     $defaultValue: ($width/$columns) * $i;
     @if $class != null{
-      .vcol-#{$class}-#{$i}{
+      .#{$columnName}-#{$class}-#{$i}{
         width: $defaultValue;
       }      
     }
     @if $push == "push"{
-      .vcol-#{$class}-push-#{$i}{
+      .#{$columnName}-#{$class}-push-#{$i}{
         left: $defaultValue;
       }      
     }
     @if $pull == "pull"{
-      .vcol-#{$class}-pull-#{$i}{
+      .#{$columnName}-#{$class}-pull-#{$i}{
         right: $defaultValue;
       }
     }
     @if $offset == "offset" {
-      .vcol-#{$class}-offset-#{$i}{
+      .#{$columnName}-#{$class}-offset-#{$i}{
         margin-left: $defaultValue;
       }
     }
@@ -150,4 +139,13 @@ $error: "This variable we do not have, sorry. Please try to change variable";
   @include pseudo();
   #{$dirHor}: $dirHorValue;
   #{$dirVert}: $dirVertValue;
+}
+@mixin cf(){
+  &:after, &:before{
+    content: "";
+    display: table;
+  }
+  &:after{
+    clear: both;
+  }
 }

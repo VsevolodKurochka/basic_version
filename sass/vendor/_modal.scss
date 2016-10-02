@@ -23,17 +23,8 @@
   z-index: 1001;
   -webkit-overflow-scrolling: touch;
   outline: 0;
-  // @include resp-min(sm){
-  //   max-width: 600px;
-  //   left: 50%;
-  //   margin-left: -300px;
-  // }
   &-open{
     overflow: hidden;
-    // padding-right: 17px;
-    // .main{
-    //   margin-right: -17px;
-    // }
     .vmodal{
       overflow-x: hidden;
       overflow-y: auto;
@@ -57,13 +48,6 @@
 
     }
   } 
-  // &.fade{
-  //   .vmodal-dialog{
-  //     @include transform(translate(0, -25%));
-  //   }
-  // } 
-  
-
   &-content{
     @extend .relative;
     background-color: #fff;
@@ -123,6 +107,9 @@
   &-footer{
     padding: 15px;  
   }
+  &-body{
+    font-size: 15px;
+  }
   &-close{
     background-color: transparent;
     border: none;
@@ -135,7 +122,7 @@
   }
   &-title{
     @extend .text-center;
-    @extend .regular !optional;
+    @extend .bold !optional;
     &-text{
       text-align: center;
       padding: 5px;

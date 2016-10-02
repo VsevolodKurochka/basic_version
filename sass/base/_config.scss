@@ -35,16 +35,17 @@ $breakpoints: (
 
 $grid-system: (
 	columns 							: 12,
+	columnName            : "vcol",
 	width 								: 100%,
 	gutter 								: 15px,
 	containerWidth 				: 1170px,
 	containerSmallWidth 	: 970px,
 	menuExists            : true,
-	menuDirection 				: left,
 	menuViewBreakpoint    : map-get($breakpoints, md)
 );
 
 $columns         		: map-get($grid-system, columns);
+$columnName         : map-get($grid-system, columnName);
 $width           		: map-get($grid-system, width);
 $gutter          		: map-get($grid-system, gutter);
 $container       		: map-get($grid-system, containerWidth);

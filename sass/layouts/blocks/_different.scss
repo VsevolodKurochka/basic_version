@@ -1,46 +1,46 @@
-.toggle{
-  &-subtitle-no-margin{
-    .subtitle{
-      margin-bottom: 0;
-    }
-  }
-  &-inner{
-    @extend .cf;
-    @include resp-min(sm){
-      &-big-margin{
-       margin-bottom: 150px;
-        &:last-child{
-          margin-bottom: 75px;
-        }
-      }
-      &-small-margin{
-        margin-bottom: 50px;
-        &:last-child{
-          margin-bottom: 0;
-        }
-      }
-    }
-    &-img{
-      @extend .text-center;
-    }
-  }
-  @include resp-min(sm){
-    //ODD - нечетное
-    .toggle-inner-right:nth-child(odd) .toggle-inner-img,
-    .toggle-inner-right:nth-child(even) .toggle-inner-text,
-    .toggle-inner-left:nth-child(odd) .toggle-inner-text,
-    .toggle-inner-left:nth-child(even).toggle-inner-img {      
-        float: right;
-    }
-    .toggle-inner-right:nth-child(even){
-      .toggle-inner-text{
-        .subtitle,p{
-          text-align: right;
-        }
-      }
-    }   
-  }
-}
+// .toggle{
+//   &-subtitle-no-margin{
+//     .subtitle{
+//       margin-bottom: 0;
+//     }
+//   }
+//   &-inner{
+//     @extend .cf;
+//     @include resp-min(sm){
+//       &-big-margin{
+//        margin-bottom: 150px;
+//         &:last-child{
+//           margin-bottom: 75px;
+//         }
+//       }
+//       &-small-margin{
+//         margin-bottom: 50px;
+//         &:last-child{
+//           margin-bottom: 0;
+//         }
+//       }
+//     }
+//     &-img{
+//       @extend .text-center;
+//     }
+//   }
+//   @include resp-min(sm){
+//     //ODD - нечетное
+//     .toggle-inner-right:nth-child(odd) .toggle-inner-img,
+//     .toggle-inner-right:nth-child(even) .toggle-inner-text,
+//     .toggle-inner-left:nth-child(odd) .toggle-inner-text,
+//     .toggle-inner-left:nth-child(even).toggle-inner-img {      
+//         float: right;
+//     }
+//     .toggle-inner-right:nth-child(even){
+//       .toggle-inner-text{
+//         .subtitle,p{
+//           text-align: right;
+//         }
+//       }
+//     }   
+//   }
+// }
 .vertical-image{
   &:before{
     content: "";

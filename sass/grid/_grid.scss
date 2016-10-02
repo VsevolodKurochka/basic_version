@@ -71,13 +71,7 @@ End:  HIDDEN AND VISIBLE UTILITIES
 }
 .cf{
   @extend .relative;
-  &:after, &:before{
-    content: "";
-    display: table;
-  }
-  &:after{
-    clear: both;
-  }
+  @include cf();
 }
 .vrow{
   @extend .cf;
