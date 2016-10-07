@@ -25,6 +25,7 @@
   outline: 0;
   &-open{
     overflow: hidden;
+    padding-right: 17px;
     .vmodal{
       overflow-x: hidden;
       overflow-y: auto;

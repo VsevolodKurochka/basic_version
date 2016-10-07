@@ -1,0 +1,16 @@
+.fixed{
+  position: fixed;
+  width: 100%;
+  left: 0;
+  &.bottom{
+    bottom: 0;
+  }
+}
+.development{
+  padding: 15px;
+  background-color: #000;
+  color: #fff;
+}
+.test{
+  @include pseudoBlock();
+}

@@ -77,10 +77,18 @@ $(document).ready(function(){
 					$(".vmodal.in").removeClass(visibility);
 					backdrop.removeClass(visibility);
 					body.removeClass("vmodal-open");
-					console.log("document clicked");
 				}
 			}
 		});
+
+		//COLLAPSE
+			$(".vcollapse-inner.active").children(".vcollapse-body").slideDown();
+			$(".vcollapse-header").click(function(){
+				$(this).parent().toggleClass("active");
+				$(this).next().slideToggle("slow");
+				$(this).closest(".vcollapse-wrap").children(".vcollapse-inner").not($(this).parent()).removeClass("active");
+				$(this).closest(".vcollapse-wrap").children(".vcollapse-inner").children(".vcollapse-body").not($(this).next()).slideUp("slow");
+			});
 		//DEVELOPE
 		// var widthDevice = $(window).width();
 		// $(".development").html(widthDevice);
