@@ -67,8 +67,9 @@
 		    }
 				&-btn{
 					position: fixed;
+
 					top: -1px;
-					#{$menuDirection}: -1px;
+					left: -1px;
 					z-index: 11;	
 				  padding: 10px;
 				  background-color: setColor(corp);

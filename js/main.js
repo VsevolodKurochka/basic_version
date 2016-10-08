@@ -5,18 +5,21 @@ $(document).ready(function(){
 				header_menu 			= $('.' + header_menu_name),
 				body 							= $("body"),
 				visibility        = "in visible",
+				active            = "active",
 		 		backdrop = $("<div />", {
 					class: "vmodal-backdrop fade"
 				});
 		//MENU
 			//SCRIPTS
 			function toggler(){
-				header_menu.toggleClass('active');
+				header_menu.toggleClass(active);
+				body.toggleClass(active);
+
 			}
 			$("[data-menu]").click(function(){
 				var menu_href = $(this).attr("data-menu");
-				$("[data-menu]").removeClass("active");
-				$(this).toggleClass("active");
+				$("[data-menu]").removeClass(active);
+				$(this).toggleClass(active);
 				toggler();
 			});
 			$('.anchor-menu').click(function(){
@@ -24,6 +27,7 @@ $(document).ready(function(){
 				$('body,html').animate({
 					scrollTop: $(href).offset().top
 				},2000);
+				$("[data-menu]").removeClass(active);
 				toggler();
 				return false;
 			});
@@ -84,7 +88,7 @@ $(document).ready(function(){
 		//COLLAPSE
 			$(".vcollapse-inner.active").children(".vcollapse-body").slideDown();
 			$(".vcollapse-header").click(function(){
-				$(this).parent().toggleClass("active");
+				$(this).parent().toggleClass(active);
 				$(this).next().slideToggle("slow");
 				$(this).closest(".vcollapse-wrap").children(".vcollapse-inner").not($(this).parent()).removeClass("active");
 				$(this).closest(".vcollapse-wrap").children(".vcollapse-inner").children(".vcollapse-body").not($(this).next()).slideUp("slow");

@@ -59,6 +59,12 @@ $h3-font-sizes: (
     }
   }
 }
+//$sizes in _config.scss
+@each $size-name, $size-value in $sizes{
+  .#{$size-name}{
+    font-size: #{$size-value};
+  }
+}
 .t{
   &tu{
     text-transform: uppercase;

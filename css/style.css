@@ -322,11 +322,11 @@ Start: HIDDEN AND VISIBLE UTILITIES
 /* =====================
 End:  HIDDEN AND VISIBLE UTILITIES
 ======================== */
-.relative, [class*="col-"], .vcontainer, .vcontainer-small, .cf, .vrow, .vsection, .header, .footer, .vmodal-header, .vmodal-body, .vmodal-footer, .btn, .list li, .header-menu li a, .vmodal-dialog, .vmodal-content {
+.relative, [class*="vcol-"], .vcontainer, .vcontainer-small, .cf, .vrow, .vsection, .header, .footer, .vmodal-header, .vmodal-body, .vmodal-footer, .vbtn, .list li, .header-menu li a, .vmodal-dialog, .vmodal-content {
   position: relative;
 }
 
-[class*="col-"], .vcontainer, .vcontainer-small {
+[class*="vcol-"], .vcontainer, .vcontainer-small {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
@@ -351,7 +351,7 @@ End:  HIDDEN AND VISIBLE UTILITIES
   margin-right: -15px;
 }
 
-[class*="col-"] {
+[class*="vcol-"] {
   float: left;
 }
 
@@ -477,7 +477,7 @@ End:  HIDDEN AND VISIBLE UTILITIES
   margin-bottom: 0 !important;
 }
 
-.block-inline, img, .btn, .main-form input, .header-text, .footer-b {
+.block-inline, img, .vbtn, .main-form input, .header-text, .footer-b {
   display: inline-block;
 }
 
@@ -491,6 +491,10 @@ body {
   color: #000;
   font-size: 18px;
   line-height: 1.42857143;
+}
+body.active {
+  overflow-y: hidden;
+  padding-right: 17px;
 }
 
 img {
@@ -529,7 +533,7 @@ Start: Connect fonts
   font-family: ProximaBold;
   src: local("ProximaBold"), url(../fonts/ProximaBold.otf);
 }
-.bold, .btn, .header-text, .header-inf-tagline, .vmodal-title {
+.bold, strong, .strong, b, .b, .vbtn, .header-text, .header-inf-tagline, .vmodal-title {
   font-family: ProximaBold;
 }
 
@@ -537,7 +541,7 @@ Start: Connect fonts
   font-family: ProximaLight;
   src: local("ProximaLight"), url(../fonts/ProximaLight.otf);
 }
-.light, .footer a {
+.light, .footer a, .vmodal-transparent .vmodal-close {
   font-family: ProximaLight;
 }
 
@@ -552,11 +556,11 @@ Start: Connect fonts
 /* =====================
 End:  Connect fonts
 ======================== */
-.transition, .btn, .btn-effect:before, .btn-effect-1:before, .main-form input, .header-menu, .header-menu li a:after {
+.transition, .vbtn, .vbtn-effect:before, .vbtn-effect-skew:before, .vbtn-effect-shutter-vertical-out:before, .vbtn-effect-shutter-horizontal-out:before, .vbtn-effect-bounce:before, .vbtn-effect-bounce-top:before, .vbtn-effect-bounce-bottom:before, .main-form input, .header-menu, .header-menu li a:after {
   transition: all ease .5s;
 }
 
-.pseudo, .btn-effect:before, .btn-effect-1:before, .list li:after, .header-menu li a:after, .header-inf-btn:after, .header-inf-btn:before {
+.pseudo, .vbtn-effect:before, .vbtn-effect-skew:before, .vbtn-effect-shutter-vertical-out:before, .vbtn-effect-shutter-horizontal-out:before, .vbtn-effect-bounce:before, .vbtn-effect-bounce-top:before, .vbtn-effect-bounce-bottom:before, .list li:after, .header-menu li a:after, .header-inf-btn:after, .header-inf-btn:before {
   content: "";
   position: absolute;
 }
@@ -572,7 +576,7 @@ End:  Connect fonts
   vertical-align: middle;
 }
 
-.btn {
+.vbtn {
   border: none;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -584,13 +588,21 @@ End:  Connect fonts
   font-size: 16px;
 }
 @media (min-width: 480px) {
-  .btn {
+  .vbtn {
     font-size: 18px;
-    padding: 10px 40px;
+    padding: 30px;
   }
 }
-.btn-effect-1:before {
+.vbtn-effect, .vbtn-effect-skew, .vbtn-effect-shutter-vertical-out, .vbtn-effect-shutter-horizontal-out, .vbtn-effect-bounce, .vbtn-effect-bounce-top, .vbtn-effect-bounce-bottom {
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.vbtn-effect:before, .vbtn-effect-skew:before, .vbtn-effect-shutter-vertical-out:before, .vbtn-effect-shutter-horizontal-out:before, .vbtn-effect-bounce:before, .vbtn-effect-bounce-top:before, .vbtn-effect-bounce-bottom:before {
   z-index: -1;
+}
+.vbtn-effect-skew:before {
   width: 100%;
   height: 0;
   top: 50%;
@@ -601,20 +613,63 @@ End:  Connect fonts
   -o-transform: translateX(-50%) translateY(-50%) rotate(45deg);
   transform: translateX(-50%) translateY(-50%) rotate(45deg);
 }
-.btn-effect-1:hover:before {
+.vbtn-effect-skew:hover:before {
   height: calc(450% - 40px);
   opacity: 1;
 }
-.btn-corp {
+.vbtn-effect-bgtransition:before, .vbtn-effect-shutter:before, .vbtn-effect-shutter-vertical-out:before, .vbtn-effect-shutter-horizontal-out:before, .vbtn-effect-bounce:before, .vbtn-effect-bounce-top:before, .vbtn-effect-bounce-bottom:before {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #f00;
+}
+.vbtn-effect-shutter-vertical-out:before, .vbtn-effect-bounce:before, .vbtn-effect-bounce-top:before, .vbtn-effect-bounce-bottom:before {
+  -webkit-transform: scaleY(0);
+  -ms-transform: scaleY(0);
+  -o-transform: scaleY(0);
+  transform: scaleY(0);
+}
+.vbtn-effect-shutter-vertical-out:hover:before, .vbtn-effect-bounce:hover:before, .vbtn-effect-bounce-top:hover:before, .vbtn-effect-bounce-bottom:hover:before {
+  -webkit-transform: scaleY(1);
+  -ms-transform: scaleY(1);
+  -o-transform: scaleY(1);
+  transform: scaleY(1);
+}
+.vbtn-effect-shutter-horizontal-out:before {
+  -webkit-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  -o-transform: scaleX(0);
+  transform: scaleX(0);
+}
+.vbtn-effect-shutter-horizontal-out:hover:before {
+  -webkit-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  -o-transform: scaleX(1);
+  transform: scaleX(1);
+}
+.vbtn-effect-bounce:hover:before, .vbtn-effect-bounce-top:hover:before, .vbtn-effect-bounce-bottom:hover:before {
+  -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+  transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+.vbtn-effect-bounce-top:before {
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+}
+.vbtn-effect-bounce-bottom:before {
+  -webkit-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+}
+.vbtn-corp {
   background-color: #ff8001;
 }
 @media (min-width: 768px) {
-  .btn-single {
+  .vbtn-single {
     margin-top: 70px;
   }
 }
 @media (max-width: 767px) {
-  .btn-single {
+  .vbtn-single {
     margin-top: 35px;
   }
 }
@@ -688,6 +743,10 @@ End:  Connect fonts
 .vcollapse-wrap {
   margin-top: 30px;
   margin-bottom: 30px;
+}
+.vcollapse-wrap > .vcollapse-wrap {
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .vcollapse-header {
   cursor: pointer;
@@ -794,7 +853,7 @@ Start: HEADER
   .header-menu-btn {
     position: fixed;
     top: -1px;
-    : -1px;
+    left: -1px;
     z-index: 11;
     padding: 10px;
     background-color: #ff8001;
@@ -988,13 +1047,25 @@ End:  START FOOTER
     margin-bottom: 30px;
   }
 }
+.text_smaller {
+  font-size: 12px;
+}
+
+.text_small {
+  font-size: 14px;
+}
+
+.text_default {
+  font-size: 18px;
+}
+
 .ttu, .header-inf-tagline {
   text-transform: uppercase;
 }
 .tdu {
   text-decoration: underline;
 }
-.tdn, .btn, .header-menu li a, .footer a {
+.tdn, .vbtn, .header-menu li a, .footer a {
   text-decoration: none;
 }
 
@@ -1163,14 +1234,55 @@ End:  START FOOTER
   height: 50px;
   overflow: scroll;
 }
-.vmodal-header {
-  padding: 15px 30px 0 30px;
+.vmodal-transparent {
+  background-color: rgba(0, 0, 0, 0.9);
 }
-.vmodal-body, .vmodal-footer {
+.vmodal-transparent .vmodal-content {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+.vmodal-transparent .vmodal-close {
+  color: #fff;
+}
+@media (min-width: 768px) {
+  .vmodal-transparent .vmodal-close {
+    top: -15px;
+    right: -85px;
+    font-size: 80px;
+  }
+}
+.vmodal-header, .vmodal-body, .vmodal-footer {
   padding: 15px;
+}
+.vmodal-text .vmodal-header {
+  background-color: #e8e8e8;
+}
+.vmodal-text .vmodal-body {
+  padding-left: 0;
+  padding-right: 0;
+  background-color: #f5f5f5;
 }
 .vmodal-body {
   font-size: 15px;
+}
+.vmodal-body-inner {
+  height: 350px;
+  overflow-y: auto;
+  padding: 15px;
+  border-radius: 6px;
+}
+.vmodal-body-inner p {
+  margin-bottom: 15px;
+}
+.vmodal-body-inner p:last-child {
+  margin-bottom: 0;
+}
+@media (min-width: 768px) {
+  .vmodal-body-inner {
+    padding: 0 30px;
+    height: 400px;
+  }
 }
 .vmodal-close {
   background-color: transparent;
@@ -1195,7 +1307,7 @@ End:  START FOOTER
   .vmodal-dialog {
     width: 400px;
   }
-  .vmodal-dialog-big {
+  .vmodal-dialog.big {
     width: 600px;
     margin: 30px auto;
   }

@@ -78,7 +78,7 @@ End:  HIDDEN AND VISIBLE UTILITIES
   margin-left: -$gutter;
   margin-right: -$gutter;
 }
-[class*="col-"] {
+[class*="vcol-"] {
   @extend %global-block;
   float: left;
 }
