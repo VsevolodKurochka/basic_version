@@ -5,7 +5,7 @@ body{
   line-height: 1.42857143;
   &.active{
     overflow-y: hidden;
-    padding-right: 17px;
+    //padding-right: 17px;
   }
 }
 img{
@@ -32,5 +32,5 @@ a,button{
   cursor: pointer;
 }
 strong,.strong,b,.b{
-  @extend .bold !optional;
+  @extend .blacks !optional;
 }

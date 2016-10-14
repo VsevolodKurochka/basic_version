@@ -13,7 +13,7 @@ $(document).ready(function(){
 			//SCRIPTS
 			function toggler(){
 				header_menu.toggleClass(active);
-				body.toggleClass(active);
+				//body.toggleClass(active);
 
 			}
 			$("[data-menu]").click(function(){
@@ -60,7 +60,7 @@ $(document).ready(function(){
 			return false;
 		});
 		
-		$('[data-modal="modal"]').click(function(){
+		$('[data-modal="vmodal"]').click(function(){
 			var thisTarget = $(this).attr("data-modal-target");
 			if ( thisTarget ) {
 				$(thisTarget).addClass(visibility);
@@ -70,7 +70,7 @@ $(document).ready(function(){
 				console.log("Need attribtue [data-modal-target].");
 			}
 		});
-		$('[data-close="modal"]').click(function(){
+		$('[data-close="vmodal"]').click(function(){
 			$(this).closest(".vmodal").removeClass(visibility);
 			backdrop.removeClass(visibility);
 			body.removeClass("vmodal-open");

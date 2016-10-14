@@ -494,7 +494,6 @@ body {
 }
 body.active {
   overflow-y: hidden;
-  padding-right: 17px;
 }
 
 img {
@@ -533,7 +532,7 @@ Start: Connect fonts
   font-family: ProximaBold;
   src: local("ProximaBold"), url(../fonts/ProximaBold.otf);
 }
-.bold, strong, .strong, b, .b, .vbtn, .header-text, .header-inf-tagline, .vmodal-title {
+.bold, .vbtn, .header-text, .header-inf-tagline, .vmodal-title {
   font-family: ProximaBold;
 }
 
@@ -556,11 +555,11 @@ Start: Connect fonts
 /* =====================
 End:  Connect fonts
 ======================== */
-.transition, .vbtn, .vbtn-effect:before, .vbtn-effect-skew:before, .vbtn-effect-shutter-vertical-out:before, .vbtn-effect-shutter-horizontal-out:before, .vbtn-effect-bounce:before, .vbtn-effect-bounce-top:before, .vbtn-effect-bounce-bottom:before, .main-form input, .header-menu, .header-menu li a:after {
+.transition, .vbtn, .vbtn:before, .main-form input, .header-menu, .header-menu li a:after {
   transition: all ease .5s;
 }
 
-.pseudo, .vbtn-effect:before, .vbtn-effect-skew:before, .vbtn-effect-shutter-vertical-out:before, .vbtn-effect-shutter-horizontal-out:before, .vbtn-effect-bounce:before, .vbtn-effect-bounce-top:before, .vbtn-effect-bounce-bottom:before, .list li:after, .header-menu li a:after, .header-inf-btn:after, .header-inf-btn:before {
+.pseudo, .vbtn:before, .list li:after, .header-menu li a:after, .header-inf-btn:after, .header-inf-btn:before {
   content: "";
   position: absolute;
 }
@@ -587,20 +586,20 @@ End:  Connect fonts
   z-index: 1;
   font-size: 16px;
 }
+.vbtn:before {
+  z-index: -1;
+}
 @media (min-width: 480px) {
   .vbtn {
     font-size: 18px;
     padding: 30px;
   }
 }
-.vbtn-effect, .vbtn-effect-skew, .vbtn-effect-shutter-vertical-out, .vbtn-effect-shutter-horizontal-out, .vbtn-effect-bounce, .vbtn-effect-bounce-top, .vbtn-effect-bounce-bottom {
+.vbtn-effect {
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   -o-transform: translateZ(0);
   transform: translateZ(0);
-}
-.vbtn-effect:before, .vbtn-effect-skew:before, .vbtn-effect-shutter-vertical-out:before, .vbtn-effect-shutter-horizontal-out:before, .vbtn-effect-bounce:before, .vbtn-effect-bounce-top:before, .vbtn-effect-bounce-bottom:before {
-  z-index: -1;
 }
 .vbtn-effect-skew:before {
   width: 100%;
@@ -622,7 +621,6 @@ End:  Connect fonts
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #f00;
 }
 .vbtn-effect-shutter-vertical-out:before, .vbtn-effect-bounce:before, .vbtn-effect-bounce-top:before, .vbtn-effect-bounce-bottom:before {
   -webkit-transform: scaleY(0);
@@ -663,6 +661,9 @@ End:  Connect fonts
 .vbtn-corp {
   background-color: #ff8001;
 }
+.vbtn-corp:before {
+  background-color: #ff9a34;
+}
 @media (min-width: 768px) {
   .vbtn-single {
     margin-top: 70px;
@@ -700,7 +701,7 @@ End:  Connect fonts
 .main-form input:focus {
   border-color: #ff8001;
 }
-.main-form .btn {
+.main-form .vbtn {
   width: 100%;
 }
 
@@ -917,8 +918,8 @@ Start: HEADER
 }
 .header-inf-btn {
   position: absolute;
-  right: 5px;
-  top: 5px;
+  right: 15px;
+  top: 12px;
   background-color: transparent;
   border: none;
   outline: none;
