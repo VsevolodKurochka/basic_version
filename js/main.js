@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 		// VARIABLES
-		var header_menu_name 	= 'header-menu',
+		var header_menu_name 	= 'vnav-menu',
 				header_menu 			= $('.' + header_menu_name),
 				body 							= $("body"),
 				visibility        = "in visible",
@@ -13,12 +13,11 @@ $(document).ready(function(){
 			//SCRIPTS
 			function toggler(){
 				header_menu.toggleClass(active);
-				//body.toggleClass(active);
-
+				body.toggleClass(active);
 			}
 			$("[data-menu]").click(function(){
 				var menu_href = $(this).attr("data-menu");
-				$("[data-menu]").removeClass(active);
+				$("[data-menu]").not($(this)).removeClass(active);
 				$(this).toggleClass(active);
 				toggler();
 			});

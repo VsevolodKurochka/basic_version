@@ -1,0 +1,170 @@
+.vnav{
+	&-text{
+		@extend .block-inline;
+		padding: 0.5em 0;
+		color: setColor(corp);
+		@extend .bold;
+	}
+	@include resp-max(md){
+		&-logo{
+			img{
+				vertical-align: middle;
+				max-height: 28px;
+			}
+		}
+	}
+	
+	@if ( map-get($grid-system, menuExists) == true ){
+
+		&-menu{
+			@extend %vnav-transitionDef;
+			li{
+				display: inline-block;
+				
+	 			vertical-align: middle;
+	 			text-transform: uppercase;
+				a{
+					@extend .tdn;
+					@extend .relative;
+					color: inherit;
+					&:after{
+						@extend .pseudo;
+						@extend .transition;
+						top: 100%;
+						left: 0;
+						height: 3px;
+						background-color: setColor(corp);
+						opacity: 0;
+						width: 100%;
+						@include borderR(20px);
+						@include transform(scaleX(0) translateY(15px));
+					}
+					&:hover{
+						&:after{
+							opacity: 1;
+							@include transform(scaleX(1) translateY(0) );
+						}
+					}
+				}
+			}
+			@at-root{
+				%vnav-transitionDef{
+					@include transitionMake($tr-dur: .3s);
+				}
+			}
+			&-btn{
+				display: inline-block;
+				vertical-align: middle;	
+				z-index: 11;	
+			  padding: 1px 6px;
+			  width: 48px;
+			  height: 34px;
+			  line-height: 34px;
+			  background-color: transparent;
+			  border: none;
+			  outline: none;
+			  @extend %vnav-transitionDef;
+			  @include transform(rotate(180deg));
+			  @at-root {
+			  	%vbtn-menu-default{
+			  		display: block;
+				  	margin: auto;
+				    width: 24px;
+				    height: 4px;
+				    background-color: setColor(light);
+				    @include borderR(2px);
+				   	@extend %vnav-transitionDef;
+			  	}
+			  	&.active{
+			  		%vbtn-menu-default{
+			  			background-color: setColor(corp);
+			  		}
+			  	}
+			  }
+			  span{
+			  	@extend %vbtn-menu-default;
+			    position: relative;
+			    &:after,
+			    &:before{
+			    	@extend .pseudo;
+						@extend %vbtn-menu-default;
+					  transform-origin: left;
+			    }
+			    &:before{
+			    	top: -8px;
+			    }
+			    &:after{
+			    	top: 8px;
+			    }
+			  }	
+			  &.active{
+			  	@include transform(rotate(360deg));
+			  	span{
+			  		&:after,
+			  		&:before{
+			  			width: 15px;
+			  			top: 0;
+		  			  -webkit-transform-origin: 1.71429px center;
+						  -moz-transform-origin: 1.71429px center;
+						  -ms-transform-origin: 1.71429px center;
+			  		}
+			  		&:before{
+						  @include transform(rotate(-40deg));
+			  		}
+			  		&:after{
+							@include transform(rotate(40deg));
+			  		}
+			  	}
+			  }	
+			}
+		}
+		@include resp-max(md){
+			@at-root{
+				%vnav-resp{
+					display: block;
+					position: fixed;
+					left: 0;
+					background-color: #1b1b1b;
+				}
+			}	
+			top: 0;
+		  right: 0;
+			width: 100%;
+			z-index: 9999;
+			padding: 11px 0;
+			@extend %vnav-resp;
+			&-menu{
+				@extend %vnav-resp;
+				top: 56px;
+				padding: 0;
+		    width: 270px;
+		    height: 100%;
+		    @include transform(translateZ(0) translateX(-120%));
+		    &.active{
+		    	@include transform(none);
+		    }
+		    li{
+		    	display: block;
+		    	a{
+		    		color: #fff;
+		    		display: block;
+		    		padding: 15px;
+		    		margin-bottom: 15px;
+		    		background-color: #212121;
+		    	}
+		    }
+			}
+		}
+		@include resp-min(md){
+			@include cf();
+			&-menu{
+				li{
+					padding: 15px 5px;
+				}
+			}
+			&-menu-btn{
+				display: none;
+			}
+		}
+	}
+}

@@ -1,5 +1,5 @@
 .transition{
-  transition: all ease .5s;
+  @include transitionMake();
 }
 .pseudo{
   @include pseudo();

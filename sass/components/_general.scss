@@ -3,10 +3,6 @@ body{
   @extend .regular;
   font-size: 18px;
   line-height: 1.42857143;
-  &.active{
-    overflow-y: hidden;
-    //padding-right: 17px;
-  }
 }
 img{
   @extend .block-inline;

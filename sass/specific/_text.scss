@@ -13,6 +13,14 @@ $h3-font-sizes: (
   sm:   29px,
   md:   40px
 );
+%lighten{
+  font-weight: 100;
+}
+@for $i from 1 through 4{
+  .h#{$i}, h#{$i}{
+    @extend %lighten;
+  }
+}
 .h1{
   @include font-size($h1-font-sizes);
   line-height: 1.1;

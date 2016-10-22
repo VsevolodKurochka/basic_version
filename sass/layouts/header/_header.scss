@@ -2,17 +2,10 @@
 	@extend .cf;
 	padding-bottom: 25px;
 	min-height: 50px;
-	@include bg('../img/header.jpg');
-	&-text{
-		@extend .block-inline;
-		padding: 0.5em 0;
-		color: setColor(corp);
-		@extend .bold;
-	}
-	@include resp-max(md){
-		&-logo{
-			margin-top: 40px;
-		}
+	//@include bg('../img/header.jpg');
+	background-color: #d6d6d6;
+	&-container-text{
+		margin-top: 75px;
 	}
 	@include resp-min(md){
 		padding-top: 10px;

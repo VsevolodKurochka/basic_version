@@ -149,3 +149,6 @@ $error: "This variable we do not have, sorry. Please try to change variable";
     clear: both;
   }
 }
+@mixin transitionMake($tr-time: ease, $tr-dur: .5s){
+  transition: all $tr-time $tr-dur;
+}

@@ -109,7 +109,7 @@
   &-corp{
     background-color: setColor(corp);
     &:before{
-      background-color: lighten(setColor(corp), 10%);
+      background-color: lighten(setColor(corp), 15%);
     }
   }
   &-single{
