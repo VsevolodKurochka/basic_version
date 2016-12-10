@@ -14,7 +14,7 @@
 		}
 	}
 	
-	@if ( map-get($grid-system, menuExists) == true ){
+	@if ( getComp(menuExists) == true ){
 
 		&-menu{
 			@extend %vnav-transitionDef;

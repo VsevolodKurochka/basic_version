@@ -2,3 +2,6 @@
 @function setColor($color, $tone: base){
   @return map-get(map-get($colors, $color), $tone);
 }
+@function getComp($comp, $map: $grid-system){
+	@return map-get($map,$comp);
+}

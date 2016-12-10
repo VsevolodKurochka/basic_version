@@ -14,3 +14,27 @@
 .test{
   @include pseudoBlock();
 }
+/*
+  display: flex - отображение
+  flex-direction - направление
+  justify-content - выравнивание внутренних элементов
+*/
+.flex{
+  &-parent{
+    display: flex;
+    flex-wrap: wrap;
+    border: 5px solid #f00;
+  }
+  &-child{
+    height: 100px;
+    width: 100px;
+    padding: 0 7.5px;  
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  &-inner{
+    height: 100%;
+    background-color: #ddd;  
+    padding: 15px;
+  }
+}

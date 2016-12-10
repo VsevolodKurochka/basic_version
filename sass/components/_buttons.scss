@@ -17,7 +17,7 @@
     z-index: -1;
   }
   @include resp-min(xs){
-    @include size(text_default);
+    font-size: 18px;
     // padding: 10px 40px;
     padding: 30px;
   }

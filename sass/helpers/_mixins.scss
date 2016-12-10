@@ -54,15 +54,6 @@ $error: "This variable we do not have, sorry. Please try to change variable";
     }
   } 
 }
-@mixin size($size){
-  $value: map-get($sizes, $size);
-  @if $value != null{
-    font-size: $value;
-  }
-  @else{
-    @error 'Sorry, no size #{$size}';
-  }
-}
 
 // MIXIN BACKGROUND
 @mixin bg($url, $pos: 0 0, $repeat: no-repeat, $size: cover){
@@ -71,31 +62,32 @@ $error: "This variable we do not have, sorry. Please try to change variable";
 }
 //CREATE COLUMNS
 @mixin make-column($class,$push: "push",$pull: "pull",$offset: "offset"){
-  @for $i from 1 through $columns{
-    $defaultValue: ($width/$columns) * $i;
-    @if $class != null{
-      .#{$columnName}-#{$class}-#{$i}{
+  @for $i from 1 through getComp(columns){
+    $defaultValue: (getComp(width)/getComp(columns)) * $i;
+    @if $class != null {
+      .#{getComp(columnName)}-#{$class}-#{$i}{
         width: $defaultValue;
       }      
     }
-    @if $push == "push"{
-      .#{$columnName}-#{$class}-push-#{$i}{
+    @if $push == "push" {
+      .#{getComp(columnName)}-#{$class}-push-#{$i}{
         left: $defaultValue;
       }      
     }
-    @if $pull == "pull"{
-      .#{$columnName}-#{$class}-pull-#{$i}{
+    @if $pull == "pull" {
+      .#{getComp(columnName)}-#{$class}-pull-#{$i}{
         right: $defaultValue;
       }
     }
     @if $offset == "offset" {
-      .#{$columnName}-#{$class}-offset-#{$i}{
+      .#{getComp(columnName)}-#{$class}-offset-#{$i}{
         margin-left: $defaultValue;
       }
     }
   }
 }
 // HIDDEN AND VISIBLE UTILITIES
+
 @mixin visibility-hidden($hidden){
   .hidden-#{$hidden}{
     display: none !important;

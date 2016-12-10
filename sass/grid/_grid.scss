@@ -19,12 +19,13 @@ End:  COLUMNS
 /* ===================== 
 Start: HIDDEN AND VISIBLE UTILITIES      
 ======================== */
-%visible{
+.vhidden,
+%vvisible{
   display: none !important;
 }
 @each $br-name, $br-value in $breakpoints{
-  .visible-#{$br-name}{
-    @extend %visible;
+  .vvisible-#{$br-name}{
+    @extend %vvisible;
   }
 }
 @include resp-min(lg){
@@ -60,8 +61,8 @@ End:  HIDDEN AND VISIBLE UTILITIES
 }
 %global-block{
   min-height: 1px;
-  padding-left: $gutter;
-  padding-right: $gutter; 
+  padding-left: getComp(gutter);
+  padding-right: getComp(gutter); 
   @extend .relative;
 }
 .center-block {
@@ -75,12 +76,16 @@ End:  HIDDEN AND VISIBLE UTILITIES
 }
 .vrow{
   @extend .cf;
-  margin-left: -$gutter;
-  margin-right: -$gutter;
+  margin-left: - getComp(gutter);
+  margin-right: - getComp(gutter);
 }
-[class*="vcol-"] {
-  @extend %global-block;
-  float: left;
+[class*="#{getComp(columnName)}"]{
+  @if getComp(flex) == true{
+    display: block;
+  }@else{
+    @extend %global-block;
+    float: left;
+  }
 }
 
 .vcontainer, .vcontainer-small{
@@ -90,11 +95,11 @@ End:  HIDDEN AND VISIBLE UTILITIES
 }
 .vcontainer{
   @include resp-min(lg){
-    width: $container;
+    width: getComp(container);
   }
   &-small{
-    @include resp-min(lg){
-      width: $container-small;
+    @include resp-min(md){
+      width: getComp(containerSmall);
     }
   }
 }
