@@ -1,12 +1,22 @@
+/*
+	npm install --save gulp-install
+	npm init
+	npm i gulp -g
+	npm i gulp-sass --save
+	npm i browser-sync -g
+*/
 var gulp = require('gulp'),
+		install = require('gulp-install'),
 		sass = require('gulp-sass'),
 		browserSync = require('browser-sync'),
 		del = require('del'),
 		autoprefixer = require('gulp-autoprefixer');
+
+gulp.src(['./package.json'])
+  .pipe(install());
+
 gulp.task('sass', function(){
 	return gulp.src('app/sass/**/*.scss')
-		// .pipe(plumber())
-		// .pipe(sass())
 		.pipe(sass({
 		 	outputStyle: 'expanded'
 	 	}).on('error', sass.logError))
