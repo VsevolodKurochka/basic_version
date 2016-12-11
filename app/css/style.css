@@ -60,7 +60,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 *,
 *:before,
 *:after {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -538,7 +537,7 @@ Start: Connect fonts
 /* =====================
 End:  Connect fonts
 ======================== */
-.transition, .vbtn, .vbtn:before, .main-form input, .vnav-menu li a:after {
+.transition, .vbtn, .vbtn:before, .main-form input, .vnav-menu li a:after, .fade, .vmodal-dialog {
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
 }
@@ -562,8 +561,7 @@ End:  Connect fonts
 
 .vbtn {
   border: none;
-  -webkit-border-radius: 3px;
-          border-radius: 3px;
+  border-radius: 3px;
   max-width: 100%;
   padding: 10px 20px;
   overflow: hidden;
@@ -594,12 +592,10 @@ End:  Connect fonts
   left: 50%;
   opacity: 0;
   -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
-      -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
           transform: translateX(-50%) translateY(-50%) rotate(45deg);
 }
 
 .vbtn-effect-skew:hover:before {
-  height: -webkit-calc(450% - 40px);
   height: calc(450% - 40px);
   opacity: 1;
 }
@@ -613,26 +609,22 @@ End:  Connect fonts
 
 .vbtn-effect-shutter-vertical-out:before, .vbtn-effect-bounce:before, .vbtn-effect-bounce-top:before, .vbtn-effect-bounce-bottom:before {
   -webkit-transform: scaleY(0);
-      -ms-transform: scaleY(0);
           transform: scaleY(0);
 }
 
 .vbtn-effect-shutter-vertical-out:hover:before, .vbtn-effect-bounce:hover:before, .vbtn-effect-bounce-top:hover:before, .vbtn-effect-bounce-bottom:hover:before {
   -webkit-transform: scaleY(1);
-      -ms-transform: scaleY(1);
           transform: scaleY(1);
 }
 
 .vbtn-effect-shutter-horizontal-out:before {
   -webkit-transform: scaleX(0);
-  -ms-transform: scaleX(0);
-  transform: scaleX(0);
+          transform: scaleX(0);
 }
 
 .vbtn-effect-shutter-horizontal-out:hover:before {
   -webkit-transform: scaleX(1);
-  -ms-transform: scaleX(1);
-  transform: scaleX(1);
+          transform: scaleX(1);
 }
 
 .vbtn-effect-bounce:hover:before, .vbtn-effect-bounce-top:hover:before, .vbtn-effect-bounce-bottom:hover:before {
@@ -642,14 +634,12 @@ End:  Connect fonts
 
 .vbtn-effect-bounce-top:before {
   -webkit-transform-origin: 50% 100%;
-  -ms-transform-origin: 50% 100%;
-      transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
 }
 
 .vbtn-effect-bounce-bottom:before {
   -webkit-transform-origin: 50% 0;
-  -ms-transform-origin: 50% 0;
-      transform-origin: 50% 0;
+  transform-origin: 50% 0;
 }
 
 .vbtn-corp {
@@ -684,7 +674,6 @@ End:  Connect fonts
 
 .main-form input {
   border: 1px solid #eeeeee;
-  -webkit-border-radius: 5px;
   border-radius: 5px;
   text-align: left;
   width: 100%;
@@ -694,8 +683,7 @@ End:  Connect fonts
   color: #000;
   font-size: 15px;
   outline: none;
-  -webkit-box-shadow: 0px 0px 10px 1px rgba(253, 188, 48, 0.17);
-          box-shadow: 0px 0px 10px 1px rgba(253, 188, 48, 0.17);
+  box-shadow: 0px 0px 10px 1px rgba(253, 188, 48, 0.17);
 }
 
 .main-form input:focus {
@@ -831,18 +819,15 @@ End:  HEADER
   background-color: #ff8001;
   opacity: 0;
   width: 100%;
-  -webkit-border-radius: 20px;
   border-radius: 20px;
   -webkit-transform: scaleX(0) translateY(15px);
-  -ms-transform: scaleX(0) translateY(15px);
-  transform: scaleX(0) translateY(15px);
+          transform: scaleX(0) translateY(15px);
 }
 
 .vnav-menu li a:hover:after {
   opacity: 1;
   -webkit-transform: scaleX(1) translateY(0);
-  -ms-transform: scaleX(1) translateY(0);
-  transform: scaleX(1) translateY(0);
+          transform: scaleX(1) translateY(0);
 }
 
 .vnav-menu, .vnav-menu-btn, .vnav-menu-btn span, .vnav-menu-btn span:after, .vnav-menu-btn span:before {
@@ -862,8 +847,7 @@ End:  HEADER
   border: none;
   outline: none;
   -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 .vnav-menu-btn span, .vnav-menu-btn span:after, .vnav-menu-btn span:before {
@@ -872,7 +856,6 @@ End:  HEADER
   width: 24px;
   height: 4px;
   background-color: #fff;
-  -webkit-border-radius: 2px;
   border-radius: 2px;
 }
 
@@ -886,7 +869,6 @@ End:  HEADER
 
 .vnav-menu-btn span:after, .vnav-menu-btn span:before {
   -webkit-transform-origin: left;
-      -ms-transform-origin: left;
           transform-origin: left;
 }
 
@@ -900,8 +882,7 @@ End:  HEADER
 
 .vnav-menu-btn.active {
   -webkit-transform: rotate(360deg);
-  -ms-transform: rotate(360deg);
-  transform: rotate(360deg);
+          transform: rotate(360deg);
 }
 
 .vnav-menu-btn.active span:after, .vnav-menu-btn.active span:before {
@@ -914,14 +895,12 @@ End:  HEADER
 
 .vnav-menu-btn.active span:before {
   -webkit-transform: rotate(-40deg);
-  -ms-transform: rotate(-40deg);
-  transform: rotate(-40deg);
+          transform: rotate(-40deg);
 }
 
 .vnav-menu-btn.active span:after {
   -webkit-transform: rotate(40deg);
-  -ms-transform: rotate(40deg);
-  transform: rotate(40deg);
+          transform: rotate(40deg);
 }
 
 @media (max-width: 1024px) {
@@ -944,13 +923,11 @@ End:  HEADER
     width: 270px;
     height: 100%;
     -webkit-transform: translateZ(0) translateX(-120%);
-    -ms-transform: translateZ(0) translateX(-120%);
-    transform: translateZ(0) translateX(-120%);
+            transform: translateZ(0) translateX(-120%);
   }
   .vnav-menu.active {
     -webkit-transform: none;
-    -ms-transform: none;
-    transform: none;
+            transform: none;
   }
   .vnav-menu li {
     display: block;
@@ -1225,18 +1202,12 @@ End:  START FOOTER
 
 .flex-inner {
   height: 100%;
-  background-color: #ddd;
+  background-color: #ff8001;
   padding: 15px;
-}
-
-.create {
-  background-color: #ddd;
 }
 
 .fade {
   opacity: 0;
-  -webkit-transition: all ease 0.5s;
-  transition: all ease 0.5s;
 }
 
 .fade.in {
@@ -1275,23 +1246,18 @@ End:  START FOOTER
   width: 100%;
   margin: 70px auto;
   opacity: 0;
-  -webkit-transition: all ease 0.5s;
-  transition: all ease 0.5s;
   -webkit-transform: scale(0.7) translate(0, -150%);
-  -ms-transform: scale(0.7) translate(0, -150%);
-  transform: scale(0.7) translate(0, -150%);
+          transform: scale(0.7) translate(0, -150%);
 }
 
 .vmodal.in .vmodal-dialog {
   opacity: 1;
   -webkit-transform: scale(1) translate(0, 0);
-  -ms-transform: scale(1) translate(0, 0);
-  transform: scale(1) translate(0, 0);
+          transform: scale(1) translate(0, 0);
 }
 
 .vmodal-content {
   background-color: #fff;
-  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   background-clip: padding-box;
   outline: 0;
@@ -1327,8 +1293,7 @@ End:  START FOOTER
 .vmodal-transparent .vmodal-content {
   background-color: transparent;
   border: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 .vmodal-transparent .vmodal-close {
@@ -1365,8 +1330,7 @@ End:  START FOOTER
   height: 350px;
   overflow-y: auto;
   padding: 15px;
-  -webkit-border-radius: 6px;
-          border-radius: 6px;
+  border-radius: 6px;
 }
 
 .vmodal-body-inner p {
@@ -1415,7 +1379,6 @@ End:  START FOOTER
     margin: 30px auto;
   }
   .vmodal-content {
-    -webkit-border-radius: 6px;
     border-radius: 6px;
   }
 }
@@ -1582,7 +1545,6 @@ End:  ANIMATIONS
 .vtabs-list a {
   display: block;
   padding: 10px;
-  -webkit-border-radius: 5px;
   border-radius: 5px;
   background-color: #f0f0f0;
   text-decoration: none;
