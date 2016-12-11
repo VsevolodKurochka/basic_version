@@ -89,12 +89,12 @@ $error: "This variable we do not have, sorry. Please try to change variable";
 // HIDDEN AND VISIBLE UTILITIES
 
 @mixin visibility-hidden($hidden){
-  .hidden-#{$hidden}{
+  .vhidden-#{$hidden}{
     display: none !important;
   }
 }
 @mixin visibility-visible($visible){
-  .visible-#{$visible}{
+  .vvisible-#{$visible}{
     display: block !important;
   }
 }

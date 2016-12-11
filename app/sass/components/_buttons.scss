@@ -5,7 +5,7 @@
   @extend .bold;
   @extend .transition;
   border: none;
-  @include borderR(3px);
+  border-radius: 3px;
   max-width: 100%;
   padding: 10px 20px;
   overflow: hidden;
@@ -22,7 +22,7 @@
     padding: 30px;
   }
   &-effect{
-    @include transform(translateZ(0));
+    transform: translateZ(0);
     &-skew{
       &:before{
         width: 100%;
@@ -30,7 +30,7 @@
         top: 50%;
         left: 50%; 
         opacity: 0;
-        @include transform(translateX(-50%) translateY(-50%) rotate(45deg));
+        transform: translateX(-50%) translateY(-50%) rotate(45deg);
       }
       &:hover{
         &:before{
@@ -50,11 +50,11 @@
     @at-root{
       %defaultScaleYZero{
         &:before{
-          @include transform(scaleY(0));
+          transform: scaleY(0);
         }
         &:hover{
           &:before{
-            @include transform(scaleY(1));
+            transform: scaleY(1);
           }
         }
       }

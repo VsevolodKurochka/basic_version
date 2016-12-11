@@ -1,0 +1,40 @@
+.vtabs{
+  &-wrap,
+  &-links,
+  &-content{
+    @extend .cf;
+  }
+  &-links{
+    margin-bottom: 15px;
+  }
+  &-list{
+    a{
+      display: block;
+      padding: 10px;
+      @include borderR(5px);
+      background-color: #f0f0f0;
+      text-decoration: none;
+      color: inherit;
+      
+    }
+    li{
+      display: inline-block;
+      &.active{
+        a{
+          background-color: setColor(corp);
+        }
+      }
+    }
+    
+  }
+  &-content{
+    border: 1px solid #ddd;
+    padding: 30px;
+    &-inner{
+      display: none;
+      &.active{
+        display: block;
+      }
+    }
+  }
+}

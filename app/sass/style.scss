@@ -1,23 +1,23 @@
-@import "helpers/_helpers.scss";
-@import 'base/_base.scss';
+@import "helpers/_helpers";
+@import 'base/_base';
 
 /* ===================== 
 Start: GRID SYSTEM      
 ======================== */
-@import 'grid/_grid.scss'; 
+@import 'grid/_grid'; 
 /* =====================
 End:  GRID SYSTEM
 ======================== */
 /* ===================== 
 Start: MAIN STYLES      
 ======================== */
-@import 'components/_components.scss';
+@import 'components/_components';
 /* =====================
 End:  MAIN STYLES
 ======================== */
 
-@import 'layouts/_layouts.scss';
+@import 'layouts/_layouts';
 
-@import "specific/_specific.scss";
+@import "specific/_specific";
 
-@import 'vendor/_vendor.scss';
+@import 'vendor/_vendor';
