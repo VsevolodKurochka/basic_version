@@ -71,11 +71,11 @@
         &-out{
           @extend .vbtn-effect-shutter;
           &:before{
-            @include transform(scaleX(0));
+            transform: scaleX(0);
           }
           &:hover{
             &:before{
-              @include transform(scaleX(1));
+              transform: scaleX(1);
             }
           }
         }

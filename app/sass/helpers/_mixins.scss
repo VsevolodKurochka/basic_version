@@ -98,31 +98,6 @@ $error: "This variable we do not have, sorry. Please try to change variable";
     display: block !important;
   }
 }
-
-// @mixin diffBrowsers($property){
-//   -ms-#{$property}
-// }
-@mixin transform($transform){
-  -webkit-transform: $transform;
-      -ms-transform: $transform;
-       -o-transform: $transform;
-          transform: $transform; 
-}
-@mixin borderR($borderR){
-  -webkit-border-radius: $borderR; 
-     -moz-border-radius: $borderR; 
-          border-radius: $borderR;  
-}
-@mixin transition($transition){
-  -webkit-transition: $transition;
-       -o-transition: $transition;
-          transition: $transition;
-}
-@mixin shadow($shadow){
-  -webkit-box-shadow: $shadow;
-     -moz-box-shadow: $shadow;
-          box-shadow: $shadow;
-}
 @mixin pseudo($contentText: ""){
   content: $contentText;
   position: absolute;

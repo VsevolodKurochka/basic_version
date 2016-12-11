@@ -3,13 +3,16 @@ var gulp = require('gulp'),
 		browserSync = require('browser-sync'),
 		del = require('del'),
 		autoprefixer = require('gulp-autoprefixer');
-
 gulp.task('sass', function(){
 	return gulp.src('app/sass/**/*.scss')
+		// .pipe(plumber())
+		// .pipe(sass())
 		.pipe(sass({
-			outputStyle: 'expanded'
-		}))
-		.pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true } ))
+		 	outputStyle: 'expanded'
+	 	}).on('error', sass.logError))
+		.pipe(autoprefixer(
+			{browsers: ['last 2 versions', 'ie 11', 'Android >= 4.1', 'Safari >= 8', 'iOS >= 8']}
+		))
 		.pipe(gulp.dest('app/css'))
 		.pipe(browserSync.reload({stream: true}))
 });

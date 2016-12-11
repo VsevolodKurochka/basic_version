@@ -20,7 +20,6 @@
 			@extend %vnav-transitionDef;
 			li{
 				display: inline-block;
-				
 	 			vertical-align: middle;
 	 			text-transform: uppercase;
 				a{
@@ -36,13 +35,13 @@
 						background-color: setColor(corp);
 						opacity: 0;
 						width: 100%;
-						@include borderR(20px);
-						@include transform(scaleX(0) translateY(15px));
+						border-radius: 20px;
+						transform: scaleX(0) translateY(15px);
 					}
 					&:hover{
 						&:after{
 							opacity: 1;
-							@include transform(scaleX(1) translateY(0) );
+							transform: scaleX(1) translateY(0);
 						}
 					}
 				}
@@ -64,7 +63,7 @@
 			  border: none;
 			  outline: none;
 			  @extend %vnav-transitionDef;
-			  @include transform(rotate(180deg));
+			 	transform: rotate(180deg);
 			  @at-root {
 			  	%vbtn-menu-default{
 			  		display: block;
@@ -72,7 +71,7 @@
 				    width: 24px;
 				    height: 4px;
 				    background-color: setColor(light);
-				    @include borderR(2px);
+				    border-radius: 2px;
 				   	@extend %vnav-transitionDef;
 			  	}
 			  	&.active{
@@ -98,7 +97,7 @@
 			    }
 			  }	
 			  &.active{
-			  	@include transform(rotate(360deg));
+			  	transform: rotate(360deg);
 			  	span{
 			  		&:after,
 			  		&:before{
@@ -109,10 +108,10 @@
 						  -ms-transform-origin: 1.71429px center;
 			  		}
 			  		&:before{
-						  @include transform(rotate(-40deg));
+						  transform: rotate(-40deg);
 			  		}
 			  		&:after{
-							@include transform(rotate(40deg));
+							transform: rotate(40deg);
 			  		}
 			  	}
 			  }	
@@ -139,9 +138,9 @@
 				padding: 0;
 		    width: 270px;
 		    height: 100%;
-		    @include transform(translateZ(0) translateX(-120%));
+		    transform: translateZ(0) translateX(-120%);
 		    &.active{
-		    	@include transform(none);
+		    	transform: none;
 		    }
 		    li{
 		    	display: block;
