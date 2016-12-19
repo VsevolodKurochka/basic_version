@@ -75,14 +75,27 @@ End:  HIDDEN AND VISIBLE UTILITIES
   @include cf();
 }
 .vrow{
-  @extend .cf;
   margin-left: - getComp(gutter);
   margin-right: - getComp(gutter);
 }
-[class*="#{getComp(columnName)}"]{
-  @if getComp(flex) == true{
-    display: block;
-  }@else{
+@if getComp(flex) == true{
+  .vrow{
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  [class*="#{getComp(columnName)}"]{
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding-left: getComp(gutter);
+    padding-right: getComp(gutter);
+  }
+}@else{
+  .vrow{
+    @extend .cf;
+  }
+  [class*="#{getComp(columnName)}"]{
     @extend %global-block;
     float: left;
   }

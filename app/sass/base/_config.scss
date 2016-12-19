@@ -27,10 +27,10 @@ $breakpoints: (
 
 $grid-system: (
 	columns 							: 12,
-	flex                  : false,
+	flex                  : true,
 	columnName            : "vak",
 	width 								: 100%,
-	gutter 								: 7.5px,
+	gutter 								: 15px,
 	container 						: 1170px,
 	containerSmall 				: 970px,
 	menuExists            : true,

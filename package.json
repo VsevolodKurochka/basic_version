@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "It's default template",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "gulp-install": "^0.6.0"
+  },
   "devDependencies": {
     "browser-sync": "^2.18.4",
     "del": "^2.2.2",

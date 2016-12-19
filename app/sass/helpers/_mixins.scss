@@ -64,24 +64,34 @@ $error: "This variable we do not have, sorry. Please try to change variable";
 @mixin make-column($class,$push: "push",$pull: "pull",$offset: "offset"){
   @for $i from 1 through getComp(columns){
     $defaultValue: (getComp(width)/getComp(columns)) * $i;
-    @if $class != null {
-      .#{getComp(columnName)}-#{$class}-#{$i}{
-        width: $defaultValue;
-      }      
-    }
-    @if $push == "push" {
-      .#{getComp(columnName)}-#{$class}-push-#{$i}{
-        left: $defaultValue;
-      }      
-    }
-    @if $pull == "pull" {
-      .#{getComp(columnName)}-#{$class}-pull-#{$i}{
-        right: $defaultValue;
+    @if getComp(flex) == true{     
+      
+      @if $class != null {
+        .#{getComp(columnName)}-#{$class}-#{$i}{
+          flex-basis: $defaultValue;
+          max-width: $defaultValue;
+        }      
       }
-    }
-    @if $offset == "offset" {
-      .#{getComp(columnName)}-#{$class}-offset-#{$i}{
-        margin-left: $defaultValue;
+    }@else{
+      @if $class != null {
+        .#{getComp(columnName)}-#{$class}-#{$i}{
+          width: $defaultValue;
+        }      
+      }
+      @if $push == "push" {
+        .#{getComp(columnName)}-#{$class}-push-#{$i}{
+          left: $defaultValue;
+        }      
+      }
+      @if $pull == "pull" {
+        .#{getComp(columnName)}-#{$class}-pull-#{$i}{
+          right: $defaultValue;
+        }
+      }
+      @if $offset == "offset" {
+        .#{getComp(columnName)}-#{$class}-offset-#{$i}{
+          margin-left: $defaultValue;
+        }
       }
     }
   }
