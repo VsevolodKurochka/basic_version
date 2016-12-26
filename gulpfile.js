@@ -1,12 +1,15 @@
 /*
-	npm install --save gulp-install
-	npm init
-	npm i gulp -g
-	npm i gulp-sass --save
-	npm i browser-sync -g
+ Порядок команд для загрузки на новом ПК.
+ 1. npm i gulp -g.
+ 2. npm install --save-dev gulp
+ 3. npm i gulp-install --save-dev.
+ 4. npm install.
+ 5. npm install gulp-jade --save-dev
 */
+/* https://gist.github.com/awakekat/22310686c73a96dbaf74 */
 var gulp = require('gulp'),
 		install = require('gulp-install'),
+		jade = require('gulp-jade'),
 		sass = require('gulp-sass'),
 		browserSync = require('browser-sync'),
 		del = require('del'),
@@ -27,6 +30,15 @@ gulp.task('sass', function(){
 		.pipe(browserSync.reload({stream: true}))
 });
 
+// run this task by typing in gulp jade in CLI
+gulp.task('jade', function() {
+  return gulp.src('app/*.jade')
+  	.pipe(jade({
+    	pretty: true
+    })) // pip to jade plugin
+    .pipe(gulp.dest('app/')); // tell gulp our output folder
+});
+
 gulp.task('browser-sync', function(){
 	browserSync({
 		server: {
@@ -36,10 +48,11 @@ gulp.task('browser-sync', function(){
 	});
 });
 
-gulp.task('watch', ['browser-sync', 'sass'] ,function(){
+gulp.task('watch', ['browser-sync', 'jade', 'sass'] ,function(){
 	gulp.watch('app/sass/**/*.scss', ['sass']);
 	gulp.watch('app/*.html', browserSync.reload);
 	gulp.watch('app/*.js', browserSync.reload);
+	gulp.watch('app/*.jade', ['jade']);
 });
 
 gulp.task('clean', function(){
