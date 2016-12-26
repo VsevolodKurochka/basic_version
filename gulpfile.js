@@ -4,25 +4,26 @@
  2. npm install --save-dev gulp
  3. npm i gulp-install --save-dev.
  4. npm install.
- 5. npm install gulp-jade --save-dev
+ 5. npm install gulp-pug --save-dev
 */
 /* https://gist.github.com/awakekat/22310686c73a96dbaf74 */
 var gulp = require('gulp'),
 		install = require('gulp-install'),
-		jade = require('gulp-jade'),
+		pug = require('gulp-pug'),
 		sass = require('gulp-sass'),
 		browserSync = require('browser-sync'),
 		del = require('del'),
-		autoprefixer = require('gulp-autoprefixer');
+		autoprefixer = require('gulp-autoprefixer'),
+		notify = require("gulp-notify");
 
 gulp.src(['./package.json'])
-  .pipe(install());
+	.pipe(install());
 
 gulp.task('sass', function(){
 	return gulp.src('app/sass/**/*.scss')
 		.pipe(sass({
-		 	outputStyle: 'expanded'
-	 	}).on('error', sass.logError))
+			outputStyle: 'expanded'
+		}).on('error', sass.logError))
 		.pipe(autoprefixer(
 			{browsers: ['last 2 versions', 'ie 11', 'Android >= 4.1', 'Safari >= 8', 'iOS >= 8']}
 		))
@@ -30,13 +31,17 @@ gulp.task('sass', function(){
 		.pipe(browserSync.reload({stream: true}))
 });
 
-// run this task by typing in gulp jade in CLI
-gulp.task('jade', function() {
-  return gulp.src('app/*.jade')
-  	.pipe(jade({
-    	pretty: true
-    })) // pip to jade plugin
-    .pipe(gulp.dest('app/')); // tell gulp our output folder
+// run this task by typing in gulp pug in CLI
+gulp.task('pug', function() {
+	return gulp.src('app/*.pug')
+		.pipe(
+			pug({
+				pretty: true
+			}).on('error', notify.onError(function (error) {
+    		return 'ERROR. \n' + error;
+			}))
+		) // pip to pug plugin
+		.pipe(gulp.dest('app/')); // tell gulp our output folder
 });
 
 gulp.task('browser-sync', function(){
@@ -48,11 +53,11 @@ gulp.task('browser-sync', function(){
 	});
 });
 
-gulp.task('watch', ['browser-sync', 'jade', 'sass'] ,function(){
+gulp.task('watch', ['browser-sync', 'pug', 'sass'] ,function(){
 	gulp.watch('app/sass/**/*.scss', ['sass']);
 	gulp.watch('app/*.html', browserSync.reload);
 	gulp.watch('app/*.js', browserSync.reload);
-	gulp.watch('app/*.jade', ['jade']);
+	gulp.watch('app/*.pug', ['pug']);
 });
 
 gulp.task('clean', function(){

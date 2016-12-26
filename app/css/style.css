@@ -73,311 +73,167 @@ Start: GRID SYSTEM
 Start: COLUMNS      
 ======================== */
 .vak-xs-1 {
-  -webkit-flex-basis: 8.33333%;
-      -ms-flex-preferred-size: 8.33333%;
-          flex-basis: 8.33333%;
-  max-width: 8.33333%;
+  width: 8.33333%;
 }
 
 .vak-xs-2 {
-  -webkit-flex-basis: 16.66667%;
-      -ms-flex-preferred-size: 16.66667%;
-          flex-basis: 16.66667%;
-  max-width: 16.66667%;
+  width: 16.66667%;
 }
 
 .vak-xs-3 {
-  -webkit-flex-basis: 25%;
-      -ms-flex-preferred-size: 25%;
-          flex-basis: 25%;
-  max-width: 25%;
+  width: 25%;
 }
 
 .vak-xs-4 {
-  -webkit-flex-basis: 33.33333%;
-      -ms-flex-preferred-size: 33.33333%;
-          flex-basis: 33.33333%;
-  max-width: 33.33333%;
+  width: 33.33333%;
 }
 
 .vak-xs-5 {
-  -webkit-flex-basis: 41.66667%;
-      -ms-flex-preferred-size: 41.66667%;
-          flex-basis: 41.66667%;
-  max-width: 41.66667%;
+  width: 41.66667%;
 }
 
 .vak-xs-6 {
-  -webkit-flex-basis: 50%;
-      -ms-flex-preferred-size: 50%;
-          flex-basis: 50%;
-  max-width: 50%;
+  width: 50%;
 }
 
 .vak-xs-7 {
-  -webkit-flex-basis: 58.33333%;
-      -ms-flex-preferred-size: 58.33333%;
-          flex-basis: 58.33333%;
-  max-width: 58.33333%;
+  width: 58.33333%;
 }
 
 .vak-xs-8 {
-  -webkit-flex-basis: 66.66667%;
-      -ms-flex-preferred-size: 66.66667%;
-          flex-basis: 66.66667%;
-  max-width: 66.66667%;
+  width: 66.66667%;
 }
 
 .vak-xs-9 {
-  -webkit-flex-basis: 75%;
-      -ms-flex-preferred-size: 75%;
-          flex-basis: 75%;
-  max-width: 75%;
+  width: 75%;
 }
 
 .vak-xs-10 {
-  -webkit-flex-basis: 83.33333%;
-      -ms-flex-preferred-size: 83.33333%;
-          flex-basis: 83.33333%;
-  max-width: 83.33333%;
+  width: 83.33333%;
 }
 
 .vak-xs-11 {
-  -webkit-flex-basis: 91.66667%;
-      -ms-flex-preferred-size: 91.66667%;
-          flex-basis: 91.66667%;
-  max-width: 91.66667%;
+  width: 91.66667%;
 }
 
 .vak-xs-12 {
-  -webkit-flex-basis: 100%;
-      -ms-flex-preferred-size: 100%;
-          flex-basis: 100%;
-  max-width: 100%;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
   .vak-sm-1 {
-    -webkit-flex-basis: 8.33333%;
-        -ms-flex-preferred-size: 8.33333%;
-            flex-basis: 8.33333%;
-    max-width: 8.33333%;
+    width: 8.33333%;
   }
   .vak-sm-2 {
-    -webkit-flex-basis: 16.66667%;
-        -ms-flex-preferred-size: 16.66667%;
-            flex-basis: 16.66667%;
-    max-width: 16.66667%;
+    width: 16.66667%;
   }
   .vak-sm-3 {
-    -webkit-flex-basis: 25%;
-        -ms-flex-preferred-size: 25%;
-            flex-basis: 25%;
-    max-width: 25%;
+    width: 25%;
   }
   .vak-sm-4 {
-    -webkit-flex-basis: 33.33333%;
-        -ms-flex-preferred-size: 33.33333%;
-            flex-basis: 33.33333%;
-    max-width: 33.33333%;
+    width: 33.33333%;
   }
   .vak-sm-5 {
-    -webkit-flex-basis: 41.66667%;
-        -ms-flex-preferred-size: 41.66667%;
-            flex-basis: 41.66667%;
-    max-width: 41.66667%;
+    width: 41.66667%;
   }
   .vak-sm-6 {
-    -webkit-flex-basis: 50%;
-        -ms-flex-preferred-size: 50%;
-            flex-basis: 50%;
-    max-width: 50%;
+    width: 50%;
   }
   .vak-sm-7 {
-    -webkit-flex-basis: 58.33333%;
-        -ms-flex-preferred-size: 58.33333%;
-            flex-basis: 58.33333%;
-    max-width: 58.33333%;
+    width: 58.33333%;
   }
   .vak-sm-8 {
-    -webkit-flex-basis: 66.66667%;
-        -ms-flex-preferred-size: 66.66667%;
-            flex-basis: 66.66667%;
-    max-width: 66.66667%;
+    width: 66.66667%;
   }
   .vak-sm-9 {
-    -webkit-flex-basis: 75%;
-        -ms-flex-preferred-size: 75%;
-            flex-basis: 75%;
-    max-width: 75%;
+    width: 75%;
   }
   .vak-sm-10 {
-    -webkit-flex-basis: 83.33333%;
-        -ms-flex-preferred-size: 83.33333%;
-            flex-basis: 83.33333%;
-    max-width: 83.33333%;
+    width: 83.33333%;
   }
   .vak-sm-11 {
-    -webkit-flex-basis: 91.66667%;
-        -ms-flex-preferred-size: 91.66667%;
-            flex-basis: 91.66667%;
-    max-width: 91.66667%;
+    width: 91.66667%;
   }
   .vak-sm-12 {
-    -webkit-flex-basis: 100%;
-        -ms-flex-preferred-size: 100%;
-            flex-basis: 100%;
-    max-width: 100%;
+    width: 100%;
   }
 }
 
 @media (min-width: 1025px) {
   .vak-md-1 {
-    -webkit-flex-basis: 8.33333%;
-        -ms-flex-preferred-size: 8.33333%;
-            flex-basis: 8.33333%;
-    max-width: 8.33333%;
+    width: 8.33333%;
   }
   .vak-md-2 {
-    -webkit-flex-basis: 16.66667%;
-        -ms-flex-preferred-size: 16.66667%;
-            flex-basis: 16.66667%;
-    max-width: 16.66667%;
+    width: 16.66667%;
   }
   .vak-md-3 {
-    -webkit-flex-basis: 25%;
-        -ms-flex-preferred-size: 25%;
-            flex-basis: 25%;
-    max-width: 25%;
+    width: 25%;
   }
   .vak-md-4 {
-    -webkit-flex-basis: 33.33333%;
-        -ms-flex-preferred-size: 33.33333%;
-            flex-basis: 33.33333%;
-    max-width: 33.33333%;
+    width: 33.33333%;
   }
   .vak-md-5 {
-    -webkit-flex-basis: 41.66667%;
-        -ms-flex-preferred-size: 41.66667%;
-            flex-basis: 41.66667%;
-    max-width: 41.66667%;
+    width: 41.66667%;
   }
   .vak-md-6 {
-    -webkit-flex-basis: 50%;
-        -ms-flex-preferred-size: 50%;
-            flex-basis: 50%;
-    max-width: 50%;
+    width: 50%;
   }
   .vak-md-7 {
-    -webkit-flex-basis: 58.33333%;
-        -ms-flex-preferred-size: 58.33333%;
-            flex-basis: 58.33333%;
-    max-width: 58.33333%;
+    width: 58.33333%;
   }
   .vak-md-8 {
-    -webkit-flex-basis: 66.66667%;
-        -ms-flex-preferred-size: 66.66667%;
-            flex-basis: 66.66667%;
-    max-width: 66.66667%;
+    width: 66.66667%;
   }
   .vak-md-9 {
-    -webkit-flex-basis: 75%;
-        -ms-flex-preferred-size: 75%;
-            flex-basis: 75%;
-    max-width: 75%;
+    width: 75%;
   }
   .vak-md-10 {
-    -webkit-flex-basis: 83.33333%;
-        -ms-flex-preferred-size: 83.33333%;
-            flex-basis: 83.33333%;
-    max-width: 83.33333%;
+    width: 83.33333%;
   }
   .vak-md-11 {
-    -webkit-flex-basis: 91.66667%;
-        -ms-flex-preferred-size: 91.66667%;
-            flex-basis: 91.66667%;
-    max-width: 91.66667%;
+    width: 91.66667%;
   }
   .vak-md-12 {
-    -webkit-flex-basis: 100%;
-        -ms-flex-preferred-size: 100%;
-            flex-basis: 100%;
-    max-width: 100%;
+    width: 100%;
   }
 }
 
 @media (min-width: 1200px) {
   .vak-lg-1 {
-    -webkit-flex-basis: 8.33333%;
-        -ms-flex-preferred-size: 8.33333%;
-            flex-basis: 8.33333%;
-    max-width: 8.33333%;
+    width: 8.33333%;
   }
   .vak-lg-2 {
-    -webkit-flex-basis: 16.66667%;
-        -ms-flex-preferred-size: 16.66667%;
-            flex-basis: 16.66667%;
-    max-width: 16.66667%;
+    width: 16.66667%;
   }
   .vak-lg-3 {
-    -webkit-flex-basis: 25%;
-        -ms-flex-preferred-size: 25%;
-            flex-basis: 25%;
-    max-width: 25%;
+    width: 25%;
   }
   .vak-lg-4 {
-    -webkit-flex-basis: 33.33333%;
-        -ms-flex-preferred-size: 33.33333%;
-            flex-basis: 33.33333%;
-    max-width: 33.33333%;
+    width: 33.33333%;
   }
   .vak-lg-5 {
-    -webkit-flex-basis: 41.66667%;
-        -ms-flex-preferred-size: 41.66667%;
-            flex-basis: 41.66667%;
-    max-width: 41.66667%;
+    width: 41.66667%;
   }
   .vak-lg-6 {
-    -webkit-flex-basis: 50%;
-        -ms-flex-preferred-size: 50%;
-            flex-basis: 50%;
-    max-width: 50%;
+    width: 50%;
   }
   .vak-lg-7 {
-    -webkit-flex-basis: 58.33333%;
-        -ms-flex-preferred-size: 58.33333%;
-            flex-basis: 58.33333%;
-    max-width: 58.33333%;
+    width: 58.33333%;
   }
   .vak-lg-8 {
-    -webkit-flex-basis: 66.66667%;
-        -ms-flex-preferred-size: 66.66667%;
-            flex-basis: 66.66667%;
-    max-width: 66.66667%;
+    width: 66.66667%;
   }
   .vak-lg-9 {
-    -webkit-flex-basis: 75%;
-        -ms-flex-preferred-size: 75%;
-            flex-basis: 75%;
-    max-width: 75%;
+    width: 75%;
   }
   .vak-lg-10 {
-    -webkit-flex-basis: 83.33333%;
-        -ms-flex-preferred-size: 83.33333%;
-            flex-basis: 83.33333%;
-    max-width: 83.33333%;
+    width: 83.33333%;
   }
   .vak-lg-11 {
-    -webkit-flex-basis: 91.66667%;
-        -ms-flex-preferred-size: 91.66667%;
-            flex-basis: 91.66667%;
-    max-width: 91.66667%;
+    width: 91.66667%;
   }
   .vak-lg-12 {
-    -webkit-flex-basis: 100%;
-        -ms-flex-preferred-size: 100%;
-            flex-basis: 100%;
-    max-width: 100%;
+    width: 100%;
   }
 }
 
@@ -441,11 +297,11 @@ Start: HIDDEN AND VISIBLE UTILITIES
 /* =====================
 End:  HIDDEN AND VISIBLE UTILITIES
 ======================== */
-.relative, .vcontainer, .vcontainer-small, .cf, .vsection, .header, .footer, .vmodal-header, .vmodal-body, .vmodal-footer, .vtabs-wrap, .vtabs-links, .vtabs-content, .vbtn, .list li, .vnav-menu li a, .vmodal-dialog, .vmodal-content {
+.relative, [class*="vak"], .vcontainer, .vcontainer-small, .cf, .vrow, .vsection, .header, .footer, .vmodal-header, .vmodal-body, .vmodal-footer, .vtabs-wrap, .vtabs-links, .vtabs-content, .vbtn, .list li, .vnav-menu li a, .vmodal-dialog, .vmodal-content {
   position: relative;
 }
 
-.vcontainer, .vcontainer-small {
+[class*="vak"], .vcontainer, .vcontainer-small {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
@@ -457,12 +313,12 @@ End:  HIDDEN AND VISIBLE UTILITIES
   margin-right: auto;
 }
 
-.cf:after, .vcontainer:after, .vcontainer-small:after, .vsection:after, .header:after, .footer:after, .vmodal-header:after, .vmodal-body:after, .vmodal-footer:after, .vtabs-wrap:after, .vtabs-links:after, .vtabs-content:after, .cf:before, .vcontainer:before, .vcontainer-small:before, .vsection:before, .header:before, .footer:before, .vmodal-header:before, .vmodal-body:before, .vmodal-footer:before, .vtabs-wrap:before, .vtabs-links:before, .vtabs-content:before {
+.cf:after, .vrow:after, .vcontainer:after, .vcontainer-small:after, .vsection:after, .header:after, .footer:after, .vmodal-header:after, .vmodal-body:after, .vmodal-footer:after, .vtabs-wrap:after, .vtabs-links:after, .vtabs-content:after, .cf:before, .vrow:before, .vcontainer:before, .vcontainer-small:before, .vsection:before, .header:before, .footer:before, .vmodal-header:before, .vmodal-body:before, .vmodal-footer:before, .vtabs-wrap:before, .vtabs-links:before, .vtabs-content:before {
   content: "";
   display: table;
 }
 
-.cf:after, .vcontainer:after, .vcontainer-small:after, .vsection:after, .header:after, .footer:after, .vmodal-header:after, .vmodal-body:after, .vmodal-footer:after, .vtabs-wrap:after, .vtabs-links:after, .vtabs-content:after {
+.cf:after, .vrow:after, .vcontainer:after, .vcontainer-small:after, .vsection:after, .header:after, .footer:after, .vmodal-header:after, .vmodal-body:after, .vmodal-footer:after, .vtabs-wrap:after, .vtabs-links:after, .vtabs-content:after {
   clear: both;
 }
 
@@ -471,35 +327,8 @@ End:  HIDDEN AND VISIBLE UTILITIES
   margin-right: -15px;
 }
 
-.vrow {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 1 auto;
-      -ms-flex: 0 1 auto;
-          flex: 0 1 auto;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-}
-
 [class*="vak"] {
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-      -ms-flex-positive: 0;
-          flex-grow: 0;
-  -webkit-flex-shrink: 0;
-      -ms-flex-negative: 0;
-          flex-shrink: 0;
-  padding-left: 15px;
-  padding-right: 15px;
+  float: left;
 }
 
 @media (min-width: 1200px) {
