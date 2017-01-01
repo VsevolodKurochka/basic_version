@@ -6,7 +6,6 @@
  4. npm install.
  5. npm install gulp-pug --save-dev
 */
-/* https://gist.github.com/awakekat/22310686c73a96dbaf74 */
 var gulp = require('gulp'),
 		install = require('gulp-install'),
 		pug = require('gulp-pug'),
@@ -16,11 +15,32 @@ var gulp = require('gulp'),
 		autoprefixer = require('gulp-autoprefixer'),
 		notify = require("gulp-notify");
 
+// Define sourses object
+var sourses = {
+	sass: 'app/sass/**/*.scss',
+	css: 'app/css/style.css',
+	pug: 'app/*.pug',
+	scripts: 'app/js/**/*.js',
+	fonts: 'app/fonts/**/*',
+	img: 'app/img/*',
+	html: 'app/*.html',
+	default: 'app/'
+};
+
+// Define destinations object
+var destinations = {
+	css: 'dest/css',
+	fonts: 'dest/fonts',
+	scripts: 'dest/js',
+	img: 'dest/img',
+	html: 'dest/'
+};
+
 gulp.src(['./package.json'])
 	.pipe(install());
 
 gulp.task('sass', function(){
-	return gulp.src('app/sass/**/*.scss')
+	return gulp.src(sourses.sass)
 		.pipe(sass({
 			outputStyle: 'expanded'
 		}).on('error', sass.logError))
@@ -31,9 +51,8 @@ gulp.task('sass', function(){
 		.pipe(browserSync.reload({stream: true}))
 });
 
-// run this task by typing in gulp pug in CLI
 gulp.task('pug', function() {
-	return gulp.src('app/*.pug')
+	return gulp.src(sourses.pug)
 		.pipe(
 			pug({
 				pretty: true
@@ -41,7 +60,7 @@ gulp.task('pug', function() {
     		return 'ERROR. \n' + error;
 			}))
 		) // pip to pug plugin
-		.pipe(gulp.dest('app/')); // tell gulp our output folder
+		.pipe(gulp.dest(sourses.default)); // tell gulp our output folder
 });
 
 gulp.task('browser-sync', function(){
@@ -54,28 +73,31 @@ gulp.task('browser-sync', function(){
 });
 
 gulp.task('watch', ['browser-sync', 'pug', 'sass'] ,function(){
-	gulp.watch('app/sass/**/*.scss', ['sass']);
-	gulp.watch('app/*.html', browserSync.reload);
-	gulp.watch('app/*.js', browserSync.reload);
-	gulp.watch('app/*.pug', ['pug']);
+	gulp.watch(sourses.sass, ['sass']);
+	gulp.watch(sourses.html, browserSync.reload);
+	gulp.watch(sourses.js, browserSync.reload);
+	gulp.watch(sourses.pug, ['pug']);
 });
 
 gulp.task('clean', function(){
-	return del.sync('dist');
+	return del.sync('dest');
 });
 
 gulp.task('build', ['clean', 'sass'], function(){
-	var buildCss = gulp.src('app/css/style.css')
-		.pipe(gulp.dest('dist/css'))
+	var buildCss = gulp.src(sourses.css)
+		.pipe(gulp.dest(destinations.css))
 
-	var buildFonts = gulp.src('app/fonts/**/*')
-		.pipe(gulp.dest('dist/fonts'))
+	var buildFonts = gulp.src(sourses.fonts)
+		.pipe(gulp.dest(destinations.fonts))
 
-	var buildJs = gulp.src('app/js/**/*')
-		.pipe(gulp.dest('dist/js'))
+	var buildJs = gulp.src(sourses.scripts)
+		.pipe(gulp.dest(destinations.scripts))
 
-	var buildHtml = gulp.src('app/*.html')
-		.pipe(gulp.dest('dist'))
+	var buildImg = gulp.src(sourses.img)
+		.pipe(gulp.dest(destinations.img))
+
+	var buildHtml = gulp.src(sourses.html)
+		.pipe(gulp.dest(destinations.html))
 });
 
 //If you enter 'gulp', gulp will do 'watch' function

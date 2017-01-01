@@ -1,9 +1,12 @@
-.main-form{
+.vmain-form{
   width: 100%;
-  @include resp-min(sm){
-    width: 300px;
-  }
   @extend .center-block;
+  @include resp-min(sm){
+    &-fixed{
+      width: 300px;
+    }
+  }
+  
   input{
     border: 1px solid #eeeeee;
     border-radius: 5px;

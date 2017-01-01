@@ -1,13 +1,9 @@
 doctype html
 html(lang="ru")
   head
-    title Project_name
-    meta(name="description" content="")
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    link(rel="stylesheet" href="css/style.css")
-    script(src="js/scripts.min.js")
-    script(src="js/main.js")
+    title Project_names
+    meta(name="description" content="1")
+    include includes/header/head.pug
   body
     .vsection
       .vcontainer
@@ -16,3 +12,18 @@ html(lang="ru")
           li - Перенести все наработки на jade
           li - Разработать миксины для последующих проектов
           li - Разобраться с синтаксисом шаблонизатора
+    button(class="vbtn vbtn-effect-shutter-vertical-out vbtn-corp" data-modal="vmodal" data-modal-target="#modalform") Забронировать место в онлайн группе
+    .vmodal.fade#modalform
+      .vmodal-dialog
+        .vmodal-header
+          button(type="button" class="vmodal-close" data-close="vmodal") &times;
+          p.vmodal-title Заголовок_формы
+          p.vmodal-p Текст_формы
+        .vmodal-body
+          form(action="" class="vmain-form")
+            input(type="text" placeholder="Имя")
+            input(type="email" placeholder="E-mail")
+            input(type="text" placeholder="Телефон")
+            button.vbtn.vbtn-effect-bounce-top.vbtn-corp Получить!
+        .vmodal-footer.text-center
+          p.text_smaller *Ваши данные <span class="bold">никогда не будут</span><br>переданы 3-м лицам

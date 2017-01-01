@@ -24,8 +24,8 @@
   -webkit-overflow-scrolling: touch;
   outline: 0;
   &-open{
-    overflow: hidden;
-    padding-right: 17px;
+    //overflow: hidden;
+    //padding-right: 17px;
     .vmodal{
       overflow-x: hidden;
       overflow-y: auto;
@@ -35,28 +35,29 @@
   
   &-dialog{
     @extend .relative;
+    @extend .transition;
     width: 100%;
     margin: 70px auto;
+    border-radius: 6px;
+    background-color: setColor(light);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    outline: 0;
     opacity: 0;
-    @extend .transition;
     transform: scale(0.7) translate(0, -150%);
   }
   &.in{
     .vmodal-dialog{
-      //top: 0;
       opacity: 1;
       transform: scale(1) translate(0, 0);
-
     }
   } 
-  &-content{
-    @extend .relative;
-    background-color: #fff;
-    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    outline: 0;
-  }
+  // &-content{
+  //   background-color: setColor(light);
+  //   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  //   -webkit-background-clip: padding-box;
+  //   background-clip: padding-box;
+  //   outline: 0;
+  // }
   &-backdrop{
     @extend %visibility;
     z-index: 1000;
@@ -148,7 +149,7 @@
     &-text{
       text-align: center;
       padding: 5px;
-      background-color: map-get($colors, "green-l");
+      background-color: setColor(black);
       margin-top: 25px;
     }
   }

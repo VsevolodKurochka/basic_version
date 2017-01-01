@@ -297,7 +297,7 @@ Start: HIDDEN AND VISIBLE UTILITIES
 /* =====================
 End:  HIDDEN AND VISIBLE UTILITIES
 ======================== */
-.relative, [class*="vak"], .vcontainer, .vcontainer-small, .cf, .vrow, .vsection, .header, .footer, .vmodal-header, .vmodal-body, .vmodal-footer, .vtabs-wrap, .vtabs-links, .vtabs-content, .vbtn, .list li, .vnav-menu li a, .vmodal-dialog, .vmodal-content {
+.relative, [class*="vak"], .vcontainer, .vcontainer-small, .cf, .vrow, .vsection, .header, .footer, .vmodal-header, .vmodal-body, .vmodal-footer, .vtabs-wrap, .vtabs-links, .vtabs-content, .vbtn, .list li, .vnav-menu li a, .vmodal-dialog {
   position: relative;
 }
 
@@ -307,7 +307,7 @@ End:  HIDDEN AND VISIBLE UTILITIES
   padding-right: 15px;
 }
 
-.center-block, .vcontainer, .vcontainer-small, .main-form {
+.center-block, .vcontainer, .vcontainer-small, .vmain-form {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -455,7 +455,7 @@ End:  HIDDEN AND VISIBLE UTILITIES
   margin-bottom: 0 !important;
 }
 
-.block-inline, img, .vbtn, .main-form input, .vnav-text, .footer-b {
+.block-inline, img, .vbtn, .vmain-form input, .vnav-text, .footer-b {
   display: inline-block;
 }
 
@@ -503,7 +503,7 @@ Start: Connect fonts
   src: local("ProximaRegular"), url(../fonts/ProximaRegular.otf);
 }
 
-.regular, body, .main-form input, .h2 {
+.regular, body, .vmain-form input, .h2 {
   font-family: ProximaRegular;
 }
 
@@ -537,7 +537,7 @@ Start: Connect fonts
 /* =====================
 End:  Connect fonts
 ======================== */
-.transition, .vbtn, .vbtn:before, .main-form input, .vnav-menu li a:after, .fade, .vmodal-dialog {
+.transition, .vbtn, .vbtn:before, .vmain-form input, .vnav-menu li a:after, .fade, .vmodal-dialog {
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
 }
@@ -662,17 +662,17 @@ End:  Connect fonts
   }
 }
 
-.main-form {
+.vmain-form {
   width: 100%;
 }
 
 @media (min-width: 768px) {
-  .main-form {
+  .vmain-form-fixed {
     width: 300px;
   }
 }
 
-.main-form input {
+.vmain-form input {
   border: 1px solid #eeeeee;
   border-radius: 5px;
   text-align: left;
@@ -686,11 +686,11 @@ End:  Connect fonts
   box-shadow: 0px 0px 10px 1px rgba(253, 188, 48, 0.17);
 }
 
-.main-form input:focus {
+.vmain-form input:focus {
   border-color: #ff8001;
 }
 
-.main-form .vbtn {
+.vmain-form .vbtn {
   width: 100%;
 }
 
@@ -1285,11 +1285,6 @@ End:  START FOOTER
   outline: 0;
 }
 
-.vmodal-open {
-  overflow: hidden;
-  padding-right: 17px;
-}
-
 .vmodal-open .vmodal {
   overflow-x: hidden;
   overflow-y: auto;
@@ -1298,6 +1293,10 @@ End:  START FOOTER
 .vmodal-dialog {
   width: 100%;
   margin: 70px auto;
+  border-radius: 6px;
+  background-color: #fff;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  outline: 0;
   opacity: 0;
   -webkit-transform: scale(0.7) translate(0, -150%);
           transform: scale(0.7) translate(0, -150%);
@@ -1307,13 +1306,6 @@ End:  START FOOTER
   opacity: 1;
   -webkit-transform: scale(1) translate(0, 0);
           transform: scale(1) translate(0, 0);
-}
-
-.vmodal-content {
-  background-color: #fff;
-  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-  background-clip: padding-box;
-  outline: 0;
 }
 
 .vmodal-backdrop {
@@ -1415,6 +1407,7 @@ End:  START FOOTER
 .vmodal-title-text {
   text-align: center;
   padding: 5px;
+  background-color: #000;
   margin-top: 25px;
 }
 
