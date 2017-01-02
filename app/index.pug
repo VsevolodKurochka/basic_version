@@ -2,17 +2,22 @@ doctype html
 html(lang="ru")
   head
     title Project_names
-    meta(name="description" content="1")
-    include includes/header/head.pug
+    meta(name="description" content="")
+    include includes/header/head
+    include includes/mixins/mixins
   body
-    .vsection
+    header.header
+      .vcontainer
+        include includes/nav/nav
+    section.vsection
       .vcontainer
         h1.h1 Что мне надо еще сделать: 
         ul
           li - Перенести все наработки на jade
           li - Разработать миксины для последующих проектов
           li - Разобраться с синтаксисом шаблонизатора
-    button(class="vbtn vbtn-effect-shutter-vertical-out vbtn-corp" data-modal="vmodal" data-modal-target="#modalform") Забронировать место в онлайн группе
+        button(class="vbtn vbtn-effect-shutter-vertical-out vbtn-corp" data-modal="vmodal" data-modal-target="#modalform") Забронировать место в онлайн группе
+    // MODAL FORM
     .vmodal.fade#modalform
       .vmodal-dialog
         .vmodal-header

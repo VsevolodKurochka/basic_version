@@ -2,15 +2,42 @@
 <html lang="ru">
   <head>
     <title>Project_names</title>
-    <meta name="description" content="1">
-    <meta charset="UTF-8">
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"><!--[if lte IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <link rel="stylesheet" href="css/style.css">
     <script src="js/scripts.min.js"></script>
     <script src="js/main.js"></script>
   </head>
   <body>
-    <div class="vsection">
+    <header class="header">
+      <div class="vcontainer">
+        <nav class="vnav">
+          <div class="vnav-inner max-md-negative">
+            <div class="vak-xs-6 vak-md-4">
+              <div class="vnav-logo">
+                <button class="vnav-menu-btn" type="button" data-menu=".vnav-menu"><span></span></button>
+                <div class="block-inline vvisible-md vvisible-lg"><img src="img/logo.png" alt=""></div>
+                <div class="block-inline vhidden-md vhidden-lg"><img src="img/logo-responsive.png" alt=""></div>
+              </div>
+            </div>
+            <div class="visible-md visible-lg vak-xs-6 vak-md-3 vpull-md-right text-md-right max-md-center">
+              <div class="vnav-text-hidden"><span></span></div>
+              <div class="vnav-text">
+                <p>+38 (063) 505 62 63</p>
+              </div>
+            </div>
+            <div class="vak-xs-12 vak-md-5 vnav-menu">
+              <ul>
+                        <li><a href="#sec1">rwa</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <section class="vsection">
       <div class="vcontainer">
         <h1 class="h1">Что мне надо еще сделать: </h1>
         <ul>
@@ -18,9 +45,10 @@
           <li>- Разработать миксины для последующих проектов</li>
           <li>- Разобраться с синтаксисом шаблонизатора</li>
         </ul>
+        <button class="vbtn vbtn-effect-shutter-vertical-out vbtn-corp" data-modal="vmodal" data-modal-target="#modalform">Забронировать место в онлайн группе</button>
       </div>
-    </div>
-    <button class="vbtn vbtn-effect-shutter-vertical-out vbtn-corp" data-modal="vmodal" data-modal-target="#modalform">Забронировать место в онлайн группе</button>
+    </section>
+    <!-- MODAL FORM-->
     <div class="vmodal fade" id="modalform">
       <div class="vmodal-dialog">
         <div class="vmodal-header">

@@ -60,6 +60,11 @@ $error: "This variable we do not have, sorry. Please try to change variable";
 	background: url($url) $pos $repeat;
 	background-size: $size;
 }
+@mixin retina(){
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi){
+    @content;
+  }
+}
 //CREATE COLUMNS
 @mixin make-column($class,$push: "push",$pull: "pull",$offset: "offset"){
   @for $i from 1 through getComp(columns){

@@ -19,7 +19,7 @@ var gulp = require('gulp'),
 var sourses = {
 	sass: 'app/sass/**/*.scss',
 	css: 'app/css/style.css',
-	pug: 'app/*.pug',
+	pug: 'app/**/*.pug',
 	scripts: 'app/js/**/*.js',
 	fonts: 'app/fonts/**/*',
 	img: 'app/img/*',

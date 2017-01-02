@@ -21,7 +21,7 @@ $(document).ready(function(){
 				$(this).toggleClass(active);
 				toggler();
 			});
-			$('.anchor-menu').click(function(){
+			$('.vnav-menu a').click(function(){
 				var href = $(this).attr('href');
 				$('body,html').animate({
 					scrollTop: $(href).offset().top
@@ -29,6 +29,9 @@ $(document).ready(function(){
 				$("[data-menu]").removeClass(active);
 				toggler();
 				return false;
+			});
+			$(".vnav-text-hidden").click(function(){
+				$(".vnav-text").toggleClass(active);
 			});
 			// function menuSwipe(){
 			// 	if ( $(document).width() <= responsiveBr ) {
@@ -105,6 +108,6 @@ $(document).ready(function(){
 				
 			});
 		//DEVELOPE
-		// var widthDevice = $(window).width();
-		// $(".development").html(widthDevice);
+		var widthDevice = $(window).width();
+		$(".development").html(widthDevice);
 });	

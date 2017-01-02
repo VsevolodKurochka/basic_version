@@ -1,15 +1,73 @@
 .vnav{
 	&-text{
 		@extend .block-inline;
-		padding: 0.5em 0;
+		
 		color: setColor(corp);
 		@extend .bold;
+		* {
+			color: inherit;
+			text-decoration: none;
+		}
+	}
+	@include resp-min(md){
+		&-text{
+			padding: 0.5em 0;
+		}
 	}
 	@include resp-max(md){
+		&-text{
+		  position: absolute;
+		  right: 0;
+		  top: 45px;
+		  font-size: 14px;
+		  min-width: 180px;
+		  background-color: #212121;
+		  padding: 15px 10px;
+		  border-top: 4px solid #ff8001;
+		  font-size: 14px;
+		  opacity: 0;
+			visibility: hidden;
+			@include transitionMake();
+			&.active{
+				opacity: 1;
+				visibility: visible;
+			}
+			&-hidden{
+				text-align: right;
+				padding-right: 15px;
+				margin-top: 3px;
+				cursor: pointer;
+				span{
+					position: relative;
+					display: inline-block;
+					vertical-align: middle;
+					width: 5px;
+					height: 5px;
+					border-radius: 100%;
+					background-color: #ddd;
+					&:after,
+					&:before{
+						content: "";
+						position: absolute;
+						width: 5px;
+						height: 5px;
+						border-radius: 100%;
+						background-color: #ddd;
+					}
+					&:before{
+						left: -20px;
+					}
+					&:after{
+						left: -10px;
+					}
+				}
+			}
+		}
 		&-logo{
 			img{
 				vertical-align: middle;
 				max-height: 28px;
+				max-width: 70px;
 			}
 		}
 	}

@@ -791,14 +791,73 @@ Start:  HEADER
 End:  HEADER
 ======================== */
 .vnav-text {
-  padding: 0.5em 0;
   color: #ff8001;
 }
 
+.vnav-text * {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (min-width: 1025px) {
+  .vnav-text {
+    padding: 0.5em 0;
+  }
+}
+
 @media (max-width: 1024px) {
+  .vnav-text {
+    position: absolute;
+    right: 0;
+    top: 45px;
+    font-size: 14px;
+    min-width: 180px;
+    background-color: #212121;
+    padding: 15px 10px;
+    border-top: 4px solid #ff8001;
+    font-size: 14px;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all ease 0.5s;
+    transition: all ease 0.5s;
+  }
+  .vnav-text.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  .vnav-text-hidden {
+    text-align: right;
+    padding-right: 15px;
+    margin-top: 3px;
+    cursor: pointer;
+  }
+  .vnav-text-hidden span {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 5px;
+    height: 5px;
+    border-radius: 100%;
+    background-color: #ddd;
+  }
+  .vnav-text-hidden span:after, .vnav-text-hidden span:before {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 100%;
+    background-color: #ddd;
+  }
+  .vnav-text-hidden span:before {
+    left: -20px;
+  }
+  .vnav-text-hidden span:after {
+    left: -10px;
+  }
   .vnav-logo img {
     vertical-align: middle;
     max-height: 28px;
+    max-width: 70px;
   }
 }
 
