@@ -1,23 +1,29 @@
-@import "helpers/_helpers";
-@import 'base/_base';
+@import "helpers/variables";
+@import "helpers/maps";
+@import "helpers/functions";
+@import "helpers/mixins";
 
-/* ===================== 
-Start: GRID SYSTEM      
-======================== */
-@import 'grid/_grid'; 
-/* =====================
-End:  GRID SYSTEM
-======================== */
-/* ===================== 
-Start: MAIN STYLES      
-======================== */
-@import 'components/_components';
-/* =====================
-End:  MAIN STYLES
-======================== */
+@import 'base/reset';
+@import 'base/base';
+@import 'base/fonts';
 
-@import 'layouts/_layouts';
+@import 'layouts/grid';
+@import 'layouts/nav';
+@import 'layouts/header';
+@import 'layouts/footer';
 
-@import "specific/_specific";
+@import 'components/classes';
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/list';
+@import 'components/collapse';
 
-@import 'vendor/_vendor';
+@import "dev/text";
+@import "dev/dev";
+
+@import 'fontawesome/font-awesome';
+
+@import 'vendor/modal';
+@import 'vendor/animations';
+@import 'vendor/carousel';
+@import 'vendor/tabs';

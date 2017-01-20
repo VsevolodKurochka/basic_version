@@ -1,0 +1,59 @@
+$grid-system: (
+	columns 							: 12,
+	flex                  : false,
+	columnName            : "vak",
+	width 								: 100%,
+	gutter 								: 15px,
+	container_sm					: 750px,
+	container_md					: 970px,
+	container_lg 					: 1170px,
+	container_small       : 970px,
+	menuExists            : true
+);
+
+$breakpoints: (
+	bigLg     : 1500px,
+  lg        : 1200px,
+  md        : 1025px,
+  sm        : 768px,
+  xs        : 480px,
+  exs       : 320px
+);
+
+/// Карта цветов, собирает все цвета приложения
+/// @access private
+/// @type Map
+/// @prop {String} key - Имя цветов
+/// @prop {Number} value - значение цвета, соответствущее имени
+$colors: (
+	black: (
+		base 	: #4c4c4c,
+		black : black,
+		dark	: #333333,
+		light : #f3f3f3
+	),
+	green: (
+		base 	: #5bb85d
+	),
+ 	corp: (
+		base	: $corp,
+		light : lighten($corp, 15%)
+ 	),
+ 	light: (
+		base  : #fff
+ 	)
+);
+
+/// Карта Z-index’ов, собирает все Z-слои приложения
+/// @access private
+/// @type Map
+/// @prop {String} key - Имя слоя
+/// @prop {Number} value - значение Z, соответствущее ключу
+$z-indexes: (
+	'modal'					: 1000,
+	'modalBackdrop' : 999,
+	'nav'						: 10,
+	'navButton'			: 11,
+	'default'     	: 1,
+	'below'       	: -1
+);

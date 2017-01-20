@@ -57,8 +57,8 @@ $error: "This variable we do not have, sorry. Please try to change variable";
 
 // MIXIN BACKGROUND
 @mixin bg($url, $pos: 0 0, $repeat: no-repeat, $size: cover){
-	background: url($url) $pos $repeat;
-	background-size: $size;
+  background: url('#{$url}') $pos $repeat;
+  background-size: $size;
 }
 @mixin retina(){
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi){
@@ -70,7 +70,6 @@ $error: "This variable we do not have, sorry. Please try to change variable";
   @for $i from 1 through getComp(columns){
     $defaultValue: (getComp(width)/getComp(columns)) * $i;
     @if getComp(flex) == true{     
-      
       @if $class != null {
         .#{getComp(columnName)}-#{$class}-#{$i}{
           flex-basis: $defaultValue;
@@ -117,11 +116,11 @@ $error: "This variable we do not have, sorry. Please try to change variable";
   content: $contentText;
   position: absolute;
 }
-@mixin pseudoBlock($dirHor: left, $dirHorValue: 0, $dirVert: top, $dirVertValue: 0){
-  @include pseudo();
-  #{$dirHor}: $dirHorValue;
-  #{$dirVert}: $dirVertValue;
-}
+// @mixin pseudoBlock($dirHor: left, $dirHorValue: 0, $dirVert: top, $dirVertValue: 0){
+//   @include pseudo();
+//   #{$dirHor}: $dirHorValue;
+//   #{$dirVert}: $dirVertValue;
+// }
 @mixin cf(){
   &:after, &:before{
     content: "";
@@ -131,6 +130,6 @@ $error: "This variable we do not have, sorry. Please try to change variable";
     clear: both;
   }
 }
-@mixin transitionMake($tr-time: ease, $tr-dur: .5s){
-  transition: all $tr-time $tr-dur;
+@mixin transitionMake($tr-prop: all, $tr-time: ease, $tr-dur: .5s){
+  transition: $tr-prop $tr-time $tr-dur;
 }

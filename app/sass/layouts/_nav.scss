@@ -1,7 +1,6 @@
 .vnav{
 	&-text{
 		@extend .block-inline;
-		
 		color: setColor(corp);
 		@extend .bold;
 		* {

@@ -16,3 +16,18 @@
     vertical-align: middle;   
   }
 }
+@for $i from 1 through 3{
+  .index-#{$i}{
+    z-index: $i;
+  }
+}
+.text{
+  &-small{
+    font-size: 11px;
+  }
+}
+@for $i from 1 through 2{
+  .ls-#{$i}{
+    letter-spacing: #{$i}px;
+  }
+}
