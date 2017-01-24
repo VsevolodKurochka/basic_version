@@ -418,31 +418,6 @@ End:  HIDDEN AND VISIBLE UTILITIES
   padding-bottom: 50px;
 }
 
-.fluid {
-  width: 100%;
-}
-
-@media (min-width: 1200px) and (min-height: 600px) {
-  .fluid {
-    height: 100vh;
-  }
-  .fluid-center {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-}
-
-[data-role="section"] {
-  height: 100%;
-  float: left;
-}
-
 .vpull-left {
   float: left;
 }
