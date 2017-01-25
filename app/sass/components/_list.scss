@@ -11,7 +11,7 @@
       &:after{
         width: 37px;
         height: 37px;
-        @include bg("../img/cancel.png", 0 0, no-repeat, cover);
+        @include bg("../img/cancel.png");
       }
     }
   }

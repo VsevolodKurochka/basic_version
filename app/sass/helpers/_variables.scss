@@ -1,5 +1,2 @@
-// Чтобы поменять основной цвет, нужно изменить значение переменной $corp
-$corp: #66fcf1;
-
-// Цвет для секции "Обо мне"
-$about: #f3f3f3;
+$main: #66fcf1; // Основной цвет
+$error: "This variable we do not have, sorry. Please try to change variable"; // Ошибка, при отсутствии переменной

@@ -2,14 +2,4 @@
 	@extend .cf;
 	padding: 10px 15px;
 	background-color: #131313;
-	@extend .text-center;
-	&-b{
-		@extend .block-inline;
-		vertical-align: middle;
-		margin: 0 15px;
-	}
-	a{
-		@extend .tdn;
-		@extend .light !optional;
-	}
 }

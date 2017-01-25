@@ -1,6 +1,6 @@
 $grid-system: (
 	columns 							: 12,
-	flex                  : false,
+	flex                  : true,
 	columnName            : "vak",
 	width 								: 100%,
 	gutter 								: 15px,
@@ -11,41 +11,64 @@ $grid-system: (
 	menuExists            : true
 );
 
+
+/// Карта для медиа-запросов.
+/// @type Map
+/// @prop {String} key - Имя точки остановки для медиа-запроса
+/// @prop {Number} value - значение точки остановки
 $breakpoints: (
-	bigLg     : 1500px,
-  lg        : 1200px,
-  md        : 1025px,
-  sm        : 768px,
-  xs        : 480px,
-  exs       : 320px
+	lg        : 1200px,
+	md        : 1025px,
+	sm        : 768px,
+	xs        : 480px,
+	exs       : 320px
 );
 
+
 /// Карта цветов, собирает все цвета приложения
-/// @access private
 /// @type Map
 /// @prop {String} key - Имя цветов
 /// @prop {Number} value - значение цвета, соответствущее имени
 $colors: (
 	black: (
 		base 	: #4c4c4c,
-		black : black,
+		black : #000000,
 		dark	: #333333,
 		light : #f3f3f3
 	),
 	green: (
 		base 	: #5bb85d
 	),
- 	corp: (
-		base	: $corp,
-		light : lighten($corp, 15%)
- 	),
- 	light: (
+	main: (
+		base	: $main,
+		light : lighten($main, 15%)
+	),
+	light: (
 		base  : #fff
- 	)
+	)
 );
 
+
+/// Карта размеров шрифтов, собирает все значения размера шрифтов
+/// @type Map
+/// @prop {String} key - Имя медиа-запроса
+/// @prop {Number} value - значение размера шрифта
+$sizes: (
+	'vtitle-big': (
+		xs:   48px,
+		sm:   80px,
+		lg:   100px
+	),
+	'vtitle': (
+		md:   60px
+	),
+	'vtitle-small': (
+		sm:   30px
+	)
+);
+
+
 /// Карта Z-index’ов, собирает все Z-слои приложения
-/// @access private
 /// @type Map
 /// @prop {String} key - Имя слоя
 /// @prop {Number} value - значение Z, соответствущее ключу

@@ -1,29 +1,89 @@
-//MIXIN MEDIA
-$error: "This variable we do not have, sorry. Please try to change variable";
-@mixin resp-min($breakpoint, $breakpoints: $breakpoints){
-  $value: map-get($breakpoints,$breakpoint);
-  @if $value != null  {
-    @media (min-width: $value ) {
-      @content;
+// Миксины для медиа-запросов
+  @mixin resp-min($breakpoint, $breakpoints: $breakpoints){
+    $value: map-get($breakpoints,$breakpoint);
+    @if $value != null  {
+      @media (min-width: $value ) {
+        @content;
+      }
+    }@else{
+       @error $error + " #{$breakpoint}";
     }
   }
-  @else{
-     @error $error + " #{$breakpoint}";
+  @mixin resp-max($breakpoint, $breakpoints: $breakpoints){
+    $value: map-get($breakpoints,$breakpoint);
+    @if $value != null { 
+      @media (max-width: $value - 1px) {
+        @content;
+      } 
+    }@else{
+       @error $error + " #{$breakpoint}";
+    }
   }
-}
-@mixin resp-max($breakpoint, $breakpoints: $breakpoints){
-  $value: map-get($breakpoints,$breakpoint);
-  @if $value != null { 
-    @media (max-width: $value - 1px) {
-      @content;
-    } 
-  }
-  @else{
-     @error $error + " #{$breakpoint}";
-  }
-}
 
-//MIXIN FONT
+
+// Миксины, нужные для создания сетки
+
+  // Создание колонок(поддержка float, flexbox).
+    @mixin make-column($class,$push: "push",$pull: "pull",$offset: "offset"){
+      @for $i from 1 through getComp(columns){
+        $defaultValue: (getComp(width)/getComp(columns)) * $i;
+        @if getComp(flex) == true{     
+          @if $class != null {
+            .#{getComp(columnName)}-#{$class}-#{$i}{
+              flex-basis: $defaultValue;
+              max-width: $defaultValue;
+            }      
+          }
+        }@else{
+          @if $class != null {
+            .#{getComp(columnName)}-#{$class}-#{$i}{
+              width: $defaultValue;
+            }      
+          }
+          @if $push == "push" {
+            .#{getComp(columnName)}-#{$class}-push-#{$i}{
+              left: $defaultValue;
+            }      
+          }
+          @if $pull == "pull" {
+            .#{getComp(columnName)}-#{$class}-pull-#{$i}{
+              right: $defaultValue;
+            }
+          }
+          @if $offset == "offset" {
+            .#{getComp(columnName)}-#{$class}-offset-#{$i}{
+              margin-left: $defaultValue;
+            }
+          }
+        }
+      }
+    }
+
+  // Очищение потока, для того, чтобы float элементы не рушили страницу.
+    @mixin cf(){
+      &:after, &:before{
+        content: "";
+        display: table;
+      }
+      &:after{
+        clear: both;
+      }
+    }
+
+  // Скрытие и показ элементов.
+    @mixin visibility-hidden($hidden){
+      .vhidden-#{$hidden}{
+        display: none !important;
+      }
+    }
+    @mixin visibility-visible($visible){
+      .vvisible-#{$visible}{
+        display: block !important;
+      }
+    }
+
+
+// Миксин для загрузки шрифтов
 @mixin connect-font($font,$class_name: $font){
   @font-face{
     font-family: $font;
@@ -41,9 +101,10 @@ $error: "This variable we do not have, sorry. Please try to change variable";
   }
 }
 
-//MIXIN SIZES
-@mixin font-size($fs-map, $fs-breakpoints: $breakpoints){
-  @each $fs-breakpoint, $fs-font-size in $fs-map {
+// Миксин, который будет брать размеры шрифтов с карты($sizes)
+@mixin fs($fs-map, $fs-breakpoints: $breakpoints){
+  $fs-map: map-get($sizes, $fs-map);
+  @each $fs-breakpoint, $fs-font-size in $fs-map{
     $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
     @if $fs-breakpoint != null{
       @media (min-width: $fs-breakpoint){
@@ -51,85 +112,31 @@ $error: "This variable we do not have, sorry. Please try to change variable";
       }
     }@else{
       @error 'No size';
-    }
-  } 
+    } 
+  }
 }
 
-// MIXIN BACKGROUND
+// Миксин, позволяющий загружать картинки
 @mixin bg($url, $pos: 0 0, $repeat: no-repeat, $size: cover){
   background: url('#{$url}') $pos $repeat;
   background-size: $size;
 }
+
+
+// Отображение на retina-devices 
 @mixin retina(){
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi){
     @content;
   }
 }
-//CREATE COLUMNS
-@mixin make-column($class,$push: "push",$pull: "pull",$offset: "offset"){
-  @for $i from 1 through getComp(columns){
-    $defaultValue: (getComp(width)/getComp(columns)) * $i;
-    @if getComp(flex) == true{     
-      @if $class != null {
-        .#{getComp(columnName)}-#{$class}-#{$i}{
-          flex-basis: $defaultValue;
-          max-width: $defaultValue;
-        }      
-      }
-    }@else{
-      @if $class != null {
-        .#{getComp(columnName)}-#{$class}-#{$i}{
-          width: $defaultValue;
-        }      
-      }
-      @if $push == "push" {
-        .#{getComp(columnName)}-#{$class}-push-#{$i}{
-          left: $defaultValue;
-        }      
-      }
-      @if $pull == "pull" {
-        .#{getComp(columnName)}-#{$class}-pull-#{$i}{
-          right: $defaultValue;
-        }
-      }
-      @if $offset == "offset" {
-        .#{getComp(columnName)}-#{$class}-offset-#{$i}{
-          margin-left: $defaultValue;
-        }
-      }
-    }
-  }
-}
-// HIDDEN AND VISIBLE UTILITIES
 
-@mixin visibility-hidden($hidden){
-  .vhidden-#{$hidden}{
-    display: none !important;
-  }
-}
-@mixin visibility-visible($visible){
-  .vvisible-#{$visible}{
-    display: block !important;
-  }
-}
+// Миксин для псевдоклассов.
 @mixin pseudo($contentText: ""){
   content: $contentText;
   position: absolute;
 }
-// @mixin pseudoBlock($dirHor: left, $dirHorValue: 0, $dirVert: top, $dirVertValue: 0){
-//   @include pseudo();
-//   #{$dirHor}: $dirHorValue;
-//   #{$dirVert}: $dirVertValue;
-// }
-@mixin cf(){
-  &:after, &:before{
-    content: "";
-    display: table;
-  }
-  &:after{
-    clear: both;
-  }
-}
+
+// Миксин для создание transition
 @mixin transitionMake($tr-prop: all, $tr-time: ease, $tr-dur: .5s){
   transition: $tr-prop $tr-time $tr-dur;
 }

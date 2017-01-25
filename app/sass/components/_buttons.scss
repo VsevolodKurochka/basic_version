@@ -1,7 +1,7 @@
 .vbtn {
   @extend .relative;
   @extend .block-inline;
-  @extend .tdn;
+  @extend .text-dn;
   @extend .bold;
   @extend .transition;
   border: none;
@@ -105,10 +105,10 @@
       }
     }
   }
-  &-corp{
-    background-color: setColor(corp);
+  &-main{
+    background-color: setColor(main);
     &:before{
-      background-color: lighten(setColor(corp), 15%);
+      background-color: lighten(setColor(main), 15%);
     }
   }
   &-single{

@@ -1,17 +1,21 @@
 doctype html
 html(lang="ru")
-  head
-    block title
-      title Project_name
-    block description
-      meta(name="description" content="")
-    include head
-    include mixins
-  body
-    include nav
-    block content
-      p Content
-    block footer
-      p Footer
-    block dev
-    //- +button("vbtn vbtn-effect-shutter-vertical-out vbtn-corp", "#s") Button_text_big
+	head
+		block title
+			title Project_name
+		block description
+			meta(name="description" content="")
+		include head
+		include mixins
+	body
+		include nav
+		block content
+			.vcontainer
+				.vrow
+					p Content
+		block footer
+			.vcontainer
+				.vrow
+					p Footer
+		block dev
+		//- +button("vbtn vbtn-effect-shutter-vertical-out vbtn-corp", "#s") Button_text_big

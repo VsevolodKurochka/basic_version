@@ -1,82 +1,53 @@
-$h1-font-sizes: (
-  xs:   48px,
-  sm:   80px,
-  lg:   100px,
-  bigLg: 130px
-);
-$h2-font-sizes: (
-  exs:  17px,
-  sm:   30px
-);
-$vtitle: (
-  md:   60px
-);
-.h1{
-  @include font-size($h1-font-sizes);
-  line-height: 1.1;
-  font-size: 30px;
-  margin: 0 0 30px;
-  @extend .bold;
-}
-.h2{
-  @include font-size($h2-font-sizes);
-  @extend .light;
-}
 .vtitle{
-  @include font-size($vtitle);
-  @extend .text-center;
-  @extend .ttu;
-  @extend .light;
-  line-height: 1;
-  font-size: 40px;
-  margin-bottom: 60px;
-  padding-left: 7.5px;
-  padding-right: 7.5px;
-}
-@include resp-min(md){
-  .vtitle{
-	 margin-bottom: 75px;
-  }
-}
-@include resp-min(sm){
-  .h1{
-	 margin-bottom: 60px;
-  }
-}
-@include resp-max(sm){
-  .h{
-	 &1,
-	 &2{
-		margin: 15px 0;
-	 }
-  }
-}
-.color{
-  &-corp{
-	 color: setColor(corp);
-  }
-}
-.t{
-  &tu{
-	 text-transform: uppercase;
-  }
-  &du{
-	 text-decoration: underline;
-  }
-  &dn{
-	 text-decoration: none;
-  }
+	margin-bottom: 60px;
+	padding-left: 7.5px;
+	padding-right: 7.5px;
+	line-height: 1;
+	font-size: 40px;
+	@include fs('vtitle');
+	@extend .text-center;
+	@extend .text-tu;
+	@extend .light;
+	&-small{
+		margin: 12px 0;
+		font-size: 17px;
+		@include fs('vtitle-small');	
+	}
+	&-big{
+		line-height: 1.1;
+		font-size: 48px;
+		margin: 24px 0;
+		@include fs('vtitle-big');
+		@extend .bold;
+	}
+	@include resp-min(sm){
+		&-big{
+			margin-bottom: 60px;
+		}
+	}
+	@include resp-min(md){
+		margin-bottom: 75px;
+	}
 }
 .text{
-  &-center{
+	&-tu{
+		text-transform: uppercase;
+	}
+	&-du{
+		text-decoration: underline;
+	}
+	&-dn{
+		text-decoration: none;
+	}
+	&-center{
 	 text-align: center;
-  }
-  &-left{
+	}
+	&-left{
 	 text-align: left;
-  }
-  &-right{
+	}
+	&-right{
 	 text-align: right;
-  }
+	}
 }
 // @each $br-name, $br-value in $breakpoints{
 //   @include resp-max($br-name){

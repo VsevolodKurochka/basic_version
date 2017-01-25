@@ -5,22 +5,4 @@
 	color: #fff;
 	padding: 50px 0;
 	background-color: #ddd;
-	&-logo{
-		&-inner{
-			max-height: 100px;
-		}
-	}
-	@include resp-min(sm){
-		&-logo{
-			&-inner{
-				max-height: 100px;
-			}
-		}
-	}
-	// @include resp-min(md){
-	// 	padding: 125px 0 250px;
-	// }
-	// @include resp-min(lg){
-	// 	padding: 250px 0;
-	// }
 }

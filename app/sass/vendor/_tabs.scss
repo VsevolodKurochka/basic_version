@@ -44,9 +44,9 @@
       }
     }
     %effectTab{
-      color: setColor(corp);
+      color: setColor(main);
       &:after{
-        background-color: setColor(corp, light);
+        background-color: setColor(main, light);
         transform: none;
       }
     } 

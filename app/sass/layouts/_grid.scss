@@ -78,11 +78,17 @@ End:  HIDDEN AND VISIBLE UTILITIES
   margin-right: - getComp(gutter);
 }
 @if getComp(flex) == true{
-  .vrow{
+  .flex{
     display: flex;
     flex: 0 1 auto;
     flex-direction: row;
     flex-wrap: wrap;
+    &-v-center{
+      align-items: center;
+    }
+  }
+  .vrow{
+    @extend .flex;
   }
   [class*="#{getComp(columnName)}"]{
     flex-grow: 0;
