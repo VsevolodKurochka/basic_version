@@ -3,7 +3,7 @@
   <head>
     <title>Main Page</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8"><!--[if lte IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <link rel="stylesheet" href="css/style.css">
@@ -12,22 +12,23 @@
   </head>
   <body>
     <div class="vnav-wrap vnav-wrap-fixed">
-      <div class="vcontainer">
+      <div class="vcontainer vnav-container">
         <div class="vrow flex-v-center">
-          <div class="vak-xs-8 vak-md-4">
+          <div class="vak-xs-8 vak-md-3">
             <div class="vnav-logo">
-              <button class="vnav-btn" type="button" data-menu=".vnav-toggle"><span class="lines"><span></span><span></span><span></span></span>
+              <button class="vnav-btn" type="button" data-menu=".vnav-wrap-fixed .vnav"><span class="lines"><span></span><span></span><span></span></span>
                 <!--span.text Menu-->
               </button>
               <div class="block-inline"><img src="img/logo.png" alt=""></div>
             </div>
           </div>
-          <nav class="vnav vak-xs-12 vak-md-5 vnav-toggle">
+          <nav class="vnav vak-xs-12 vak-md-6">
             <ul>
-                  <li><a href="#sec1">Главная</a></li>
+                      <li class="active"><a href="#sec1">Главная</a></li>
+                      <li><a href="#sec1">Обо_мне</a></li>
             </ul>
           </nav>
-          <div class="visible-md visible-lg vak-xs-4 vak-md-3 text-md-right">
+          <div class="vak-xs-4 vak-md-3 text-md-right">
             <div class="vnav-text-hidden"><span></span></div>
             <div class="vnav-text">
               <p>+38 (063) 505 62 63</p>
@@ -36,15 +37,59 @@
         </div>
       </div>
     </div>
-    <div class="vcontainer">
-      <div class="vrow">
-        <p>Content</p>
+    <main class="main-wrapper">
+      <div class="vnav-wrap">
+        <div class="vcontainer">
+          <div class="vrow flex-v-center">
+            <div class="vak-xs-8 vak-md-3">
+              <div class="vnav-logo">
+                <button class="vnav-btn" type="button" data-menu=".vnav-wrap-fixed .vnav"><span class="lines"><span></span><span></span><span></span></span>
+                  <!--span.text Menu-->
+                </button>
+                <div class="block-inline"><img src="img/logo.png" alt=""></div>
+              </div>
+            </div>
+            <nav class="vnav vak-xs-12 vak-md-6">
+              <ul>
+                          <li class="active"><a href="#sec1">Главная</a></li>
+                          <li><a href="#sec1">Обо_мне</a></li>
+              </ul>
+            </nav>
+            <div class="vak-xs-4 vak-md-3 text-md-right">
+              <div class="vnav-text-hidden"><span></span></div>
+              <div class="vnav-text">
+                <p>+38 (063) 505 62 63</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="vcontainer">
-      <div class="vrow">
-        <p>Footer</p>
+                <button class="vbtn vbtn-effect-shutter-vertical-out vbtn-corp" data-modal="vmodal" data-modal-target="#modalform">Button_text_big
+                </button>
+      <div class="vmodal fade" id="modalform">
+        <div class="vmodal-dialog">
+          <button class="vmodal-close" type="button" data-close="vmodal">&times;</button>
+          <div class="vmodal-box">
+            <p class="vmodal-title">Отправить заявку</p>
+            <div class="vmodal-body">
+              <form class="vmain-form" action="">
+                <div class="vmain-form-row vmain-form-input-wrap">
+                  <input type="text" placeholder="Имя"><span class="vmain-form-line"></span>
+                </div>
+                <div class="vmain-form-row vmain-form-input-wrap">
+                  <input type="email" placeholder="E-mail"><span class="vmain-form-line"></span>
+                </div>
+                <div class="vmain-form-row vmain-form-input-wrap">
+                  <input type="text" placeholder="Телефон"><span class="vmain-form-line"></span>
+                </div>
+                <div class="vmain-form-row vmain-form-btn-wrap">
+                  <button class="vbtn vbtn-effect-bounce-top vbtn-corp" type="submit">Получить!</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </main>
   </body>
 </html>

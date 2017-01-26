@@ -1,6 +1,6 @@
 .vnav{
 	&-text{
-		color: setColor(black, black);
+		color: setColor(dark, black);
 		@extend .block-inline;
 		@extend .bold;
 		* {
@@ -29,6 +29,11 @@
 				opacity: 1;
 				visibility: visible;
 			}
+			@at-root{
+				%text-hidden-color{
+					background-color: setColor(white);
+				}
+			}
 			&-hidden{
 				text-align: right;
 				cursor: pointer;
@@ -39,7 +44,7 @@
 					width: 5px;
 					height: 5px;
 					border-radius: 100%;
-					background-color: setColor(light);
+					@extend %text-hidden-color;
 					&:after,
 					&:before{
 						content: "";
@@ -47,7 +52,7 @@
 						width: 5px;
 						height: 5px;
 						border-radius: 100%;
-						background-color: setColor(light);
+						@extend %text-hidden-color;
 					}
 					&:before{
 						left: -20px;
@@ -71,31 +76,18 @@
 				@include transitionMake($tr-dur: .3s);
 			}
 		}
+		&-wrap-fixed &{
+			@extend %vnav-transitionDef;
+		}
 		li{
-			display: inline-block;
-			vertical-align: middle;
-			text-transform: uppercase;
+			display: block;
 			a{
-				@extend .text-dn;
-				@extend .relative;
 				color: inherit;
+				@extend .relative;
+				@extend .text-dn;
 				&:after{
 					@extend .pseudo;
-					@extend .transition;
-					top: 100%;
-					left: 0;
-					height: 3px;
-					background-color: setColor(main);
-					opacity: 0;
-					width: 100%;
-					border-radius: 20px;
-					transform: scaleX(0) translateY(15px);
-				}
-				&:hover{
-					&:after{
-						opacity: 1;
-						transform: scaleX(1) translateY(0);
-					}
+					@extend .transition;		
 				}
 			}
 		}
@@ -110,7 +102,7 @@
 					margin: auto;
 					width: 24px;
 					height: 4px;
-					background-color: setColor(light);
+					background-color: setColor(white);
 					border-radius: 2px;
 					@extend %vnav-transitionDef;
 				}
@@ -120,7 +112,7 @@
 					}
 				}
 			}
-					
+			margin-right: 15px;
 			padding: 0;
 			background-color: transparent;
 			border: none;
@@ -133,13 +125,14 @@
 				height: 20px;
 				transform: rotate(180deg);
 				@extend %vnav-format;
+				@extend %vnav-transitionDef;
 				span{
 					display: block;
 					position: absolute;
 					left: 0;
 					width: 100%;
 					height: 4px;
-					background-color: setColor(light);
+					background-color: setColor(white);
 					&:nth-child(1){
 						top: 0;
 					}
@@ -151,22 +144,10 @@
 						margin-bottom: 0;
 					}
 				}
-				// &:after,
-				// &:before{
-				// 	@extend .pseudo;
-				// 	@extend %vbtn-menu-default;
-				// 	transform-origin: left;
-				// }
-				// &:before{
-				// 	top: -8px;
-				// }
-				// &:after{
-				// 	top: 8px;
-				// }
 			}	
 			.text{
 				margin-left: 15px;
-				color: setColor(light);
+				color: setColor(white);
 				text-transform: uppercase;
 				font-weight: bold;
 				font-size: 18px;
@@ -195,43 +176,80 @@
 		@include resp-max(md){
 			@at-root{
 				%vnav-resp{
-					display: block;
 					position: fixed;
 					left: 0;
-					background-color: #1b1b1b;
+					background-color: setColor(menu);
+				}
+				&-wrap-fixed + .main-wrapper{
+					margin-top: 75px;
+				}
+			}			
+			&-wrap-fixed{
+				display: flex;
+				align-items: center;
+				width: 100%;
+				left: 0;
+				top: 0;
+				right: 0;
+				padding: 11px 0;	
+				height: 56px;	
+				z-index: z('nav');
+				@extend %vnav-resp;
+				 &-container{
+					flex-basis: 100%;
 				}
 			}
-			@extend %vnav-resp;
-			top: 56px;
-			padding: 0;
-			width: 270px;
-			height: 100%;
-			transform: translateZ(0) translateX(-120%);
-			&.active{
+			&-wrap-fixed &-container{
+				flex-basis: 100%;
+			}
+			&-wrap-fixed &{
+				width: 270px;
+				height: 100%;
+				padding: 0;
+				top: 55px;
+				transform: translateZ(0) translateX(-120%);
+				@extend %vnav-resp;
+			}
+			&-wrap-fixed &-active{
 				transform: none;
 			}
-			li{
-				display: block;
+			&-wrap-fixed li{
 				a{
 					color: #fff;
 					display: block;
 					padding: 15px;
 					margin-bottom: 15px;
-					background-color: #212121;
 				}
-			}
-			&-wrap{
-				top: 0;
-				right: 0;
-				width: 100%;
-				z-index: 9999;
-				padding: 11px 0;
-				@extend %vnav-resp;
+				&.active{
+					a{
+						background-color: setColor(menu, light);
+					}
+				}
 			}
 		}
 		@include resp-min(md){
 			li{
+				display: inline-block;
+				vertical-align: middle;
 				padding: 15px 5px;
+				a{
+					&:after{
+						width: 100%;
+						height: 3px;
+						top: 100%;
+						left: 0;
+						border-radius: 20px;
+						background-color: setColor(main);
+						opacity: 0;
+						transform: scaleX(0) translateY(15px);
+					}
+					&:hover{
+						&:after{
+							opacity: 1;
+							transform: scaleX(1) translateY(0);
+						}
+					}					
+				}
 			}
 			&-wrap{
 				@include cf();

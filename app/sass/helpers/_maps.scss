@@ -15,7 +15,7 @@ $grid-system: (
 /// Карта для медиа-запросов.
 /// @type Map
 /// @prop {String} key - Имя точки остановки для медиа-запроса
-/// @prop {Number} value - значение точки остановки
+/// @prop {Number} value - Значение точки остановки
 $breakpoints: (
 	lg        : 1200px,
 	md        : 1025px,
@@ -28,23 +28,26 @@ $breakpoints: (
 /// Карта цветов, собирает все цвета приложения
 /// @type Map
 /// @prop {String} key - Имя цветов
-/// @prop {Number} value - значение цвета, соответствущее имени
+/// @prop {Number} value - Значение цвета, соответствущее имени
 $colors: (
-	black: (
-		base 	: #4c4c4c,
-		black : #000000,
-		dark	: #333333,
+	main: (
+		base	: $color-main,
+		light : lighten($color-main, 15%)
+	),
+	menu: (
+		base  : $color-responsive-menu,
+		light : lighten($color-responsive-menu, 5%)
+	),
+	dark: (
+		base 	: #333,
+		black : #000,
 		light : #f3f3f3
+	),
+	white: (
+		base  : white
 	),
 	green: (
 		base 	: #5bb85d
-	),
-	main: (
-		base	: $main,
-		light : lighten($main, 15%)
-	),
-	light: (
-		base  : #fff
 	)
 );
 
@@ -52,7 +55,7 @@ $colors: (
 /// Карта размеров шрифтов, собирает все значения размера шрифтов
 /// @type Map
 /// @prop {String} key - Имя медиа-запроса
-/// @prop {Number} value - значение размера шрифта
+/// @prop {Number} value - Значение размера шрифта
 $sizes: (
 	'vtitle-big': (
 		xs:   48px,
@@ -71,12 +74,11 @@ $sizes: (
 /// Карта Z-index’ов, собирает все Z-слои приложения
 /// @type Map
 /// @prop {String} key - Имя слоя
-/// @prop {Number} value - значение Z, соответствущее ключу
+/// @prop {Number} value - Значение Z, соответствущее ключу
 $z-indexes: (
 	'modal'					: 1000,
 	'modalBackdrop' : 999,
 	'nav'						: 10,
-	'navButton'			: 11,
 	'default'     	: 1,
 	'below'       	: -1
 );

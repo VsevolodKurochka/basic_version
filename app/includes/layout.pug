@@ -8,14 +8,13 @@ html(lang="ru")
 		include head
 		include mixins
 	body
-		include nav
-		block content
-			.vcontainer
-				.vrow
-					p Content
-		block footer
-			.vcontainer
-				.vrow
-					p Footer
-		block dev
-		//- +button("vbtn vbtn-effect-shutter-vertical-out vbtn-corp", "#s") Button_text_big
+		block nav
+			.vnav-wrap.vnav-wrap-fixed
+				.vcontainer.vnav-container
+					include nav
+		main.main-wrapper
+			block content
+				
+			block footer
+				
+			block dev

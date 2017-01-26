@@ -12,16 +12,16 @@ $(document).ready(function(){
 		//MENU
 			//SCRIPTS
 			function toggler(){
-				header_menu.toggleClass(active);
 				body.toggleClass(active);
 			}
 			$("[data-menu]").click(function(){
 				var menu_href = $(this).attr("data-menu");
-				$("[data-menu]").not($(this)).removeClass(active);
+				//$(body).toggleClass('vnav-active');
+				$(menu_href).toggleClass('vnav-active');
+				//$("[data-menu]").not($(this)).removeClass(active);
 				$(this).toggleClass(active);
-				toggler();
 			});
-			$('.vnav-menu a').click(function(){
+			$('.vnav-menu a[href*="#"]').click(function(){
 				var href = $(this).attr('href');
 				$('body,html').animate({
 					scrollTop: $(href).offset().top
@@ -64,12 +64,12 @@ $(document).ready(function(){
 		
 		$('[data-modal="vmodal"]').click(function(){
 			var thisTarget = $(this).attr("data-modal-target");
-			if ( thisTarget ) {
+			if ( $(thisTarget).length > 0 ) {
 				$(thisTarget).addClass(visibility);
 				body.append(backdrop).addClass("vmodal-open");
 				backdrop.addClass(visibility);
 			}else{
-				console.log("Need attribtue [data-modal-target].");
+				console.log("No element with " + thisTarget + " name");
 			}
 		});
 		$('[data-close="vmodal"]').click(function(){
@@ -97,6 +97,7 @@ $(document).ready(function(){
 			});
 		//TABS
 			$('[data-tab="tab"]').click(function(){
+				
 				//TABS LINK TOGGLE ACTIVE CLASS
 					$(this).closest(".vtabs-list").children("li").removeClass(active);
 					$(this).parent().addClass(active);

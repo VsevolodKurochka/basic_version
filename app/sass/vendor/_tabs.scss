@@ -62,7 +62,7 @@
   @include resp-min(sm){
     &-list{
       padding-bottom: 10px;
-      border-bottom: 5px solid setColor(black, light);
+      border-bottom: 5px solid setColor(dark, light);
       li{
         display: inline-block;
       }

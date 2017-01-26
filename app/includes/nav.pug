@@ -1,23 +1,21 @@
 include ./mixins
-.vnav-wrap.vnav-wrap-fixed
-	.vcontainer
-		.vrow.flex-v-center
-			.vak-xs-8.vak-md-4
-				.vnav-logo
-					button(type="button" class="vnav-btn" data-menu=".vnav-toggle")
-						span.lines
-							span
-							span
-							span
-						//span.text Menu
-					.block-inline
-						img(src="img/logo.png" alt="")
-			nav.vnav.vak-xs-12.vak-md-5.vnav-toggle
-				ul
-					+item("#sec1") Главная
-			.visible-md.visible-lg.vak-xs-4.vak-md-3.text-md-right
-				.vnav-text-hidden
+.vrow.flex-v-center
+	.vak-xs-8.vak-md-3
+		.vnav-logo
+			button(type="button" class="vnav-btn" data-menu=".vnav-wrap-fixed .vnav")
+				span.lines
 					span
-				.vnav-text
-					p +38 (063) 505 62 63
-			
+					span
+					span
+				//span.text Menu
+			.block-inline
+				img(src="img/logo.png" alt="")
+	nav.vnav.vak-xs-12.vak-md-6
+		ul
+			+item("#sec1", "active") Главная
+			+item("#sec1") Обо_мне
+	.vak-xs-4.vak-md-3.text-md-right
+		.vnav-text-hidden
+			span
+		.vnav-text
+			p +38 (063) 505 62 63

@@ -1,6 +1,10 @@
 //GET COLOR FUNCTION
 @function setColor($color, $tone: base){
-  @return map-get(map-get($colors, $color), $tone);
+  @if map-has-key($colors, $color){
+  	@return map-get(map-get($colors, $color), $tone);
+  }@else{
+  	@error 'Такого цвета нету: '#{$color}'';
+  }
 }
 @function getComp($comp, $map: $grid-system){
 	@return map-get($map,$comp);

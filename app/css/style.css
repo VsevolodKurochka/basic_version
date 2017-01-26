@@ -61,7 +61,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 body {
-  color: #333333;
+  color: #000;
   font-size: 18px;
   line-height: 1.42857143;
 }
@@ -104,7 +104,7 @@ a, button {
   src: local("ProximaLight"), url(../fonts/ProximaLight.otf);
 }
 
-.light, .vtitle, .vmodal-transparent .vmodal-close {
+.light, .vtitle {
   font-family: ProximaLight;
 }
 
@@ -608,7 +608,7 @@ End:  HIDDEN AND VISIBLE UTILITIES
 }
 
 .vnav-text {
-  color: #000000;
+  color: #000;
 }
 
 .vnav-text * {
@@ -640,6 +640,9 @@ End:  HIDDEN AND VISIBLE UTILITIES
     opacity: 1;
     visibility: visible;
   }
+  .vnav-text-hidden span, .vnav-text-hidden span:after, .vnav-text-hidden span:before {
+    background-color: white;
+  }
   .vnav-text-hidden {
     text-align: right;
     cursor: pointer;
@@ -651,7 +654,6 @@ End:  HIDDEN AND VISIBLE UTILITIES
     width: 5px;
     height: 5px;
     border-radius: 100%;
-    background-color: #fff;
   }
   .vnav-text-hidden span:after, .vnav-text-hidden span:before {
     content: "";
@@ -659,7 +661,6 @@ End:  HIDDEN AND VISIBLE UTILITIES
     width: 5px;
     height: 5px;
     border-radius: 100%;
-    background-color: #fff;
   }
   .vnav-text-hidden span:before {
     left: -20px;
@@ -673,40 +674,21 @@ End:  HIDDEN AND VISIBLE UTILITIES
   }
 }
 
-.vnav-btn {
+.vnav-wrap-fixed .vnav, .vnav-btn, .vnav-btn .lines {
   -webkit-transition: all ease 0.3s;
   transition: all ease 0.3s;
 }
 
 .vnav li {
-  display: inline-block;
-  vertical-align: middle;
-  text-transform: uppercase;
+  display: block;
 }
 
 .vnav li a {
   color: inherit;
 }
 
-.vnav li a:after {
-  top: 100%;
-  left: 0;
-  height: 3px;
-  background-color: #66fcf1;
-  opacity: 0;
-  width: 100%;
-  border-radius: 20px;
-  -webkit-transform: scaleX(0) translateY(15px);
-          transform: scaleX(0) translateY(15px);
-}
-
-.vnav li a:hover:after {
-  opacity: 1;
-  -webkit-transform: scaleX(1) translateY(0);
-          transform: scaleX(1) translateY(0);
-}
-
 .vnav-btn {
+  margin-right: 15px;
   padding: 0;
   background-color: transparent;
   border: none;
@@ -732,7 +714,7 @@ End:  HIDDEN AND VISIBLE UTILITIES
   left: 0;
   width: 100%;
   height: 4px;
-  background-color: #fff;
+  background-color: white;
 }
 
 .vnav-btn .lines span:nth-child(1) {
@@ -750,7 +732,7 @@ End:  HIDDEN AND VISIBLE UTILITIES
 
 .vnav-btn .text {
   margin-left: 15px;
-  color: #fff;
+  color: white;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 18px;
@@ -762,46 +744,85 @@ End:  HIDDEN AND VISIBLE UTILITIES
 }
 
 @media (max-width: 1024px) {
-  .vnav {
-    top: 56px;
-    padding: 0;
+  .vnav-wrap-fixed, .vnav-wrap-fixed .vnav {
+    position: fixed;
+    left: 0;
+    background-color: #a5a5a5;
+  }
+  .vnav-wrap-fixed + .main-wrapper {
+    margin-top: 75px;
+  }
+  .vnav-wrap-fixed {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    padding: 11px 0;
+    height: 56px;
+    z-index: 10;
+  }
+  .vnav-wrap-fixed-container {
+    -webkit-flex-basis: 100%;
+        -ms-flex-preferred-size: 100%;
+            flex-basis: 100%;
+  }
+  .vnav-wrap-fixed .vnav-container {
+    -webkit-flex-basis: 100%;
+        -ms-flex-preferred-size: 100%;
+            flex-basis: 100%;
+  }
+  .vnav-wrap-fixed .vnav {
     width: 270px;
     height: 100%;
+    padding: 0;
+    top: 55px;
     -webkit-transform: translateZ(0) translateX(-120%);
             transform: translateZ(0) translateX(-120%);
   }
-  .vnav, .vnav-wrap {
-    display: block;
-    position: fixed;
-    left: 0;
-    background-color: #1b1b1b;
-  }
-  .vnav.active {
+  .vnav-wrap-fixed .vnav-active {
     -webkit-transform: none;
             transform: none;
   }
-  .vnav li {
-    display: block;
-  }
-  .vnav li a {
+  .vnav-wrap-fixed li a {
     color: #fff;
     display: block;
     padding: 15px;
     margin-bottom: 15px;
-    background-color: #212121;
   }
-  .vnav-wrap {
-    top: 0;
-    right: 0;
-    width: 100%;
-    z-index: 9999;
-    padding: 11px 0;
+  .vnav-wrap-fixed li.active a {
+    background-color: #b2b2b2;
   }
 }
 
 @media (min-width: 1025px) {
   .vnav li {
+    display: inline-block;
+    vertical-align: middle;
     padding: 15px 5px;
+  }
+  .vnav li a:after {
+    width: 100%;
+    height: 3px;
+    top: 100%;
+    left: 0;
+    border-radius: 20px;
+    background-color: #66fcf1;
+    opacity: 0;
+    -webkit-transform: scaleX(0) translateY(15px);
+            transform: scaleX(0) translateY(15px);
+  }
+  .vnav li a:hover:after {
+    opacity: 1;
+    -webkit-transform: scaleX(1) translateY(0);
+            transform: scaleX(1) translateY(0);
   }
   .vnav-wrap:after, .vnav-wrap:before {
     content: "";
@@ -828,12 +849,12 @@ End:  HIDDEN AND VISIBLE UTILITIES
   background-color: #131313;
 }
 
-.transition, .vnav li a:after, .vbtn, .vbtn:before, .vmain-form input, .vtabs-list a, .vtabs-list a:after {
+.transition, .vnav li a:after, .vbtn, .vbtn:before, .vmain-form input, .vmain-form-line, .vtabs-list a, .vtabs-list a:after {
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
 }
 
-.pseudo, .vnav li a:after, .vbtn:before, .list li:after, .vtabs-list a:after {
+.pseudo, .vnav li a:after, .vbtn:before, .vmain-form-input-wrap:after, .list li:after, .vtabs-list a:after {
   content: "";
   position: absolute;
 }
@@ -988,13 +1009,12 @@ End:  HIDDEN AND VISIBLE UTILITIES
 }
 
 .vmain-form input {
-  border: 1px solid #eeeeee;
+  border: none;
   border-radius: 5px;
   text-align: left;
   width: 100%;
   max-width: 100%;
   padding: 15px;
-  margin-bottom: 15px;
   color: #000;
   font-size: 15px;
   outline: none;
@@ -1002,6 +1022,65 @@ End:  HIDDEN AND VISIBLE UTILITIES
 
 .vmain-form [type="submit"] {
   width: 100%;
+}
+
+.vmodal .vmain-form {
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.vmodal .vmain-form [type="submit"] {
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0;
+  background-color: transparent;
+  font-size: 20px;
+  color: inherit;
+  text-transform: uppercase;
+}
+
+.vmodal .vmain-form [type="submit"]:hover {
+  border-color: #ED2553;
+  color: #ED2553;
+}
+
+.vmain-form-row {
+  position: relative;
+  margin-top: 15px;
+}
+
+.vmain-form-row:first-child {
+  margin-top: 0;
+}
+
+.vmain-form-line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 0;
+  background-color: #ED2553;
+}
+
+input:focus + .vmain-form-line {
+  width: 100%;
+}
+
+.vmain-form-input-wrap:after {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 480px) {
+  .vmain-form-btn-wrap {
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .vmain-form-row {
+    margin-top: 30px;
+  }
 }
 
 .list li:after {
@@ -1251,21 +1330,23 @@ End:  HIDDEN AND VISIBLE UTILITIES
 
 .vmodal-dialog {
   position: relative;
-  width: 100%;
-  margin: 70px auto;
-  border-radius: 6px;
-  background-color: #fff;
-  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  max-width: 460px;
   outline: 0;
   opacity: 0;
-  -webkit-transform: scale(0.7) translate(0, -150%);
-          transform: scale(0.7) translate(0, -150%);
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.vmodal-box {
+  padding: 40px 30px;
+  border-radius: 10px;
+  background-color: white;
 }
 
 .vmodal.in .vmodal-dialog {
   opacity: 1;
-  -webkit-transform: scale(1) translate(0, 0);
-          transform: scale(1) translate(0, 0);
 }
 
 .vmodal-backdrop {
@@ -1275,46 +1356,13 @@ End:  HIDDEN AND VISIBLE UTILITIES
 
 .vmodal-backdrop.fade {
   opacity: 0;
-  filter: alpha(opacity=0);
 }
 
 .vmodal-backdrop.in {
   opacity: 0.5;
-  filter: alpha(opacity=50);
-}
-
-.vmodal-scrollbar-measure {
-  position: absolute;
-  top: -9999px;
-  width: 50px;
-  height: 50px;
-  overflow: scroll;
-}
-
-.vmodal-transparent {
-  background-color: rgba(0, 0, 0, 0.9);
-}
-
-.vmodal-transparent .vmodal-content {
-  background-color: transparent;
-  border: none;
-  box-shadow: none;
-}
-
-.vmodal-transparent .vmodal-close {
-  color: #fff;
-}
-
-@media (min-width: 768px) {
-  .vmodal-transparent .vmodal-close {
-    top: -15px;
-    right: -85px;
-    font-size: 80px;
-  }
 }
 
 .vmodal-header, .vmodal-body, .vmodal-footer {
-  padding: 15px;
   position: relative;
 }
 
@@ -1325,16 +1373,6 @@ End:  HIDDEN AND VISIBLE UTILITIES
 
 .vmodal-header:after, .vmodal-body:after, .vmodal-footer:after {
   clear: both;
-}
-
-.vmodal-text .vmodal-header {
-  background-color: #e8e8e8;
-}
-
-.vmodal-text .vmodal-body {
-  padding-left: 0;
-  padding-right: 0;
-  background-color: #f5f5f5;
 }
 
 .vmodal-body {
@@ -1364,42 +1402,93 @@ End:  HIDDEN AND VISIBLE UTILITIES
 }
 
 .vmodal-close {
-  background-color: transparent;
-  border: none;
-  font-size: 40px;
-  text-align: right;
-  float: right;
+  display: block;
+  width: 40px;
+  height: 40px;
   position: absolute;
   top: 0px;
   right: 0px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 40px;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
+
+.vmodal-close:hover {
+  color: #ED2553;
 }
 
 .vmodal-title {
-  text-align: center;
+  position: relative;
+  margin-bottom: 30px;
+  text-align: left;
+  font-size: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #ED2553;
 }
 
-.vmodal-title-text {
-  text-align: center;
-  padding: 5px;
-  background-color: #4c4c4c;
-  margin-top: 25px;
+.vmodal-title:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -30px;
+  width: 5px;
+  height: 100%;
+  background-color: #ED2553;
 }
 
-.vmodal ul li {
-  margin-bottom: 10px;
-  padding-left: 10px;
+.vmodal-transparent {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.vmodal-transparent .vmodal-box {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.vmodal-transparent .vmodal-close {
+  color: #fff;
+  font-weight: 300;
 }
 
 @media (min-width: 768px) {
-  .vmodal-dialog {
-    width: 400px;
+  .vmodal-transparent .vmodal-close {
+    top: -15px;
+    right: -85px;
+    font-size: 80px;
   }
+}
+
+.vmodal-text .vmodal-header {
+  background-color: #e8e8e8;
+}
+
+.vmodal-text .vmodal-body {
+  padding-left: 0;
+  padding-right: 0;
+  background-color: #f5f5f5;
+}
+
+@media (min-width: 480px) {
+  .vmodal-box {
+    padding: 60px 50px 40px 50px;
+  }
+  .vmodal-title {
+    font-size: 28px;
+  }
+  .vmodal-title:after {
+    left: -50px;
+  }
+}
+
+@media (min-width: 768px) {
   .vmodal-dialog.big {
     width: 600px;
     margin: 30px auto;
-  }
-  .vmodal-content {
-    border-radius: 6px;
   }
 }
 

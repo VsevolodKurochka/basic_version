@@ -1,3 +1,26 @@
 extends includes/layout
 block title
 	title Main Page
+block dev
+	.vnav-wrap
+		.vcontainer
+			include includes/nav
+	+button("vbtn vbtn-effect-shutter-vertical-out vbtn-corp", "#modalform") Button_text_big
+	.vmodal.fade#modalform
+		.vmodal-dialog
+			button(type="button" class="vmodal-close" data-close="vmodal") &times;
+			.vmodal-box
+				p.vmodal-title Отправить заявку
+				.vmodal-body
+					form(action="" class="vmain-form")
+						.vmain-form-row.vmain-form-input-wrap
+							input(type="text" placeholder="Имя")
+							span.vmain-form-line
+						.vmain-form-row.vmain-form-input-wrap
+							input(type="email" placeholder="E-mail")
+							span.vmain-form-line
+						.vmain-form-row.vmain-form-input-wrap
+							input(type="text" placeholder="Телефон")
+							span.vmain-form-line
+						.vmain-form-row.vmain-form-btn-wrap
+							button.vbtn.vbtn-effect-bounce-top.vbtn-corp(type="submit") Получить!

@@ -1,178 +1,181 @@
 %modalTransition{
-  @include transitionMake();
+	@include transitionMake();
 }
 .fade {
-  opacity: 0;
-  @extend %modalTransition;
-  &.in{
-    opacity: 1;
-  }
+	opacity: 0;
+	@extend %modalTransition;
+	&.in{
+		opacity: 1;
+	}
 }
 
 %visibility{
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  visibility: hidden;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	visibility: hidden;
 }
 .vmodal{
-  @extend %visibility;
-  backface-visibility: hidden;
-  overflow: hidden;
-  z-index: z('modal');
-  -webkit-overflow-scrolling: touch;
-  outline: 0;
-  &-open{
-    //overflow: hidden;
-    //padding-right: 17px;
-    .vmodal{
-      overflow-x: hidden;
-      overflow-y: auto;
-    }
-  }
-  
-  
-  &-dialog{
-    position: relative;
-    width: 100%;
-    margin: 70px auto;
-    border-radius: 6px;
-    background-color: setColor(light);
-    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-    outline: 0;
-    opacity: 0;
-    transform: scale(0.7) translate(0, -150%);
-    @extend %modalTransition;
-  }
-  &.in{
-    .vmodal-dialog{
-      opacity: 1;
-      transform: scale(1) translate(0, 0);
-    }
-  } 
-  // &-content{
-  //   background-color: setColor(light);
-  //   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-  //   -webkit-background-clip: padding-box;
-  //   background-clip: padding-box;
-  //   outline: 0;
-  // }
-  &-backdrop{
-    @extend %visibility;
-    z-index: z('modalBackdrop');
-    background-color: #000000;
-    &.fade{
-      opacity: 0;
-      filter: alpha(opacity=0);
-    }
-    &.in{
-      opacity: 0.5;
-      filter: alpha(opacity=50);
-    }    
-  }
-  &-scrollbar-measure{
-    position: absolute;
-    top: -9999px;
-    width: 50px;
-    height: 50px;
-    overflow: scroll;    
-  }
-  &-transparent{
-    background-color: rgba(0, 0, 0, 0.9);
-    .vmodal-content{
-      background-color: transparent;
-      border: none;
-      box-shadow: none;
-    }
-    .vmodal-close{
-      color: #fff;
-      @extend .light !optional;
-      @include resp-min(sm){
-        top: -15px;
-        right: -85px;
-        font-size: 80px;
-      }
-    }
-  }
-  &-header,
-  &-body,
-  &-footer{
-    padding: 15px;
-    position: relative;
-    @include cf();
-  }
-  &-text{
-    .vmodal{
-      &-header{
-        background-color: #e8e8e8;
-      }
-      &-body{
-        padding-left: 0;
-        padding-right: 0;
-        background-color: #f5f5f5;        
-      }     
-    }
-  }
-  &-body{
-    font-size: 15px;
-    &-inner{
-      height: 350px;
-      overflow-y: auto;
-      padding: 15px;
-      border-radius: 6px;
-      p{
-        margin-bottom: 15px;
-        &:last-child{
-          margin-bottom: 0;
-        }
-      }
-      @include resp-min(sm){
-        padding: 0 30px;
-        height: 400px;
-      }
-    }
-  }
-  &-close{
-    background-color: transparent;
-    border: none;
-    font-size: 40px;
-    text-align: right;
-    float: right;
-    position: absolute;
-    top: 0px;
-    right: 0px;    
-  }
-  &-title{
-    text-align: center;
-    @extend .bold !optional;
-    &-text{
-      text-align: center;
-      padding: 5px;
-      background-color: setColor(black);
-      margin-top: 25px;
-    }
-  }
-  ul{
-    li{
-      margin-bottom: 10px;
-      padding-left: 10px;
-    }
-  }
-  @include resp-min(sm){
-    &-dialog{
-      width: 400px;
-      &.big{
-        width: 600px;
-        margin: 30px auto;
-      }
-    }
-    &-content{
-      border-radius: 6px;
-    }
-  }
+	@extend %visibility;
+	backface-visibility: hidden;
+	overflow: hidden;
+	z-index: z('modal');
+	-webkit-overflow-scrolling: touch;
+	outline: 0;
+	&-open{
+		//overflow: hidden;
+		//padding-right: 17px;
+		.vmodal{
+			overflow-x: hidden;
+			overflow-y: auto;
+		}
+	}
+	&-dialog{
+		position: relative;
+		max-width: 460px;
+		outline: 0;
+		opacity: 0;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+		@extend %modalTransition;
+	}
+	&-box{
+		padding: 40px 30px;
+		border-radius: 10px;
+		background-color: setColor(white);
+	}
+	&.in{
+		.vmodal-dialog{
+			opacity: 1;
+		}
+	}
+	&-backdrop{
+		@extend %visibility;
+		z-index: z('modalBackdrop');
+		background-color: #000000;
+		&.fade{
+			opacity: 0;
+		}
+		&.in{
+			opacity: 0.5;
+		}    
+	}
+	&-header,
+	&-body,
+	&-footer{
+		//padding: 15px;
+		position: relative;
+		@include cf();
+	}
+	&-body{
+		font-size: 15px;
+		&-inner{
+			height: 350px;
+			overflow-y: auto;
+			padding: 15px;
+			border-radius: 6px;
+			p{
+				margin-bottom: 15px;
+				&:last-child{
+					margin-bottom: 0;
+				}
+			}
+			@include resp-min(sm){
+				padding: 0 30px;
+				height: 400px;
+			}
+		}
+	}
+	&-close{
+		display: block;
+		width: 40px;
+		height: 40px;
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		background-color: transparent;
+		border: none;
+		outline: none;
+		font-size: 40px;
+		@include transitionMake();
+		&:hover{
+			color: $color-modal-main;
+		}
+	}
+	&-title{
+		position: relative;
+		margin-bottom: 30px;
+		text-align: left;
+		font-size: 25px;
+		text-transform: uppercase;
+		letter-spacing: 1.5px;
+		color: $color-modal-main;
+		@extend .bold !optional;
+		&:after{
+			@include pseudo();
+			top: 0;
+			left: -30px;
+			width: 5px;
+			height: 100%;
+			background-color: $color-modal-main;
+		}
+	}
+	// ul{
+	//   li{
+	//     margin-bottom: 10px;
+	//     padding-left: 10px;
+	//   }
+	// }
+	&-transparent{
+		background-color: rgba(0, 0, 0, 0.9);
+	}
+	&-transparent &-box{
+		background-color: transparent;
+		border: none;
+		box-shadow: none;
+	}
+	&-transparent &-close{
+		color: #fff;
+		font-weight: 300;
+		@include resp-min(sm){
+			top: -15px;
+			right: -85px;
+			font-size: 80px;
+		}
+	}
+	&-text &{
+		&-header{
+			background-color: #e8e8e8;
+		}
+		&-body{
+			padding-left: 0;
+			padding-right: 0;
+			background-color: #f5f5f5;        
+		}     
+	}  
+	@include resp-min(xs){
+		&-box{
+			padding: 60px 50px 40px 50px;
+		}
+		&-title{
+			font-size: 28px;
+			&:after{
+				left: -50px;
+			}
+		}
+	}
+	@include resp-min(sm){
+		&-dialog{
+			&.big{
+				width: 600px;
+				margin: 30px auto;
+			}
+		}
+	}
 }
 .visible{
-  visibility: visible;
+	visibility: visible;
 }
