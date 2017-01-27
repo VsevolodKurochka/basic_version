@@ -21,6 +21,18 @@
 			p 1
 		.vcollapse-body
 			p Lorem
+// Example of tabs
+.vtabs-wrap
+	.vtabs-links
+		.vtabs-list
+			li.active: a.vtabs-link(data-tab="tab" data-tab-target="#vtab1") Tab_link_1
+			li: a.vtabs-link(data-tab="tab" data-tab-target="#vtab2") Tab_link_2
+		.vtabs-content
+			.vtabs-content-inner#vtab1
+				p 1
+			.vtabs-content-inner#vtab2
+				p 2
+
 // EXAMPLE OF BUTTON
 button(class="vbtn vbtn-effect-shutter-vertical-out vbtn-corp" data-modal="vmodal" data-modal-target="#modalform") BUTTON_TEXT
 

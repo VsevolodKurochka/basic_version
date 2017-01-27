@@ -24,6 +24,7 @@
 	z-index: z('modal');
 	-webkit-overflow-scrolling: touch;
 	outline: 0;
+	padding: 15px;
 	&-open{
 		//overflow: hidden;
 		//padding-right: 17px;
@@ -35,11 +36,12 @@
 	&-dialog{
 		position: relative;
 		max-width: 460px;
+		
 		outline: 0;
 		opacity: 0;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%,-50%);
+		// left: 50%;
+		// top: 50%;
+		// transform: translate(-50%,-50%);
 		@extend %modalTransition;
 	}
 	&-box{
@@ -47,10 +49,8 @@
 		border-radius: 10px;
 		background-color: setColor(white);
 	}
-	&.in{
-		.vmodal-dialog{
-			opacity: 1;
-		}
+	&.in &-dialog{
+		opacity: 1;
 	}
 	&-backdrop{
 		@extend %visibility;
@@ -66,7 +66,6 @@
 	&-header,
 	&-body,
 	&-footer{
-		//padding: 15px;
 		position: relative;
 		@include cf();
 	}
@@ -100,6 +99,7 @@
 		border: none;
 		outline: none;
 		font-size: 40px;
+		z-index: z('default');
 		@include transitionMake();
 		&:hover{
 			color: $color-modal-main;
@@ -167,8 +167,17 @@
 			}
 		}
 	}
+	@include resp-max(sm){
+		&-dialog{
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
 	@include resp-min(sm){
 		&-dialog{
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
 			&.big{
 				width: 600px;
 				margin: 30px auto;

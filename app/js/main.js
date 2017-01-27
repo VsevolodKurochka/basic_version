@@ -30,7 +30,8 @@ $(document).ready(function(){
 				toggler();
 				return false;
 			});
-			$(".vnav-text-hidden").click(function(){
+			$(".vnav-text-toggle").click(function(){
+				$(this).toggleClass(active);
 				$(".vnav-text").toggleClass(active);
 			});
 			// function menuSwipe(){

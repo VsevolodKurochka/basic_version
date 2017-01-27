@@ -33,7 +33,9 @@
 				font-size: 20px;
 				color: inherit;
 				text-transform: uppercase;
-				&:hover{
+				outline: none;
+				&:hover,
+				&:focus{
 					border-color: $color-modal-main;
 					color: $color-modal-main;
 				}
