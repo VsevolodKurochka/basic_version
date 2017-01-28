@@ -1,19 +1,14 @@
 $(document).ready(function(){
 
-		// VARIABLES
-		var header_menu_name 	= 'vnav-menu',
-				header_menu 			= $('.' + header_menu_name),
-				body 							= $("body"),
-				visibility        = "in visible",
-				active            = "active",
-		 		backdrop = $("<div />", {
-					class: "vmodal-backdrop fade"
+		// Variables
+		var body 							= $("body"),
+				modalVisibility		= "showing-in",
+				active 						= "active",
+				backdrop 					= $("<div />", {
+					class: "vmodal-backdrop"
 				});
-		//MENU
-			//SCRIPTS
-			function toggler(){
-				body.toggleClass(active);
-			}
+
+		// Menu
 			$("[data-menu]").click(function(){
 				var menu_href = $(this).attr("data-menu");
 				//$(body).toggleClass('vnav-active');
@@ -27,68 +22,83 @@ $(document).ready(function(){
 					scrollTop: $(href).offset().top
 				},2000);
 				$("[data-menu]").removeClass(active);
-				toggler();
+				body.toggleClass(active);
 				return false;
 			});
 			$(".vnav-text-toggle").click(function(){
 				$(this).toggleClass(active);
 				$(".vnav-text").toggleClass(active);
 			});
-			// function menuSwipe(){
-			// 	if ( $(document).width() <= responsiveBr ) {
-			// 		body.hammer().on("swiperight", function(){
-			// 			toggler();
-			// 		}).on("swipeleft", function(){
-			// 			toggler();
-			// 		});
-			// 	}
-			// }
-			// menuSwipe();
-			// $(window).resize(menuSwipe);
-			
-		// $(document).click(function(e){
-		// 	if( header_menu.hasClass(header_menu_name + '-open') ) {
-		// 		if ( ! $(e.target).is('.'+header_menu_name + ', .'+header_menu_name+"*") ) {
-		// 			toggler();
-		// 		}
-		// 	}
-		// });
 
-		// SCROLL TO BLOCK
-		$('.anchor').click(function(){
-			var href = $(this).attr('href');
-			$('body,html').animate({
-				scrollTop: $(href).offset().top
-			},2000);
-			return false;
-		});
-		
-		$('[data-modal="vmodal"]').click(function(){
-			var thisTarget = $(this).attr("data-modal-target");
-			if ( $(thisTarget).length > 0 ) {
-				$(thisTarget).addClass(visibility);
-				body.append(backdrop).addClass("vmodal-open");
-				backdrop.addClass(visibility);
-			}else{
-				console.log("No element with " + thisTarget + " name");
+
+		// Scroll to block
+			$('.anchor').click(function(){
+				var href = $(this).attr('href');
+				$('body,html').animate({
+					scrollTop: $(href).offset().top
+				},2000);
+				return false;
+			});
+
+
+		// Modal
+			var videoBlock = $('#modalvideo .vmodal-video');
+			function videoBlockClear(){
+				videoBlock.html('');
 			}
-		});
-		$('[data-close="vmodal"]').click(function(){
-			$(this).closest(".vmodal").removeClass(visibility);
-			backdrop.removeClass(visibility);
-			body.removeClass("vmodal-open");
-		});
-		$(window).click(function(e){
-			if ( backdrop.length > 0 ) {
-				if ( $(e.target).is(".vmodal") ) {
-					$(".vmodal.in").removeClass(visibility);
-					backdrop.removeClass(visibility);
-					body.removeClass("vmodal-open");
+			function videoBlockIsShowing(){
+				if($("#modalvideo").hasClass('showing-in')){
+					videoBlockClear();
 				}
 			}
-		});
+			$('[data-func="vmodal"]').click(function(){
+				var thisTarget = $(this).attr("data-target");
+				videoBlockIsShowing();
+				if ( $(thisTarget).length > 0 ) {
+					$('.vmodal').removeClass(modalVisibility)
+					$(thisTarget).addClass(modalVisibility);
+					body.addClass("vmodal-open").append(backdrop.addClass(modalVisibility));
+				}else{
+					console.log("No element with " + thisTarget + " name");
+				}
+			});
+			$('[data-close="vmodal"]').click(function(){
+				$(this).closest(".showing-in").removeClass(modalVisibility);
+				backdrop.removeClass(modalVisibility);
+				body.removeClass("vmodal-open");
+			});
+			$(window).click(function(e){
+				if ( backdrop.length > 0 && $(e.target).is(".vmodal") ) {
+					$(".showing-in").removeClass(modalVisibility);
+					backdrop.removeClass(modalVisibility);
+					videoBlockClear();
+					body.removeClass("vmodal-open");
+				}
+			});
 
-		//COLLAPSE
+
+			// Video
+			$('[data-video]').click(function(){
+				var thisVideo = $(this).attr('data-video');
+				var thisSource = $(this).attr('data-source');
+				var thisTitle = $(this).attr('data-title');
+				var output;
+				videoBlockClear();
+				if(thisTitle){
+					$("#modalvideo .vmodal-title").text(thisTitle);
+				}
+				if( thisSource == 'youtube'){
+					output = $('<iframe />', {
+						class: 'vmodal-iframe',
+						src: thisVideo + '?autoplay=1'
+					}).appendTo('#modalvideo .vmodal-video');
+				}
+			});
+			$("#modalvideo .vmodal-close").click(function(){
+				videoBlockClear();
+			});
+
+		// Collapse
 			$(".vcollapse-inner.active").children(".vcollapse-body").slideDown();
 			$(".vcollapse-header").click(function(){
 				$(this).parent().toggleClass(active);
@@ -96,20 +106,24 @@ $(document).ready(function(){
 				$(this).closest(".vcollapse-wrap").children(".vcollapse-inner").not($(this).parent()).removeClass("active");
 				$(this).closest(".vcollapse-wrap").children(".vcollapse-inner").children(".vcollapse-body").not($(this).next()).slideUp("slow");
 			});
-		//TABS
-			$('[data-tab="tab"]').click(function(){
+
+
+		// Tabs
+			$('[data-func="tab"]').click(function(){
 				
-				//TABS LINK TOGGLE ACTIVE CLASS
+				// Tab links toggle class
 					$(this).closest(".vtabs-list").children("li").removeClass(active);
 					$(this).parent().addClass(active);
 
-				//TABS CONTENT SHOW
-					var tabTarget = $(this).attr('data-tab-target');
+				// Show tab content
+					var tabTarget = $(this).attr('data-target');
 					$(tabTarget).addClass(active);
 					$(".vtabs-content > div").not($(tabTarget)).removeClass(active);
 				
 			});
-		//DEVELOPE
-		var widthDevice = $(window).width();
-		$(".development").html(widthDevice);
+
+
+		// Develope
+			var widthDevice = $(window).width();
+			$(".development").html(widthDevice);
 });	

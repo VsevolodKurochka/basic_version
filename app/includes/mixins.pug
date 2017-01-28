@@ -12,4 +12,4 @@ mixin button(buttonClass, modalTarget)
 	else
 		- modalTarget = "#modalform"
 
-	button(class=buttonClass data-modal="vmodal" data-modal-target=modalTarget): block
+	button(class=buttonClass data-func="vmodal" data-target=modalTarget)&attributes(attributes): block

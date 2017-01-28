@@ -791,7 +791,7 @@ End:  HIDDEN AND VISIBLE UTILITIES
   .vnav-wrap-fixed .vnav {
     width: 270px;
     height: 100%;
-    padding: 0;
+    padding: 0 0 100px 0;
     top: 56px;
     z-index: 1;
     overflow-y: auto;
@@ -907,13 +907,14 @@ End:  HIDDEN AND VISIBLE UTILITIES
 }
 
 .vbtn {
+  min-width: 200px;
+  max-width: 100%;
+  padding: 20px 25px;
+  overflow: hidden;
   border: none;
   border-radius: 3px;
-  max-width: 100%;
-  padding: 10px 20px;
-  overflow: hidden;
   z-index: 1;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .vbtn:before {
@@ -995,6 +996,10 @@ End:  HIDDEN AND VISIBLE UTILITIES
 
 .vbtn-main:before {
   background-color: #b1fdf8;
+}
+
+.vbtn-single {
+  margin-bottom: 15px;
 }
 
 @media (min-width: 768px) {
@@ -1304,17 +1309,9 @@ input:focus + .vmain-form-line {
   content: "";
 }
 
-.fade, .vmodal-dialog {
+.vmodal, .vmodal-dialog, .showing, .vmodal-backdrop {
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
-}
-
-.fade {
-  opacity: 0;
-}
-
-.fade.in {
-  opacity: 1;
 }
 
 .vmodal, .vmodal-backdrop {
@@ -1323,17 +1320,16 @@ input:focus + .vmain-form-line {
   right: 0;
   bottom: 0;
   left: 0;
-  visibility: hidden;
 }
 
 .vmodal {
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  padding: 15px;
   overflow: hidden;
   z-index: 1000;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
   -webkit-overflow-scrolling: touch;
   outline: 0;
-  padding: 15px;
 }
 
 .vmodal-open .vmodal {
@@ -1343,9 +1339,7 @@ input:focus + .vmain-form-line {
 
 .vmodal-dialog {
   position: relative;
-  max-width: 460px;
   outline: 0;
-  opacity: 0;
 }
 
 .vmodal-box {
@@ -1354,21 +1348,9 @@ input:focus + .vmain-form-line {
   background-color: white;
 }
 
-.vmodal.in .vmodal-dialog {
-  opacity: 1;
-}
-
 .vmodal-backdrop {
   z-index: 999;
-  background-color: #000000;
-}
-
-.vmodal-backdrop.fade {
-  opacity: 0;
-}
-
-.vmodal-backdrop.in {
-  opacity: 0.5;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .vmodal-header, .vmodal-body, .vmodal-footer {
@@ -1413,7 +1395,6 @@ input:focus + .vmain-form-line {
 .vmodal-close {
   display: block;
   width: 40px;
-  height: 40px;
   position: absolute;
   top: 0px;
   right: 0px;
@@ -1421,6 +1402,8 @@ input:focus + .vmain-form-line {
   border: none;
   outline: none;
   font-size: 40px;
+  font-weight: 900;
+  line-height: 1;
   z-index: 1;
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
@@ -1437,6 +1420,7 @@ input:focus + .vmain-form-line {
   font-size: 25px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
+  line-height: 1.1;
   color: #ED2553;
 }
 
@@ -1458,32 +1442,62 @@ input:focus + .vmain-form-line {
   background-color: transparent;
   border: none;
   box-shadow: none;
+  padding: 0;
 }
 
 .vmodal-transparent .vmodal-close {
   color: #fff;
-  font-weight: 300;
 }
 
 @media (min-width: 768px) {
   .vmodal-transparent .vmodal-close {
     top: -15px;
-    right: -85px;
-    font-size: 80px;
+    font-size: 60px;
   }
 }
 
-.vmodal-text .vmodal-header {
-  background-color: #e8e8e8;
+.vmodal-transparent .vmodal-title {
+  padding-left: 30px;
 }
 
-.vmodal-text .vmodal-body {
-  padding-left: 0;
-  padding-right: 0;
-  background-color: #f5f5f5;
+.vmodal-transparent .vmodal-title:after {
+  left: 0;
+}
+
+@media (min-width: 768px) {
+  .vmodal-transparent .vmodal-title {
+    padding-right: 50px;
+  }
+}
+
+@media (max-width: 767px) {
+  .vmodal-transparent .vmodal-title {
+    font-size: 19px;
+    padding-right: 40px;
+    margin-bottom: 15px;
+  }
+}
+
+.vmodal-video {
+  margin-top: 60px;
+}
+
+@media (max-width: 767px) {
+  .vmodal-video {
+    margin-top: 30px;
+  }
+}
+
+.vmodal-iframe {
+  display: block;
+  width: 100%;
+  min-height: 300px;
 }
 
 @media (min-width: 480px) {
+  .vmodal-dialog-default {
+    max-width: 460px;
+  }
   .vmodal-box {
     padding: 60px 50px 40px 50px;
   }
@@ -1503,7 +1517,7 @@ input:focus + .vmain-form-line {
 }
 
 @media (min-width: 768px) {
-  .vmodal-dialog {
+  .vmodal-dialog-center {
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
@@ -1515,7 +1529,13 @@ input:focus + .vmain-form-line {
   }
 }
 
-.visible {
+.showing, .vmodal, .vmodal-backdrop {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.showing-in {
+  opacity: 1;
   visibility: visible;
 }
 

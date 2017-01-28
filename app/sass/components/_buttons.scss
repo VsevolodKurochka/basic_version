@@ -1,20 +1,21 @@
 .vbtn {
+  min-width: 200px;
+  max-width: 100%;
+  padding: 20px 25px;
+  overflow: hidden;
+  border: none;
+  border-radius: 3px;
+  z-index: z('default');
+  font-size: 18px;
   @extend .relative;
   @extend .block-inline;
   @extend .text-dn;
   @extend .bold;
   @extend .transition;
-  border: none;
-  border-radius: 3px;
-  max-width: 100%;
-  padding: 10px 20px;
-  overflow: hidden;
-  z-index: 1;
-  font-size: 16px;
   &:before{
+    z-index: -1;
     @extend .pseudo;
     @extend .transition;
-    z-index: -1;
   }
   @include resp-min(xs){
     font-size: 18px;
@@ -112,6 +113,7 @@
     }
   }
   &-single{
+    margin-bottom: 15px;
     @include resp-min(sm){
       margin-top: 70px;
     }
