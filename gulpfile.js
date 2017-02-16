@@ -13,7 +13,7 @@ var gulp = require('gulp'),
 		browserSync = require('browser-sync'),
 		del = require('del'),
 		autoprefixer = require('gulp-autoprefixer'),
-		notify = require("gulp-notify");
+		notify = require('gulp-notify');
 
 // Define sourses object
 var sourses = {
@@ -45,7 +45,7 @@ gulp.task('sass', function(){
 			outputStyle: 'expanded'
 		}).on('error', sass.logError))
 		.pipe(autoprefixer(
-			{browsers: ['last 2 versions', 'ie 11', 'Android >= 4.1', 'Safari >= 8', 'iOS >= 8']}
+			{browsers: ['last 15 versions', 'ie 11', 'Android >= 4.1', 'Safari >= 4', 'iOS >= 4']}
 		))
 		.pipe(gulp.dest('app/css'))
 		.pipe(browserSync.reload({stream: true}))
