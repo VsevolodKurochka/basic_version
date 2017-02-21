@@ -1,10 +1,8 @@
-/*
- Порядок команд для загрузки на новом ПК.
- 1. npm i gulp -g.
- 2. npm install --save-dev gulp
- 3. npm i gulp-install --save-dev.
- 4. npm install.
- 5. npm install gulp-pug --save-dev
+/*	Порядок команд для загрузки на новом ПК.
+	1. npm i gulp -g
+	2. npm i gulp-install -g
+	3. npm install
+	4. gulp
 */
 var gulp = require('gulp'),
 		install = require('gulp-install'),
