@@ -21,7 +21,6 @@ $(document).ready(function(){
 			},2000);
 			$("[data-menu]").removeClass(active);
 			$('.vnav-wrap-fixed .vnav').removeClass('vnav-active');
-			//body.toggleClass(active);
 			return false;
 		});
 		$(".vnav-text-toggle").click(function(){
@@ -92,11 +91,12 @@ $(document).ready(function(){
 		});
 	// Collapse
 		$(".vcollapse-inner.active").children(".vcollapse-body").slideDown();
-		$(".vcollapse-header").click(function(){
+		$('.vcollapse-wrap').on('click', '.vcollapse-header', function(){
+			let collapseInner = $(this).parents('.vcollapse-wrap').find('.vcollapse-inner');
 			$(this).parent().toggleClass(active);
-			$(this).next().slideToggle("slow");
-			$(this).closest(".vcollapse-wrap").children(".vcollapse-inner").not($(this).parent()).removeClass("active");
-			$(this).closest(".vcollapse-wrap").children(".vcollapse-inner").children(".vcollapse-body").not($(this).next()).slideUp("slow");
+			$(this).next().slideToggle('slow');
+			collapseInner.not($(this).parent()).removeClass("active");
+			collapseInner.children('.vcollapse-body').not($(this).next()).slideUp("slow");
 		});
 	// Tabs
 		$('[data-func="tab"]').click(function(){			

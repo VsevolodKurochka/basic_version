@@ -8,7 +8,7 @@
   z-index: z('default');
   font-size: 18px;
   @extend .relative;
-  @extend .block-inline;
+  @extend .d-i;
   @extend .text-dn;
   @extend .bold;
   @extend .transition;
@@ -113,12 +113,9 @@
     }
   }
   &-single{
-    margin-bottom: 15px;
+    margin-top: 35px;
     @include resp-min(sm){
       margin-top: 70px;
-    }
-    @include resp-max(sm){
-      margin-top: 35px;
     }
   }
 }

@@ -1,3 +1,4 @@
+include includes/mixins
 // EXAMPLE OF FORM 
 .vmodal.fade#modalform
 	.vmodal-dialog
@@ -33,11 +34,11 @@
 			.vtabs-content-inner#vtab2
 				p 2
 
-// EXAMPLE OF BUTTON
-button(class="vbtn vbtn-effect-shutter-vertical-out vbtn-corp" data-modal="vmodal" data-modal-target="#modalform") BUTTON_TEXT
+// Buttons
+button(class="vbtn vbtn-effect-shutter-vertical-out vbtn-corp" data-modal="vmodal" data-modal-target="#modalform") Button
++button("vbtn vbtn-effect-shutter-vertical-out vbtn-main", "#modalvideo")(data-video="https://www.youtube.com/embed/Iutk7AboLZI" data-source="youtube" data-title="Уроки JavaScript Практика #3 Пишем свой CSS генератор") Button_text_big
 
-//
-	LIST OF POSSIBLE CLASSES
+// LIST OF POSSIBLE CLASSES
 
 	vbtn-effect-shutter-vertical-out
 	vbtn-effect-shutter-horizontal-out

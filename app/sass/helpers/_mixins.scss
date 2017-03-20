@@ -26,32 +26,32 @@
   // Создание колонок(поддержка float, flexbox).
     @mixin make-column($class,$push: "push",$pull: "pull",$offset: "offset"){
       @for $i from 1 through getComp(columns){
-        $defaultValue: (getComp(width)/getComp(columns)) * $i;
+        $defaultValue: ( getComp(width)/getComp(columns) ) * $i;
         @if getComp(flex) == true{     
           @if $class != null {
-            .#{getComp(columnName)}-#{$class}-#{$i}{
+            .#{$class}-#{$i}{
               flex-basis: $defaultValue;
               max-width: $defaultValue;
             }      
           }
         }@else{
           @if $class != null {
-            .#{getComp(columnName)}-#{$class}-#{$i}{
+            .#{$class}-#{$i}{
               width: $defaultValue;
             }      
           }
           @if $push == "push" {
-            .#{getComp(columnName)}-#{$class}-push-#{$i}{
+            .#{$class}-push-#{$i}{
               left: $defaultValue;
             }      
           }
           @if $pull == "pull" {
-            .#{getComp(columnName)}-#{$class}-pull-#{$i}{
+            .#{$class}-pull-#{$i}{
               right: $defaultValue;
             }
           }
           @if $offset == "offset" {
-            .#{getComp(columnName)}-#{$class}-offset-#{$i}{
+            .#{$class}-offset-#{$i}{
               margin-left: $defaultValue;
             }
           }
@@ -84,11 +84,11 @@
 
 
 // Миксин для загрузки шрифтов
-@mixin connect-font($font,$class_name: $font){
+@mixin connect-font($font,$class_name: $font, $fileType: otf){
   @font-face{
     font-family: $font;
     src: local("#{$font}"), 
-    url(../fonts/#{$font}.otf);
+    url(../fonts/#{$font}.#{$fileType});
   }
   @if $class_name != null{
     .#{$class_name}{
@@ -139,4 +139,16 @@
 // Миксин для создание transition
 @mixin transitionMake($tr-prop: all, $tr-time: ease, $tr-dur: .5s){
   transition: $tr-prop $tr-time $tr-dur;
+}
+
+@mixin size($width, $height: $width){
+  width: $width;
+  height: $height;
+}
+
+@mixin input-placeholder {
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
 }
