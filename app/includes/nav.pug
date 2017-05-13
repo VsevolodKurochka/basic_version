@@ -1,25 +1,25 @@
-include ./mixins
+include mixins
 .vrow.flex-v-center
 	.vak.xs-8.md-3
-		.vnav-logo
-			button(type="button" class="vnav-btn" data-menu=".vnav-wrap-fixed .vnav")
-				span.lines
+		.vnav__logo
+			button(type="button" class="vnav__btn js-vnav__btn" id="js-vnav__btn")
+				span.vnav__btn-lines
 					span
 					span
 					span
-				//span.text Menu
+				//span.vnav__btn-text Menu
 			.d-i
 				img(src="img/logo.png" alt="")
-	nav.vnav.vak.xs-12.md-6
+	nav.vnav__menu.vak.xs-12.md-6#navigation
 		ul
-			+item("#sec1", "active") Главная
-			+item("#sec2") item_2
-			+item("#sec3") item_3
-	.vak.xs-4.md-3
-		.vnav-text-toggle.text-right
+			+item("#1", "vnav__link") Главная
+			+item("#2", "vnav__link") item_2
+			+item("#footer", "vnav__link") item_3
+	.vak.xs-4.md-3.vnav__text#js-nav-text
+		.vnav__text-toggle.js-vnav-toggle
 			span
 			span
 			span
-		.vnav-text.text-md-right
-			a.vnav-text-inner +38 (093) 961 33 54
-			a.vnav-text-inner.vnav-text-hidden +38 (093) 961 33 54
+		.vnav__text-links.js-vnav-links
+			a.vnav__text-links-inner +38 (093) 961 33 54
+			a.vnav__text-links-inner.vnav__text-links-inner_hidden +38 (093) 961 33 54

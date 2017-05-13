@@ -1,11 +1,13 @@
-mixin item(href, active)
-	if(active)
-		li(class="active"): a( href=href ): block
-	else	
-		li: a( href=href ): block
+mixin link(src)
+	link(href=src rel="stylesheet")
+mixin script(src)
+	script(src=src)
+mixin item(href, itemclass)
+	- itemclass = itemclass || "vnav__link"
+	li(class="vnav__item"): a( class=itemclass href=href ): block
 mixin button(buttonClass, modalTarget)
 
-	- buttonClass = buttonClass || 'vbtn vbtn-effect-shutter-vertical-out vbtn-corp'
+	- buttonClass = buttonClass || 'vbtn vbtn-effect-shutter-vertical-out vbtn_main'
 
 	if(modalTarget != null)
 		- modalTarget = modalTarget
@@ -13,3 +15,4 @@ mixin button(buttonClass, modalTarget)
 		- modalTarget = "#modalform"
 
 	button(class=buttonClass data-func="vmodal" data-target=modalTarget)&attributes(attributes): block
+		

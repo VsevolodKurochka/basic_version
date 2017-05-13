@@ -2,7 +2,27 @@ extends includes/layout
 block title
 	title Main Page
 block content
-
+	+b.BUTTON.vbtn._main(data-func="vmodal" data-content="#vmodalText_content" data-id="VmodalVideo" data-title="Test") Test
 block dev
-	include includes/modals/default
-	include includes/modals/video
+	.vmodal__content#vmodalText_content
+		.vmodal__inner
+			p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto perferendis quis, fugit natus suscipit alias reprehenderit quo excepturi officiis voluptatem ut unde autem hic nemo adipisci reiciendis nulla expedita debitis facilis recusandae soluta et explicabo corporis! Autem magnam laboriosam sequi, porro nesciunt quae voluptates delectus nemo culpa eius, nam ex?
+			p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est veritatis earum, autem beatae cum porro corrupti deserunt, velit laboriosam dolor facilis tempora maiores saepe atque distinctio nemo possimus. Illo debitis laboriosam molestias quas odio adipisci numquam amet aperiam deleniti. Assumenda in dignissimos minus ut perferendis autem ea debitis voluptatum eaque accusantium distinctio, harum! Amet provident vero odio aut perferendis, nemo corporis nostrum aspernatur quidem accusantium deleniti a, vel, autem id dolore labore. Iste tenetur dignissimos atque dicta beatae. Cumque reiciendis nostrum dolorum eveniet aut cupiditate doloremque explicabo, doloribus ipsum eos error inventore, velit iure sapiente minima harum ab culpa amet.
+	.vmodal__content#vmodalVideo
+		.vmodal__video
+	.vmodal__content#vmodalForm
+		form(action="" class="vform")
+			.vform__row
+				input(type="text" placeholder="Имя")
+				span.vform-line
+			.vform__row
+				input(type="email" placeholder="E-mail")
+				span.vform-line
+			.vform__row
+				input(type="text" placeholder="Телефон")
+				span.vform-line
+			.vform__row
+				button.vbtn.vbtn_main(type="submit") Получить!
+	//include includes/modals/default
+	//include includes/modals/text
+	//include includes/modals/video

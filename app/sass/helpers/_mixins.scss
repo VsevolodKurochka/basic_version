@@ -59,7 +59,7 @@
       }
     }
 
-  // Очищение потока, для того, чтобы float элементы не рушили страницу.
+  // Clearfix.
     @mixin cf(){
       &:after, &:before{
         content: "";
@@ -70,20 +70,23 @@
       }
     }
 
-  // Скрытие и показ элементов.
-    @mixin visibility-hidden($hidden){
-      .vhidden-#{$hidden}{
+  // Hide and show elements.
+    @mixin visibility($visibility){
+      .vhidden-#{$visibility}{
         display: none !important;
       }
-    }
-    @mixin visibility-visible($visible){
-      .vvisible-#{$visible}{
+      .vvisible-#{$visibility}{
         display: block !important;
       }
     }
+  
+  // Offset
+    @mixin xOffset($gn, $gl, $gr: $gl){
+      #{$gn}-left: $gl;
+      #{$gn}-right: $gr;
+    }
 
-
-// Миксин для загрузки шрифтов
+// Connect fonts
 @mixin connect-font($font,$class_name: $font, $fileType: otf){
   @font-face{
     font-family: $font;
@@ -123,21 +126,21 @@
 }
 
 
-// Отображение на retina-devices 
+// Retina devices
 @mixin retina(){
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi){
     @content;
   }
 }
 
-// Миксин для псевдоклассов.
+// Pseudo elements
 @mixin pseudo($contentText: ""){
   content: $contentText;
   position: absolute;
 }
 
 // Миксин для создание transition
-@mixin transitionMake($tr-prop: all, $tr-time: ease, $tr-dur: .5s){
+@mixin transition($tr-prop: all, $tr-time: ease, $tr-dur: .5s){
   transition: $tr-prop $tr-time $tr-dur;
 }
 

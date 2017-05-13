@@ -6,36 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8"><!--[if lte IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/scripts.min.js"></script>
-    <script src="js/main.js"></script>
+        <link href="css/style.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700,900&amp;amp;subset=cyrillic" rel="stylesheet">
+    <!--+script("js/scripts.min.js")-->
+    <!--+script("js/main.js")-->
+        <script src="js/main_vanilla.js"></script>
   </head>
   <body>
-    <div class="vnav-wrap vnav-wrap-fixed">
-      <div class="vcontainer vnav-container">
-        <div class="vrow flex-v-center">
-          <div class="vak xs-8 md-3">
-            <div class="vnav-logo">
-              <button class="vnav-btn" type="button" data-menu=".vnav-wrap-fixed .vnav"><span class="lines"><span></span><span></span><span></span></span>
-                <!--span.text Menu-->
-              </button>
-              <div class="d-i"><img src="img/logo.png" alt=""></div>
-            </div>
-          </div>
-          <nav class="vnav vak xs-12 md-6">
-            <ul>
-                      <li class="active"><a href="#sec1">Главная</a></li>
-                      <li><a href="#sec2">item_2</a></li>
-                      <li><a href="#sec3">item_3</a></li>
-            </ul>
-          </nav>
-          <div class="vak xs-4 md-3">
-            <div class="vnav-text-toggle text-right"><span></span><span></span><span></span></div>
-            <div class="vnav-text text-md-right"><a class="vnav-text-inner">+38 (093) 961 33 54</a><a class="vnav-text-inner vnav-text-hidden">+38 (093) 961 33 54</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
+                <div class="vnav vnav_fixed">
+                                  <div class="vnav__container vcontainer">
+                                    <div class="vrow flex-v-center">
+                                      <div class="vak xs-8 md-3">
+                                        <div class="vnav__logo">
+                                          <button class="vnav__btn js-vnav__btn" type="button" id="js-vnav__btn"><span class="vnav__btn-lines"><span></span><span></span><span></span></span>
+                                            <!--span.vnav__btn-text Menu-->
+                                          </button>
+                                          <div class="d-i"><img src="img/logo.png" alt=""></div>
+                                        </div>
+                                      </div>
+                                      <nav class="vnav__menu vak xs-12 md-6" id="navigation">
+                                        <ul>
+                                          <li class="vnav__item"><a class="vnav__link" href="#1">Главная</a></li>
+                                          <li class="vnav__item"><a class="vnav__link" href="#2">item_2</a></li>
+                                          <li class="vnav__item"><a class="vnav__link" href="#footer">item_3</a></li>
+                                        </ul>
+                                      </nav>
+                                      <div class="vak xs-4 md-3 vnav__text" id="js-nav-text">
+                                        <div class="vnav__text-toggle js-vnav-toggle"><span></span><span></span><span></span></div>
+                                        <div class="vnav__text-links js-vnav-links"><a class="vnav__text-links-inner">+38 (093) 961 33 54</a><a class="vnav__text-links-inner vnav__text-links-inner_hidden">+38 (093) 961 33 54</a></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                </div>
     <main class="main-wrapper">
     </main>
   </body>

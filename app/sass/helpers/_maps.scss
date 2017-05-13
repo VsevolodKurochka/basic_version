@@ -1,21 +1,14 @@
+/// Settings grid.
 $grid-system: (
 	menuExists            : true,
 	columns 							: 12,
 	flex                  : true,
 	columnName            : "vak",
 	width 								: 100%,
-	gutter 								: 15px,
-	container_sm					: 750px,
-	container_md					: 970px,
-	container_lg 					: 1170px,
-	container_lg_biggest  : 1890px,
+	gutter 								: 15px
 );
 
-
-/// Карта для медиа-запросов.
-/// @type Map
-/// @prop {String} key - Имя точки остановки для медиа-запроса
-/// @prop {Number} value - Значение точки остановки
+/// Media-queries.
 $breakpoints: (
 	lgBiggest : 1920px,
 	lg        : 1200px,
@@ -25,11 +18,15 @@ $breakpoints: (
 	exs       : 320px
 );
 
+/// Containers width.
+$containers: (
+	sm					: 750px,
+	md					: 970px,
+	lg 					: 1170px,
+	lgBiggest  	: 1890px
+);
 
-/// Карта цветов, собирает все цвета приложения
-/// @type Map
-/// @prop {String} key - Имя цветов
-/// @prop {Number} value - Значение цвета, соответствущее имени
+/// All colors
 $colors: (
 	main: (
 		base	: $color-main,
@@ -53,10 +50,7 @@ $colors: (
 );
 
 
-/// Карта размеров шрифтов, собирает все значения размера шрифтов
-/// @type Map
-/// @prop {String} key - Имя медиа-запроса
-/// @prop {Number} value - Значение размера шрифта
+/// Sizes for elements.
 $sizes: (
 	'vtitle-big': (
 		xs:   48px,
@@ -72,13 +66,12 @@ $sizes: (
 );
 
 
-/// Карта Z-index’ов, собирает все Z-слои приложения
-/// @type Map
-/// @prop {String} key - Имя слоя
-/// @prop {Number} value - Значение Z, соответствущее ключу
+/// Z-indexes.
 $z-indexes: (
+	'loader__spin'  : 1001,
+	'loader'        : 1000,
 	'modal'					: 1000,
-	'modalBackdrop' : 999,
+	'modal__overlay' : 999,
 	'nav'						: 10,
 	'default'     	: 1,
 	'below'       	: -1

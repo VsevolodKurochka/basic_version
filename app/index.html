@@ -6,72 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8"><!--[if lte IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/scripts.min.js"></script>
-    <script src="js/main.js"></script>
+        <link href="css/style.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700,900&amp;amp;subset=cyrillic" rel="stylesheet">
+    <!--+script("js/scripts.min.js")-->
+    <!--+script("js/main.js")-->
+        <script src="js/main_vanilla.js"></script>
   </head>
   <body>
-    <div class="vnav-wrap vnav-wrap-fixed">
-      <div class="vcontainer vnav-container">
-        <div class="vrow flex-v-center">
-          <div class="vak xs-8 md-3">
-            <div class="vnav-logo">
-              <button class="vnav-btn" type="button" data-menu=".vnav-wrap-fixed .vnav"><span class="lines"><span></span><span></span><span></span></span>
-                <!--span.text Menu-->
-              </button>
-              <div class="d-i"><img src="img/logo.png" alt=""></div>
-            </div>
-          </div>
-          <nav class="vnav vak xs-12 md-6">
-            <ul>
-                      <li class="active"><a href="#sec1">Главная</a></li>
-                      <li><a href="#sec2">item_2</a></li>
-                      <li><a href="#sec3">item_3</a></li>
-            </ul>
-          </nav>
-          <div class="vak xs-4 md-3">
-            <div class="vnav-text-toggle text-right"><span></span><span></span><span></span></div>
-            <div class="vnav-text text-md-right"><a class="vnav-text-inner">+38 (093) 961 33 54</a><a class="vnav-text-inner vnav-text-hidden">+38 (093) 961 33 54</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
+                <div class="vnav vnav_fixed">
+                                  <div class="vnav__container vcontainer">
+                                    <div class="vrow flex-v-center">
+                                      <div class="vak xs-8 md-3">
+                                        <div class="vnav__logo">
+                                          <button class="vnav__btn js-vnav__btn" type="button" id="js-vnav__btn"><span class="vnav__btn-lines"><span></span><span></span><span></span></span>
+                                            <!--span.vnav__btn-text Menu-->
+                                          </button>
+                                          <div class="d-i"><img src="img/logo.png" alt=""></div>
+                                        </div>
+                                      </div>
+                                      <nav class="vnav__menu vak xs-12 md-6" id="navigation">
+                                        <ul>
+                                          <li class="vnav__item"><a class="vnav__link" href="#1">Главная</a></li>
+                                          <li class="vnav__item"><a class="vnav__link" href="#2">item_2</a></li>
+                                          <li class="vnav__item"><a class="vnav__link" href="#footer">item_3</a></li>
+                                        </ul>
+                                      </nav>
+                                      <div class="vak xs-4 md-3 vnav__text" id="js-nav-text">
+                                        <div class="vnav__text-toggle js-vnav-toggle"><span></span><span></span><span></span></div>
+                                        <div class="vnav__text-links js-vnav-links"><a class="vnav__text-links-inner">+38 (093) 961 33 54</a><a class="vnav__text-links-inner vnav__text-links-inner_hidden">+38 (093) 961 33 54</a></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                </div>
     <main class="main-wrapper">
-      <div class="vmodal" id="modalform">
-        <div class="vmodal-dialog vmodal-dialog-default vmodal-dialog-center">
-          <button class="vmodal-close" type="button" data-close="vmodal">&times;</button>
-          <div class="vmodal-box">
-            <p class="vmodal-title">Отправить заявку</p>
-            <div class="vmodal-body">
-              <form class="vmain-form" action="">
-                <div class="vmain-form-row vmain-form-input-wrap">
-                  <input type="text" placeholder="Имя"><span class="vmain-form-line"></span>
-                </div>
-                <div class="vmain-form-row vmain-form-input-wrap">
-                  <input type="email" placeholder="E-mail"><span class="vmain-form-line"></span>
-                </div>
-                <div class="vmain-form-row vmain-form-input-wrap">
-                  <input type="text" placeholder="Телефон"><span class="vmain-form-line"></span>
-                </div>
-                <div class="vmain-form-row vmain-form-btn-wrap">
-                  <button class="vbtn vbtn-effect-bounce-top" type="submit">Получить!</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="vmodal vmodal-transparent" id="modalvideo">
-        <div class="vmodal-dialog big">
-          <button class="vmodal-close" type="button" data-close="vmodal">&times;</button>
-          <div class="vmodal-box">
-            <p class="vmodal-title"></p>
-            <div class="vmodal-body">
-              <div class="vmodal-video"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+                  <button class="vbtn vbtn_main" data-func="vmodal" data-content="#vmodalText_content" data-id="VmodalVideo" data-title="Test">Test
+                  </button>
     </main>
   </body>
+  <div class="vmodal__content" id="vmodalText_content">
+    <div class="vmodal__inner">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto perferendis quis, fugit natus suscipit alias reprehenderit quo excepturi officiis voluptatem ut unde autem hic nemo adipisci reiciendis nulla expedita debitis facilis recusandae soluta et explicabo corporis! Autem magnam laboriosam sequi, porro nesciunt quae voluptates delectus nemo culpa eius, nam ex?</p>
+      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est veritatis earum, autem beatae cum porro corrupti deserunt, velit laboriosam dolor facilis tempora maiores saepe atque distinctio nemo possimus. Illo debitis laboriosam molestias quas odio adipisci numquam amet aperiam deleniti. Assumenda in dignissimos minus ut perferendis autem ea debitis voluptatum eaque accusantium distinctio, harum! Amet provident vero odio aut perferendis, nemo corporis nostrum aspernatur quidem accusantium deleniti a, vel, autem id dolore labore. Iste tenetur dignissimos atque dicta beatae. Cumque reiciendis nostrum dolorum eveniet aut cupiditate doloremque explicabo, doloribus ipsum eos error inventore, velit iure sapiente minima harum ab culpa amet.</p>
+    </div>
+  </div>
+  <div class="vmodal__content" id="vmodalVideo">
+    <div class="vmodal__video"></div>
+  </div>
+  <div class="vmodal__content" id="vmodalForm">
+    <form class="vform" action="">
+      <div class="vform__row">
+        <input type="text" placeholder="Имя"><span class="vform-line"></span>
+      </div>
+      <div class="vform__row">
+        <input type="email" placeholder="E-mail"><span class="vform-line"></span>
+      </div>
+      <div class="vform__row">
+        <input type="text" placeholder="Телефон"><span class="vform-line"></span>
+      </div>
+      <div class="vform__row">
+        <button class="vbtn vbtn_main" type="submit">Получить!</button>
+      </div>
+    </form>
+  </div>
+  <!--include includes/modals/default-->
+  <!--include includes/modals/text-->
+  <!--include includes/modals/video-->
 </html>

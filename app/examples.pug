@@ -1,28 +1,90 @@
 include includes/mixins
-// EXAMPLE OF FORM 
-.vmodal.fade#modalform
-	.vmodal-dialog
-		.vmodal-content
-			.vmodal-header
-				button(type="button" class="vmodal-close" data-close="vmodal") &times;
-				p.vmodal-title Заголовок_формы
-				p.vmodal-p Текст_формы
-			.vmodal-body
-				form(action="" class="vmain-form")
-					input(type="text" placeholder="Имя")
-					input(type="email" placeholder="E-mail")
-					input(type="text" placeholder="Телефон")
-					button.vbtn.vbtn-effect-bounce-top.vbtn-corp(type="submit") Получить!
-			.vmodal-footer.text-center
-				p.text-small *Ваши данные <span class="bold">никогда не будут</span><br>переданы 3-м лицам
+include includes/bem/index
+-
+	set_bemto_settings({
+		prefix: '',
+		element: '__',
+		modifier: '_'
+	})
+
+
+// EXAMPLE OF FORM
+
++b.vmodal._default._center#vmodalForm
+	+e.box
+		+e.BUTTON.close(type="button" data-close="vmodal") &times;
+		+e.P.title Отправить заявку
+		+e.body
+			+b.vform
+				+e.row
+					+e.INPUT(type="text" placeholder="Имя")
+					+e.SPAN.line
+				+e.row
+					+e.INPUT(type="text" placeholder="E-mail")
+					+e.SPAN.line
+				+e.row
+					+e.INPUT(type="text" placeholder="Телефон")
+					+e.SPAN.line
+				+e.row._btn
+					+b.BUTTON.vbtn._main._bounceTop(type="submit") Получить
+
+
+// Preloaders
+
++b.loader
+	+e.inner
+		+e.SPAN.bar#loader_bar
+		+e.center
+			+e.spin._simple#loader_animation
+			+e.SPAN.text#loader_percent 0%
+	+e.section._left
+	+e.section._right
+
++b.loader
+	+e.inner
+		+e.SPAN.bar#loader_bar
+		+e.center
+			+e.spin._threeCirclesOpacity#loader_animation
+				span
+			+e.SPAN.text#loader_percent 0%
+	+e.section._left
+	+e.section._right
+
++b.loader
+	+e.inner
+		+e.cube-wrap
+			- var numberOfCubes = 9;
+			- for(var i = 0; i < numberOfCubes; i++)
+				+e.SPAN.cube
+	+e.section._left
+	+e.section._right
+
++b.loader
+	+e.inner
+		+b.loader__circles._1
+			div
+				div
+					div
+						div
+							div
+								div
+		+e.SPAN.spin-text Loading...
+	+e.section._left
+	+e.section._right
+	
+
 // EXAMPLE OF COLLAPSE 
+
 .cf.vcollapse-wrap
 	.vcollapse-inner
 		.vcollapse-header
 			p 1
 		.vcollapse-body
 			p Lorem
+
+
 // Example of tabs
+
 .vtabs-wrap
 	.vtabs-links
 		.vtabs-list
@@ -34,14 +96,27 @@ include includes/mixins
 			.vtabs-content-inner#vtab2
 				p 2
 
+
 // Buttons
-button(class="vbtn vbtn-effect-shutter-vertical-out vbtn-corp" data-modal="vmodal" data-modal-target="#modalform") Button
-+button("vbtn vbtn-effect-shutter-vertical-out vbtn-main", "#modalvideo")(data-video="https://www.youtube.com/embed/Iutk7AboLZI" data-source="youtube" data-title="Уроки JavaScript Практика #3 Пишем свой CSS генератор") Button_text_big
+
+// data-content="#example" - content's ID which will be inside modal
+// data-id="example" - ID for future modal
+// data-title="example" - title inside modal
+
+// If use vanillaJS
++b.BUTTON.vbtn._main(data-func="vmodal" data-content="#vmodalText_content" data-id="ModalID" data-title="test") Button
+
++b.BUTTON.vbtn._main(data-func="vmodal" data-content="#vmodalVideo" data-id="ModalID" data-title="Test" data-class="vmodal_big vmodal_transparent" data-video="https://www.youtube.com/embed/5CLFwCUyWqY") Test
+
+// If use jQuery
++b.BUTTON.vbtn._main._shutterVerticalOut(data-func="vmodal" data-target="#vmodalForm") Button
+
++button("vbtn vbtn-effect-shutter-vertical-out vbtn-main", "#vmodalVideo")(data-video="https://www.youtube.com/embed/Iutk7AboLZI" data-source="youtube" data-title="Уроки JavaScript Практика #3 Пишем свой CSS генератор") Button_text_big
 
 // LIST OF POSSIBLE CLASSES
 
-	vbtn-effect-shutter-vertical-out
-	vbtn-effect-shutter-horizontal-out
-	vbtn-effect-bounce-top
-	vbtn-effect-bounce-bottom
-	vbtn-effect-skew
+	vbtn_shutterVerticalOut
+	vbtn_shutterHorizontalOut
+	vbtn_bounceTop
+	vbtn_bounceBottom
+	vbtn_skew

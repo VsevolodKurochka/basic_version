@@ -28,29 +28,20 @@ Start: HIDDEN AND VISIBLE UTILITIES
   }
 }
 @include resp-min(lg){
-  @include visibility-hidden(lg);
-  @include visibility-visible(lg);
+  @include visibility(lg);
 }
 @include resp-min(md){
   @include resp-max(lg){
-    @include visibility-hidden(md);
-    @include visibility-visible(md);    
+    @include visibility(md);
   }
 }
 @include resp-min(sm){
   @include resp-max(md){
-    @include visibility-hidden(sm);
-    @include visibility-visible(sm);   
+    @include visibility(sm);
   }
 }
 @include resp-max(sm){
-  @include visibility-hidden(xs);
-  @include visibility-visible(xs); 
-}
-@include resp-min(exs){
-  @include resp-max(xs){
-    @include visibility-visible(exs);
-  }
+  @include visibility(xs);
 }
 /* =====================
 End:  HIDDEN AND VISIBLE UTILITIES
@@ -60,22 +51,19 @@ End:  HIDDEN AND VISIBLE UTILITIES
 }
 %global-block{
   min-height: 1px;
-  padding-left: getComp(gutter);
-  padding-right: getComp(gutter); 
+  @include xOffset('padding', getComp(gutter));
   @extend .relative;
 }
-.center-block {
+.center-block{
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  @include xOffset('margin', auto);
 }
 .cf{
-  @extend .relative;
   @include cf();
+  @extend .relative;
 }
 .vrow{
-  margin-left: - getComp(gutter);
-  margin-right: - getComp(gutter);
+  @include xOffset('margin', - getComp(gutter));
 }
 @if getComp(flex) == true{
   .#{getComp(columnName)}{
@@ -106,24 +94,14 @@ End:  HIDDEN AND VISIBLE UTILITIES
     float: left;
   }
 }
-
 .vcontainer{
   @extend %global-block;
   @extend .center-block;
-}
-.vcontainer{
-  @include resp-min(sm){
-    width: getComp(container_sm);
-  }
-  @include resp-min(md){
-    width: getComp(container_md);
-  }
-  @include resp-min(lg){
-    width: getComp(container_lg);
-  }
-  @include resp-min(lgBiggest){
-    width: getComp(container_lg_biggest);
-  }
+  @each $container_resp, $container_value in $containers{
+    @include resp-min($container_resp){
+      width: getComp($container_resp, $containers);
+    }
+  }  
 }
 %padding-block{
   padding-top: 50px;

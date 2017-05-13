@@ -5,7 +5,7 @@
 	@include fs('vtitle');
 	@extend .text-center;
 	@extend .text-tu;
-	@extend .light;
+	@extend .light !optional;
 	&-small{
 		margin: 12px 0;
 		font-size: 17px;
@@ -16,7 +16,7 @@
 		font-size: 48px;
 		margin: 24px 0;
 		@include fs('vtitle-big');
-		@extend .bold;
+		@extend .bold !optional;
 	}
 	@include resp-min(sm){
 		&-big{
