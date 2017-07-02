@@ -1,4 +1,5 @@
 .vcollapse{
+	margin-bottom: 30px;
 	&-wrap{
 		margin-top: 30px;
 		margin-bottom: 30px;
@@ -11,18 +12,18 @@
 		cursor: pointer;
 		padding: 15px;
 		background-color: #ddd;
-		
-	}
-	&-inner{
-		margin-bottom: 30px;
-		&.active{
-			.vcollapse-header{
-				background-color: #f00;
-			}
-		}
+		transition: all ease-in-out 0.5s;
 	}
 	&-body{
 		margin-top: 7.5px;
 		display: none;
+	}
+	&.active &{
+		&-header{
+			background-color: #f00;
+		}
+		// &-body{
+		// 	display: block;
+		// }
 	}
 }

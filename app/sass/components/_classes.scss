@@ -4,6 +4,11 @@
 .pseudo{
   @include pseudo();
 }
+.d{
+  &-i{
+    display: inline-block;
+  }
+}
 .vertical-image{
   &:before{
     content: "";
@@ -32,5 +37,13 @@
 @for $i from 1 through 3{
   .index-#{$i}{
     z-index: $i;
+  }
+}
+.color{
+  &_main{
+    color: setColor(main);
+  }
+  &_black{
+    color: setColor(dark, black);
   }
 }

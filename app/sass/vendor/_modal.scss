@@ -48,12 +48,10 @@
 			@extend %showing_in;
 		}
 	}
-	// &-open{
-	// 	.vmodal{
-	// 		overflow-x: hidden;
-	// 		overflow-y: auto;
-	// 	}
-	// }
+	&-open{
+		overflow-x: hidden;
+		overflow-y: hidden;
+	}
 	&__overlay{
 		z-index: z('modal__overlay');
 		background-color: rgba(46, 46, 46, 0.8);
@@ -84,6 +82,7 @@
 		@include transition();
 		&:hover{
 			color: $color-modal-main;
+			transform: rotate(180deg);
 		}
 	}
 	&__title{

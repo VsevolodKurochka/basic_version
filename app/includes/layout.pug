@@ -1,13 +1,14 @@
 doctype html
 html(lang="ru")
 	head
-		block title
-			title Project_name
-		block description
-			meta(name="description" content="")
-		include head
 		include mixins
 		include bem/index
+		
+		block title
+			+headTitle("Default")
+		block description
+			+headDescription("Project_description")
+		include head
 		-
 			set_bemto_settings({
 				prefix: '',
@@ -15,16 +16,8 @@ html(lang="ru")
 				modifier: '_'
 			})
 	body
-		//- +b.loader
-		//- 	+e.inner
-		//- 		+e.SPAN.bar#loader_bar
-		//- 		+e.center
-		//- 			+e.spin._simple#loader_animation
-		//- 			+e.SPAN.text#loader_percent 0%
-		//- 	+e.section._left
-		//- 	+e.section._right
 		block nav
-			+b.vnav._fixed
+			+b.vnav._fixed._fixed-always
 				+e.container.vcontainer__
 					include nav
 		main.main-wrapper

@@ -1,0 +1,32 @@
+.menu-item{
+	display: block;
+	position: relative;
+	@extend %vnav-transitionDef;
+	a{
+		display: block;
+		color: inherit;
+		text-decoration: none;
+	}
+	@include resp-max(md){
+		margin-bottom: 15px;
+		a{
+			padding: 15px;
+			color: setColor(white);
+		}
+	}
+	@include resp-min(md){
+		display: inline-block;
+		vertical-align: middle;
+		padding-top: 7.5px;
+		padding-bottom: 7.5px;
+		&:not(:last-child){
+			margin-right: 15px;
+		}
+		&:before,
+		&:after{
+			@include pseudo();
+			@include transition();
+		}
+		@include linkEffect_3();
+	}
+}

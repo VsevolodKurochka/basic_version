@@ -74,16 +74,6 @@
 						transform: none;
 					}			
 				}	
-				&__item{
-					margin-bottom: 15px;
-					&_active{
-						background-color: setColor(menu, light);
-					}
-				}
-				&__link{
-					padding: 15px;
-					color: #fff;
-				}
 				&__text{
 					text-align: right;
 					&:after{
@@ -152,18 +142,13 @@
 			}			
 		}
 		@include resp-min(md){
-			&__item{
-				display: inline-block;
-				vertical-align: middle;
-				padding-left: 15px;
-				padding-right: 15px;
-			}
-			&__link{
-				padding-top: 5px;
-				padding-bottom: 5px;
-			}
-			&__btn{
-				display: none;
+			&_fixed{
+				//position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				padding: 25px 0;
+				z-index: 999;
 			}
 		}
 	}

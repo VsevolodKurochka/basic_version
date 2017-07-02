@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <title>Main Page</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Project</title>
+        <meta property="og:title" content="Project">
+        <meta property="description" content="Project_description">
+        <meta property="og:description" content="Project_description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta charset="UTF-8"><!--[if lte IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
         <link href="css/style.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700,900&amp;amp;subset=cyrillic" rel="stylesheet">
-    <!--+script("js/scripts.min.js")-->
+    <!--+script("js/lib/scripts.min.js")-->
     <!--+script("js/main.js")-->
         <script src="js/main_vanilla.js"></script>
   </head>
   <body>
-                <div class="vnav vnav_fixed">
+                <div class="vnav vnav_fixed vnav_fixed-always">
                                   <div class="vnav__container vcontainer">
                                     <div class="vrow flex-v-center">
                                       <div class="vak xs-8 md-3">
@@ -26,9 +28,9 @@
                                       </div>
                                       <nav class="vnav__menu vak xs-12 md-6" id="navigation">
                                         <ul>
-                                          <li class="vnav__item"><a class="vnav__link" href="#1">Главная</a></li>
-                                          <li class="vnav__item"><a class="vnav__link" href="#2">item_2</a></li>
-                                          <li class="vnav__item"><a class="vnav__link" href="#footer">item_3</a></li>
+                                          <li class="vnav__item menu-item"><a href="#1">Главная</a></li>
+                                          <li class="vnav__item menu-item"><a href="#2">menuItem_2</a></li>
+                                          <li class="vnav__item menu-item"><a href="#footer">item_3</a></li>
                                         </ul>
                                       </nav>
                                       <div class="vak xs-4 md-3 vnav__text" id="js-nav-text">
@@ -39,36 +41,21 @@
                                   </div>
                 </div>
     <main class="main-wrapper">
-                  <button class="vbtn vbtn_main" data-func="vmodal" data-content="#vmodalText_content" data-id="VmodalVideo" data-title="Test">Test
+                  <button class="vbtn vbtn_main" data-func="vmodal" data-content="#vmodalForm" data-id="ModalID" data-title="test">Button
                   </button>
     </main>
   </body>
-  <div class="vmodal__content" id="vmodalText_content">
-    <div class="vmodal__inner">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto perferendis quis, fugit natus suscipit alias reprehenderit quo excepturi officiis voluptatem ut unde autem hic nemo adipisci reiciendis nulla expedita debitis facilis recusandae soluta et explicabo corporis! Autem magnam laboriosam sequi, porro nesciunt quae voluptates delectus nemo culpa eius, nam ex?</p>
-      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est veritatis earum, autem beatae cum porro corrupti deserunt, velit laboriosam dolor facilis tempora maiores saepe atque distinctio nemo possimus. Illo debitis laboriosam molestias quas odio adipisci numquam amet aperiam deleniti. Assumenda in dignissimos minus ut perferendis autem ea debitis voluptatum eaque accusantium distinctio, harum! Amet provident vero odio aut perferendis, nemo corporis nostrum aspernatur quidem accusantium deleniti a, vel, autem id dolore labore. Iste tenetur dignissimos atque dicta beatae. Cumque reiciendis nostrum dolorum eveniet aut cupiditate doloremque explicabo, doloribus ipsum eos error inventore, velit iure sapiente minima harum ab culpa amet.</p>
-    </div>
-  </div>
-  <div class="vmodal__content" id="vmodalVideo">
-    <div class="vmodal__video"></div>
-  </div>
   <div class="vmodal__content" id="vmodalForm">
-    <form class="vform" action="">
-      <div class="vform__row">
-        <input type="text" placeholder="Имя"><span class="vform-line"></span>
-      </div>
-      <div class="vform__row">
-        <input type="email" placeholder="E-mail"><span class="vform-line"></span>
-      </div>
-      <div class="vform__row">
-        <input type="text" placeholder="Телефон"><span class="vform-line"></span>
-      </div>
-      <div class="vform__row">
-        <button class="vbtn vbtn_main" type="submit">Получить!</button>
-      </div>
-    </form>
+                <form class="vform" action="application.php" method="POST">
+                                  <div class="vform__row vform__row_line vform__row_status"><input class="vform-control" type="text" placeholder="Имя" data-rule="required noNumbers"/><span class="vform__line"></span>
+                                  </div>
+                                  <div class="vform__row vform__row_line vform__row_status"><input class="vform-control" type="email" placeholder="E-mail" data-rule="required email"/><span class="vform__line"></span>
+                                  </div>
+                                  <div class="vform__row vform__row_line vform__row_status"><input class="vform-control" type="text" placeholder="Телефон" data-rule="required"/><span class="vform__line"></span>
+                                  </div>
+                                  <div class="vform__row text-center">
+                                    <button class="vbtn vbtn_main" type="submit">Получить!</button>
+                                  </div>
+                </form>
   </div>
-  <!--include includes/modals/default-->
-  <!--include includes/modals/text-->
-  <!--include includes/modals/video-->
 </html>

@@ -28,6 +28,78 @@ include includes/bem/index
 				+e.row._btn
 					+b.BUTTON.vbtn._main._bounceTop(type="submit") Получить
 
+.vmodal__content#vmodalText_content
+	.vmodal__inner
+		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto perferendis quis, fugit natus suscipit alias reprehenderit quo excepturi officiis voluptatem ut unde autem hic nemo adipisci reiciendis nulla expedita debitis facilis recusandae soluta et explicabo corporis! Autem magnam laboriosam sequi, porro nesciunt quae voluptates delectus nemo culpa eius, nam ex?
+		p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est veritatis earum, autem beatae cum porro corrupti deserunt, velit laboriosam dolor facilis tempora maiores saepe atque distinctio nemo possimus. Illo debitis laboriosam molestias quas odio adipisci numquam amet aperiam deleniti. Assumenda in dignissimos minus ut perferendis autem ea debitis voluptatum eaque accusantium distinctio, harum! Amet provident vero odio aut perferendis, nemo corporis nostrum aspernatur quidem accusantium deleniti a, vel, autem id dolore labore. Iste tenetur dignissimos atque dicta beatae. Cumque reiciendis nostrum dolorum eveniet aut cupiditate doloremque explicabo, doloribus ipsum eos error inventore, velit iure sapiente minima harum ab culpa amet.
+
+.vmodal__content#vmodalVideo
+	.vmodal__video
+
+.vmodal__content#vmodalForm
+	+b.FORM.vform(action="application.php" method="POST")
+		+e.row._line._status
+			+b.INPUT.vform-control(type="text" placeholder="Имя" data-rule="required noNumbers")
+			+e.SPAN.line
+		+e.row._line._status
+			+b.INPUT.vform-control(type="email" placeholder="E-mail" data-rule="required email")
+			+e.SPAN.line
+		+e.row._line._status
+			+b.INPUT.vform-control(type="text" placeholder="Телефон" data-rule="required")
+			+e.SPAN.line
+		+e.row.text-center
+			button.vbtn.vbtn_main(type="submit") Получить!
+	
+
+// EXAMPLE OF COLLAPSE 
+
+.cf.vcollapse-wrap
+	.vcollapse-inner
+		.vcollapse-header
+			p 1
+		.vcollapse-body
+			p Lorem
+
+
+// Example of tabs
+
+.vtabs-wrap
+	.vtabs-links
+		.vtabs-list
+			li.active: a.vtabs-link(data-func="tab" data-target="#vtab1") Tab_link_1
+			li: a.vtabs-link(data-func="tab" data-target="#vtab2") Tab_link_2
+		.vtabs-content
+			.vtabs-content-inner#vtab1
+				p 1
+			.vtabs-content-inner#vtab2
+				p 2
+
+
+// Buttons
+
+// data-content="#example" - content's ID which will be inside modal
+// data-id="example" - ID for future modal
+// data-title="example" - title inside modal
+
+// If use vanillaJS
++b.BUTTON.vbtn._main(data-func="vmodal" data-content="#vmodalText_content" data-id="ModalID" data-title="test") Button
+
++b.BUTTON.vbtn._main(data-func="vmodal" data-content="#vmodalVideo" data-id="ModalID" data-title="Test" data-class="vmodal_big vmodal_transparent" data-video="https://www.youtube.com/embed/5CLFwCUyWqY") Test
+
+// If use jQuery
++b.BUTTON.vbtn._main(data-func="vmodal" data-target="#vmodalForm") Button
+
++b.BUTTON.vbtn._main(data-func="vmodal" data-target="#vmodalForm" data-video="https://www.youtube.com/embed/Iutk7AboLZI" data-source="youtube" data-title="Уроки JavaScript Практика #3 Пишем свой CSS генератор") Button_text_big
+
+
+// LIST OF POSSIBLE CLASSES
+
+	vbtn_shutterVerticalOut
+	vbtn_shutterHorizontalOut
+	vbtn_bounceTop
+	vbtn_bounceBottom
+	vbtn_skew
+
 
 // Preloaders
 
@@ -71,52 +143,3 @@ include includes/bem/index
 		+e.SPAN.spin-text Loading...
 	+e.section._left
 	+e.section._right
-	
-
-// EXAMPLE OF COLLAPSE 
-
-.cf.vcollapse-wrap
-	.vcollapse-inner
-		.vcollapse-header
-			p 1
-		.vcollapse-body
-			p Lorem
-
-
-// Example of tabs
-
-.vtabs-wrap
-	.vtabs-links
-		.vtabs-list
-			li.active: a.vtabs-link(data-func="tab" data-target="#vtab1") Tab_link_1
-			li: a.vtabs-link(data-func="tab" data-target="#vtab2") Tab_link_2
-		.vtabs-content
-			.vtabs-content-inner#vtab1
-				p 1
-			.vtabs-content-inner#vtab2
-				p 2
-
-
-// Buttons
-
-// data-content="#example" - content's ID which will be inside modal
-// data-id="example" - ID for future modal
-// data-title="example" - title inside modal
-
-// If use vanillaJS
-+b.BUTTON.vbtn._main(data-func="vmodal" data-content="#vmodalText_content" data-id="ModalID" data-title="test") Button
-
-+b.BUTTON.vbtn._main(data-func="vmodal" data-content="#vmodalVideo" data-id="ModalID" data-title="Test" data-class="vmodal_big vmodal_transparent" data-video="https://www.youtube.com/embed/5CLFwCUyWqY") Test
-
-// If use jQuery
-+b.BUTTON.vbtn._main._shutterVerticalOut(data-func="vmodal" data-target="#vmodalForm") Button
-
-+button("vbtn vbtn-effect-shutter-vertical-out vbtn-main", "#vmodalVideo")(data-video="https://www.youtube.com/embed/Iutk7AboLZI" data-source="youtube" data-title="Уроки JavaScript Практика #3 Пишем свой CSS генератор") Button_text_big
-
-// LIST OF POSSIBLE CLASSES
-
-	vbtn_shutterVerticalOut
-	vbtn_shutterHorizontalOut
-	vbtn_bounceTop
-	vbtn_bounceBottom
-	vbtn_skew

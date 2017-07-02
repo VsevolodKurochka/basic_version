@@ -6,25 +6,22 @@
 	@extend .text-center;
 	@extend .text-tu;
 	@extend .light !optional;
-	&-small{
+	&_small{
 		margin: 12px 0;
 		font-size: 17px;
-		@include fs('vtitle-small');	
+		@include fs('vtitle_small');	
 	}
-	&-big{
+	&_big{
 		line-height: 1.1;
 		font-size: 48px;
 		margin: 24px 0;
-		@include fs('vtitle-big');
+		@include fs('vtitle_big');
 		@extend .bold !optional;
 	}
 	@include resp-min(sm){
-		&-big{
+		&_big{
 			margin-bottom: 60px;
 		}
-	}
-	@include resp-min(md){
-		margin-bottom: 75px;
 	}
 }
 .text{

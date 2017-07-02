@@ -2,17 +2,12 @@ mixin link(src)
 	link(href=src rel="stylesheet")
 mixin script(src)
 	script(src=src)
-mixin item(href, itemclass)
-	- itemclass = itemclass || "vnav__link"
-	li(class="vnav__item"): a( class=itemclass href=href ): block
-mixin button(buttonClass, modalTarget)
-
-	- buttonClass = buttonClass || 'vbtn vbtn-effect-shutter-vertical-out vbtn_main'
-
-	if(modalTarget != null)
-		- modalTarget = modalTarget
-	else
-		- modalTarget = "#modalform"
-
-	button(class=buttonClass data-func="vmodal" data-target=modalTarget)&attributes(attributes): block
-		
+mixin headTitle(head_title)
+	title=head_title
+	meta(property="og:title" content=head_title)
+mixin headDescription(description)
+	meta(property="description" content=description)
+	meta(property="og:description" content=description)
+mixin menuItem(href)
+	//- itemclass = itemclass || "vnav__link"
+	li(class="vnav__item menu-item"): a( href=href ): block

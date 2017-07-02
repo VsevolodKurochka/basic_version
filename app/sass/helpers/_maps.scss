@@ -22,8 +22,7 @@ $breakpoints: (
 $containers: (
 	sm					: 750px,
 	md					: 970px,
-	lg 					: 1170px,
-	lgBiggest  	: 1890px
+	lg 					: 1170px
 );
 
 /// All colors
@@ -42,7 +41,7 @@ $colors: (
 		light : #f3f3f3
 	),
 	white: (
-		base  : white
+		base  : #fff
 	),
 	green: (
 		base 	: #5bb85d
@@ -52,15 +51,15 @@ $colors: (
 
 /// Sizes for elements.
 $sizes: (
-	'vtitle-big': (
-		xs:   48px,
-		sm:   80px,
-		lg:   100px
+	'vtitle_big': (
+		xs:   30px,
+		sm:   40px,
+		lg:   50px
 	),
 	'vtitle': (
 		md:   60px
 	),
-	'vtitle-small': (
+	'vtitle_small': (
 		sm:   30px
 	)
 );
@@ -68,11 +67,11 @@ $sizes: (
 
 /// Z-indexes.
 $z-indexes: (
-	'loader__spin'  : 1001,
-	'loader'        : 1000,
-	'modal'					: 1000,
-	'modal__overlay' : 999,
-	'nav'						: 10,
-	'default'     	: 1,
-	'below'       	: -1
+	'loader__spin'  	: 1001,
+	'loader'        	: 1000,
+	'modal'						: 1000,
+	'modal__overlay' 	: 999,
+	'nav'							: 10,
+	'default'     		: 1,
+	'below'       		: -1
 );
