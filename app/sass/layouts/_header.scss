@@ -1,8 +1,6 @@
-.vheader {
-	padding: 50px 0;
+.site-header {
+	position: relative;
 	min-height: 50px;
 	z-index: z('default');
-	color: #fff;
 	//@include bg('');
-	@extend .relative;
 }

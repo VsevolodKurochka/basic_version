@@ -1,34 +1,31 @@
+%vtitle-default{
+	margin-top: 10px;
+	margin-bottom: 15px;
+	line-height: 1.2;
+	font-weight: normal;
+}
 .vtitle{
-	margin-bottom: 60px;
-	line-height: 1;
-	font-size: 40px;
+	text-transform: uppercase;
+	font-size: 24px;
 	@include fs('vtitle');
-	@extend .text-center;
-	@extend .text-tu;
-	@extend .light !optional;
-	&_small{
-		margin: 12px 0;
-		font-size: 17px;
-		@include fs('vtitle_small');	
+	@extend %vtitle-default;
+	&-small{
+		font-size: 20px;
+		@include fs('vtitle-small');
+		@extend %vtitle-default;
 	}
-	&_big{
-		line-height: 1.1;
-		font-size: 48px;
-		margin: 24px 0;
-		@include fs('vtitle_big');
+	&-big{
+		font-size: 30px;
+		@include fs('vtitle-big');
 		@extend .bold !optional;
-	}
-	@include resp-min(sm){
-		&_big{
-			margin-bottom: 60px;
-		}
+		@extend %vtitle-default;
 	}
 }
 .text{
-	&-tu{
+	&-uppercase{
 		text-transform: uppercase;
 	}
-	&-du{
+	&-u{
 		text-decoration: underline;
 	}
 	&-dn{

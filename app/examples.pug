@@ -1,4 +1,4 @@
-include includes/mixins
+include includes/helpers/mixins
 include includes/bem/index
 -
 	set_bemto_settings({
@@ -8,8 +8,30 @@ include includes/bem/index
 	})
 
 
-// EXAMPLE OF FORM
+//-
+//- Buttons
+//-
 
+// Big button with background color (brand-1), shadow
++b.BUTTON.vbtn._large._brand-1._shadow._shadow-brand-1
+
+// Default button with effect line
++b.BUTTON.vbtn.effect._line.left.top
+	
+// List of possible classes
+
+	effect_shutter-vertical-out
+	effect_shutter-horizontal-out
+	effect_bounce-top
+	effect_bounce-bottom
+	effect_skew
+
+
+//-
+//- Modals
+//-
+
+// Modal Jquery (app/main.js)
 +b.vmodal._default._center#vmodalForm
 	+e.box
 		+e.BUTTON.close(type="button" data-close="vmodal") &times;
@@ -28,10 +50,12 @@ include includes/bem/index
 				+e.row._btn
 					+b.BUTTON.vbtn._main._bounceTop(type="submit") Получить
 
+
+// Modal Javascript (app/js/main_vanilla.js)
+
 .vmodal__content#vmodalText_content
 	.vmodal__inner
-		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto perferendis quis, fugit natus suscipit alias reprehenderit quo excepturi officiis voluptatem ut unde autem hic nemo adipisci reiciendis nulla expedita debitis facilis recusandae soluta et explicabo corporis! Autem magnam laboriosam sequi, porro nesciunt quae voluptates delectus nemo culpa eius, nam ex?
-		p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est veritatis earum, autem beatae cum porro corrupti deserunt, velit laboriosam dolor facilis tempora maiores saepe atque distinctio nemo possimus. Illo debitis laboriosam molestias quas odio adipisci numquam amet aperiam deleniti. Assumenda in dignissimos minus ut perferendis autem ea debitis voluptatum eaque accusantium distinctio, harum! Amet provident vero odio aut perferendis, nemo corporis nostrum aspernatur quidem accusantium deleniti a, vel, autem id dolore labore. Iste tenetur dignissimos atque dicta beatae. Cumque reiciendis nostrum dolorum eveniet aut cupiditate doloremque explicabo, doloribus ipsum eos error inventore, velit iure sapiente minima harum ab culpa amet.
+		p Lorem 
 
 .vmodal__content#vmodalVideo
 	.vmodal__video
@@ -92,15 +116,6 @@ include includes/bem/index
 +b.BUTTON.vbtn._main(data-func="vmodal" data-target="#vmodalForm" data-video="https://www.youtube.com/embed/Iutk7AboLZI" data-source="youtube" data-title="Уроки JavaScript Практика #3 Пишем свой CSS генератор") Button_text_big
 
 
-// LIST OF POSSIBLE CLASSES
-
-	vbtn_shutterVerticalOut
-	vbtn_shutterHorizontalOut
-	vbtn_bounceTop
-	vbtn_bounceBottom
-	vbtn_skew
-
-
 // Preloaders
 
 +b.loader
@@ -143,3 +158,16 @@ include includes/bem/index
 		+e.SPAN.spin-text Loading...
 	+e.section._left
 	+e.section._right
+
+
+// CONTROLS
+.control-group
+	label.control.control_default(for="check1")
+		input(type="radio" id="check1" name="checks")
+		.control__indicator
+		p.control__text Check 1
+.control-group
+	label.control.control_default(for="check2")
+		input(type="checkbox" id="check2" name="checks")
+		.control__indicator
+		p.control__text Check 2

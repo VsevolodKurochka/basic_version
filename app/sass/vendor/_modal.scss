@@ -61,7 +61,7 @@
 	&__box{
 		position: relative;
 		padding: 40px 15px 30px;
-		background-color: setColor(white);
+		background-color: setColor('white');
 		box-shadow: 0 12px 15px 0 rgba(0,0,0,0.24);
 		@extend %modalTransition;
 	}

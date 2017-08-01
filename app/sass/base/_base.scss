@@ -1,18 +1,13 @@
 body{
-  color: setColor(dark, black);  
+  color: setColor('dark', 'black');  
   font-size: 18px;
   line-height: 1.42857143;
-  @extend .roboto;
+  @extend .general-font !optional;
   @extend .regular !optional;
 }
 img{
+  display: inline-block;
   max-width: 100%;
-  @extend .d-i;
-}
-input:focus{
-  @include input-placeholder{
-    color: transparent;
-  }
 }
 a,button{
   cursor: pointer;

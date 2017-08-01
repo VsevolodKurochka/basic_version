@@ -1,20 +1,23 @@
-include mixins
+include ../helpers/data
+include ../helpers/mixins
+include ../bem/index
 .vrow.flex-v-center
 	.vak.xs-8.md-3
 		.vnav__logo
-			button(type="button" class="vnav__btn js-vnav__btn" id="js-vnav__btn")
-				span.vnav__btn-lines
+			+b.hamburger(type="button" id="js-vnav__btn")
+				+e.SPAN.lines
 					span
 					span
 					span
-				//span.vnav__btn-text Menu
-			.d-i
+				//+e.SPAN.text Menu
+			.inline-block
 				img(src="img/logo.png" alt="")
 	nav.vnav__menu.vak.xs-12.md-6#navigation
 		ul
-			+menuItem("#1") Главная
-			+menuItem("#2") menuItem_2
-			+menuItem("#footer") item_3
+			for item in navigation
+				+menu-item('true', item.link, item.name)
+			+menu-item
+				+b.BUTTON.vbtn._navigation(data-func="vmodal" data-content="#vmodalForm" data-id="ModalID" data-title="test") Button
 	.vak.xs-4.md-3.vnav__text#js-nav-text
 		.vnav__text-toggle.js-vnav-toggle
 			span

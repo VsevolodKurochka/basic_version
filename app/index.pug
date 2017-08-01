@@ -1,19 +1,21 @@
 extends includes/layout
-block title
-	+headTitle("Project")
+block variables
+	- var title = "Main page";
+	- var description = "description";
 block content
-	+b.BUTTON.vbtn._main(data-func="vmodal" data-content="#vmodalForm" data-id="ModalID" data-title="test") Button
+	
 block dev
+	+b.BUTTON.vbtn._large._brand-1(data-func="vmodal" data-content="#vmodalForm" data-id="ModalID" data-title="test") Large button
 	.vmodal__content#vmodalForm
 		+b.FORM.vform(action="application.php" method="POST")
 			+e.row._line._status
-				+b.INPUT.vform-control(type="text" placeholder="Имя" data-rule="required noNumbers")
-				+e.SPAN.line
+				+b.INPUT.vform-control(type="text" placeholder="Имя" data-rule="required noNumbers" name="name")
+				+e.line
 			+e.row._line._status
-				+b.INPUT.vform-control(type="email" placeholder="E-mail" data-rule="required email")
-				+e.SPAN.line
+				+b.INPUT.vform-control(type="email" placeholder="E-mail" data-rule="required email" name="email")
+				+e.line
 			+e.row._line._status
-				+b.INPUT.vform-control(type="text" placeholder="Телефон" data-rule="required")
-				+e.SPAN.line
+				+b.INPUT.vform-control(type="text" placeholder="Телефон" data-rule="required" name="phone")
+				+e.line
 			+e.row.text-center
-				button.vbtn.vbtn_main(type="submit") Получить!
+				+e.BUTTON.button.vbtn._main._large._brand-1(type="submit") Получить!

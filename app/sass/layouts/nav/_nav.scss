@@ -4,7 +4,7 @@
 	}
 	&__text{
 		display: inline-block;
-		color: setColor(dark, black);
+		color: setColor('dark', 'black');
 		@extend .bold !optional;
 		&-links{
 			&-inner{
@@ -14,8 +14,8 @@
 			}			
 		}
 		&-toggle{
-			@extend .tap-transparent;
-			@extend .outline-none;
+			-webkit-tap-highlight-color: transparent;
+			outline: none;
 		}
 	}
 	@include resp-min(md){
@@ -38,25 +38,25 @@
 				%vnav-resp{
 					position: fixed;
 					left: 0;
-					background-color: setColor(menu);
-				}
-				&_fixed + .main-wrapper{
-					margin-top: 55px;
+					background-color: setColor('menu');
 				}
 			}			
-			&_fixed{
+			&_style{
 				display: flex;
 				align-items: center;
 				width: 100%;
 				height: 56px;	
 				left: 0;
 				top: 0;
-				padding: 11px 0;	
-				z-index: z('nav');
+				padding: 11px 0;
 				box-shadow: 0 2px 5px rgba(0,0,0,.26);
+				z-index: z('fixed');
 				@extend %vnav-resp;
+				+ .site{
+					margin-top: 56px;
+				}
 			}
-			&_fixed &{
+			&_style &{
 				&__container{
 					flex-basis: 100%;
 				}
@@ -84,8 +84,8 @@
 						width: 55px;
 						background-color: #2f3c8f;
 						z-index: -1;
-						@include transition();
 						opacity: 0;
+						@include transition();
 					}
 					&-links{
 						position: absolute;
@@ -100,7 +100,7 @@
 					}
 					@at-root{
 						%text-hidden-color{
-							background-color: setColor(white);
+							background-color: setColor('white');
 						}
 					}			
 					&-toggle{
@@ -120,6 +120,11 @@
 							}
 						}
 					}
+					&.active{
+						&:after{
+							opacity: 1;
+						}
+					}
 				}
 				&__logo{
 					img{
@@ -128,12 +133,7 @@
 					}
 				}
 			}
-			&_fixed &__text.active{
-				&:after{
-					opacity: 1;
-				}
-			}
-			&_fixed &__text.active &{
+			&__text.active &{
 				&__text{
 					&-links{
 						transform: none;
@@ -142,14 +142,24 @@
 			}			
 		}
 		@include resp-min(md){
-			&_fixed{
-				//position: fixed;
-				top: 0;
-				left: 0;
-				width: 100%;
-				padding: 25px 0;
-				z-index: 999;
-			}
+			padding: 25px 0;
 		}
+	}
+}
+
+.fixed{
+	position: fixed;
+	z-index: z('fixed');
+	@include resp-max(md){
+		& + .site{
+			margin-top: 56px;
+		}
+	}
+	@include resp-min(md){
+		width: 100%;
+		left: 0;
+		&_top{
+			top: 0;
+		}		
 	}
 }

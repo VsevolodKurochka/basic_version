@@ -1,22 +1,24 @@
 // Colors
 
-	$color-main: #F89406;
-
 	$color-responsive-menu: #3949ab;
-
-	$color-modal-main: #ED2553;
-
-	$color-modal-trans: rgba(0, 0, 0, 0.1);
-
+	$color-modal-main: #F89406;
+	$color-modal-transparent: rgba(0, 0, 0, 0.1);
 	$color-success: #5cb85c;
-
 	$color-danger: #d9534f;
+
+	// Brand colors
+
+		$color-brand-1: #F89406;
+		$color-brand-2: #f00;
 
 // Dependencies
 
 	// Design form ( 'old' or 'new' )
 	
-		$design-form: 'new';
+		$design-form: 'old';
 
-// Error, if not exists variable.
-$error: "This variable we do not have, sorry. Please try to change variable"; 
+// Errors
+
+	// If not exists variable.
+		$error-variable: "This variable we do not have, sorry. Please try to change variable ";
+		$error-color: 'Invalid color name.';

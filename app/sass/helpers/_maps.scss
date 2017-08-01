@@ -10,7 +10,6 @@ $grid-system: (
 
 /// Media-queries.
 $breakpoints: (
-	lgBiggest : 1920px,
 	lg        : 1200px,
 	md        : 1025px,
 	sm        : 768px,
@@ -27,39 +26,43 @@ $containers: (
 
 /// All colors
 $colors: (
-	main: (
-		base	: $color-main,
-		light : lighten($color-main, 15%)
+	'brand-1': (
+		'base'	: $color-brand-1,
+		'light' : lighten($color-brand-1, 15%)
 	),
-	menu: (
-		base  : $color-responsive-menu,
-		light : lighten($color-responsive-menu, 5%)
+	'brand-2': (
+		'base'	: $color-brand-2,
+		'light' : lighten($color-brand-2, 15%)
 	),
-	dark: (
-		base 	: #333,
-		black : #000,
-		light : #f3f3f3
+	'menu': (
+		'base'  : $color-responsive-menu,
+		'light' : lighten($color-responsive-menu, 5%)
 	),
-	white: (
-		base  : #fff
+	'dark': (
+		'base' 	: #333,
+		'black' : #000,
+		'light' : #f3f3f3
 	),
-	green: (
-		base 	: #5bb85d
+	'white': (
+		'base'  : #fff
+	),
+	'green': (
+		'base' 	: #5bb85d
 	)
 );
 
 
 /// Sizes for elements.
 $sizes: (
-	'vtitle_big': (
+	'vtitle-big': (
 		xs:   30px,
 		sm:   40px,
 		lg:   50px
 	),
 	'vtitle': (
-		md:   60px
+		md:   40px
 	),
-	'vtitle_small': (
+	'vtitle-small': (
 		sm:   30px
 	)
 );
@@ -71,7 +74,7 @@ $z-indexes: (
 	'loader'        	: 1000,
 	'modal'						: 1000,
 	'modal__overlay' 	: 999,
-	'nav'							: 10,
+	'fixed'						: 10,
 	'default'     		: 1,
 	'below'       		: -1
 );

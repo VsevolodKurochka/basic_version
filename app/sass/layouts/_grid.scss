@@ -58,10 +58,11 @@ End:  HIDDEN AND VISIBLE UTILITIES
   display: block;
   @include xOffset('margin', auto);
 }
-.cf{
-  @include cf();
-  @extend .relative;
-}
+// .cf{
+//   @include cf();
+//   @extend .relative;
+// }
+.negative-margin,
 .vrow{
   @include xOffset('margin', - getComp(gutter));
 }
@@ -77,7 +78,7 @@ End:  HIDDEN AND VISIBLE UTILITIES
     flex: 0 1 auto;
     flex-direction: row;
     flex-wrap: wrap;
-    &-v-center{
+    &-y-center{
       align-items: center;
     }
   }
@@ -111,18 +112,3 @@ End:  HIDDEN AND VISIBLE UTILITIES
   @extend %padding-block;
   @extend .relative;
 }
-// .vpull{
-//   &-left{
-//     float: left;
-//   }
-//   &-right{
-//     float: right;
-//   }
-// }
-// @each $br-name, $br-value in $breakpoints{
-//   @include resp-min($br-name){
-//     .text-#{$br-name}-right{
-//       text-align: right;
-//     }  
-//   }
-// }

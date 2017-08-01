@@ -1,5 +1,20 @@
 
-<!-- EXAMPLE OF FORM-->
+<!-- Big button with background color (brand-1), shadow-->
+<button class="vbtn vbtn_large vbtn_brand-1 vbtn_shadow vbtn_shadow-brand-1">
+</button>
+<!-- Default button with effect line-->
+<button class="vbtn effect effect_line left top">
+</button>
+<!-- List of possible classes
+effect_shutter-vertical-out
+effect_shutter-horizontal-out
+effect_bounce-top
+effect_bounce-bottom
+effect_skew
+
+
+-->
+<!-- Modal Jquery (app/main.js)-->
 <div class="vmodal vmodal_default vmodal_center" id="vmodalForm">
   <div class="vmodal__box">
     <button class="vmodal__close" type="button" data-close="vmodal">&times;
@@ -22,10 +37,10 @@
     </div>
   </div>
 </div>
+<!-- Modal Javascript (app/js/main_vanilla.js)-->
 <div class="vmodal__content" id="vmodalText_content">
   <div class="vmodal__inner">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto perferendis quis, fugit natus suscipit alias reprehenderit quo excepturi officiis voluptatem ut unde autem hic nemo adipisci reiciendis nulla expedita debitis facilis recusandae soluta et explicabo corporis! Autem magnam laboriosam sequi, porro nesciunt quae voluptates delectus nemo culpa eius, nam ex?</p>
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est veritatis earum, autem beatae cum porro corrupti deserunt, velit laboriosam dolor facilis tempora maiores saepe atque distinctio nemo possimus. Illo debitis laboriosam molestias quas odio adipisci numquam amet aperiam deleniti. Assumenda in dignissimos minus ut perferendis autem ea debitis voluptatum eaque accusantium distinctio, harum! Amet provident vero odio aut perferendis, nemo corporis nostrum aspernatur quidem accusantium deleniti a, vel, autem id dolore labore. Iste tenetur dignissimos atque dicta beatae. Cumque reiciendis nostrum dolorum eveniet aut cupiditate doloremque explicabo, doloribus ipsum eos error inventore, velit iure sapiente minima harum ab culpa amet.</p>
+    <p>Lorem </p>
   </div>
 </div>
 <div class="vmodal__content" id="vmodalVideo">
@@ -86,15 +101,6 @@
 </button>
 <button class="vbtn vbtn_main" data-func="vmodal" data-target="#vmodalForm" data-video="https://www.youtube.com/embed/Iutk7AboLZI" data-source="youtube" data-title="Уроки JavaScript Практика #3 Пишем свой CSS генератор">Button_text_big
 </button>
-<!-- LIST OF POSSIBLE CLASSES
-vbtn_shutterVerticalOut
-vbtn_shutterHorizontalOut
-vbtn_bounceTop
-vbtn_bounceBottom
-vbtn_skew
-
-
--->
 <!-- Preloaders-->
 <div class="loader">
   <div class="loader__inner"><span class="loader__bar" id="loader_bar"></span>
@@ -150,4 +156,19 @@ vbtn_skew
   </div>
   <div class="loader__section loader__section_right">
   </div>
+</div>
+<!-- CONTROLS-->
+<div class="control-group">
+  <label class="control control_default" for="check1">
+    <input type="radio" id="check1" name="checks"/>
+    <div class="control__indicator"></div>
+    <p class="control__text">Check 1</p>
+  </label>
+</div>
+<div class="control-group">
+  <label class="control control_default" for="check2">
+    <input type="checkbox" id="check2" name="checks"/>
+    <div class="control__indicator"></div>
+    <p class="control__text">Check 2</p>
+  </label>
 </div>

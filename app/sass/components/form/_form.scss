@@ -1,7 +1,7 @@
 .vform{
 	width: 100%;
 	@at-root{
-		@keyframes shake {
+		@keyframes formShake {
 		  10%, 90% {
 		    transform: translate3d(-1px, 0, 0);
 		  }
@@ -17,18 +17,6 @@
 		  40%, 60% {
 		    transform: translate3d(4px, 0, 0);
 		  }
-		}
-		%control{
-			display: block;
-			padding: 15px;
-			width: 100%;
-			max-width: 100%;
-			color: #000;
-			text-align: left;
-			font-size: 15px;
-			-webkit-appearance: none;
-			outline: none;
-			@include transition();			
 		}
 	}
 	&__row{
@@ -72,7 +60,7 @@
 	}
 	&_error{
 		[type="submit"]{
-		  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+		  animation: formShake 0.82s cubic-bezier(.36,.07,.19,.97) both;
 		  transform: translate3d(0, 0, 0);
 		  backface-visibility: hidden;
 		  perspective: 1000px;
@@ -80,18 +68,17 @@
 	}
 	@if( $design-form == 'new' ){
 		&-control{
-			@extend %control;
+			@include input-default();
 			border: none;
 		}
 		@at-root{
 			.vmodal &{
-				color: $color-modal-trans;
 				[type="submit"]{
-					border: 3px solid $color-modal-trans;
+					border: 3px solid $color-modal-transparent;
 					border-radius: 0;
 					background-color: transparent;
 					font-size: 20px;
-					color: inherit;
+					color: $color-modal-transparent;
 					text-transform: uppercase;
 					outline: none;
 					&:hover,
@@ -109,19 +96,19 @@
 			height: 1px;
 			width: 0;
 			background-color: $color-modal-main;
-			@extend .transition;
+			@include transition();
 		}
 		input:focus + &__line{
 			width: 100%;
 		}
 		&__row_line{
 			&:before{
-				@extend .pseudo;
+				@include pseudo();
 				left: 0;
-				top: 100%;
-				width: 100%;
+				bottom: 0;
 				height: 1px;
-				background-color: $color-modal-trans;
+				width: 100%;
+				background-color: $color-modal-transparent;
 			}
 		}
 		@include resp-min(xs){
@@ -131,15 +118,15 @@
 		}	
 	}@else{
 		&-control{
+			@include input-default();
 			border: 1px solid #ddd;
-			@extend %control;
 			&:focus{
-				border-color: setColor(main);
+				border-color: setColor('brand-1');
 			}
 		}
 	} 
 
 }
-[type="submit"]:hover{
+[type="submit"]{
 	cursor: pointer;
 }

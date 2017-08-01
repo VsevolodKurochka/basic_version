@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-        <title>Project</title>
-        <meta property="og:title" content="Project">
-        <meta property="description" content="Project_description">
-        <meta property="og:description" content="Project_description">
+        <title>Main page</title>
+        <meta property="og:title" content="Main page">
+        <meta property="description" content="description">
+        <meta property="og:description" content="description">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <meta charset="UTF-8"><!--[if lte IE 9]>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png"><!--[if lte IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
         <link href="css/style.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700,900&amp;amp;subset=cyrillic" rel="stylesheet">
@@ -15,22 +16,29 @@
         <script src="js/main_vanilla.js"></script>
   </head>
   <body>
-                <div class="vnav vnav_fixed vnav_fixed-always">
+                <div class="vnav vnav_style">
                                   <div class="vnav__container vcontainer">
                                     <div class="vrow flex-v-center">
                                       <div class="vak xs-8 md-3">
                                         <div class="vnav__logo">
-                                          <button class="vnav__btn js-vnav__btn" type="button" id="js-vnav__btn"><span class="vnav__btn-lines"><span></span><span></span><span></span></span>
-                                            <!--span.vnav__btn-text Menu-->
+                                          <button class="hamburger" type="button" id="js-vnav__btn"><span class="hamburger__lines"><span></span><span></span><span></span></span>
+                                            <!--+e.SPAN.text Menu-->
                                           </button>
-                                          <div class="d-i"><img src="img/logo.png" alt=""></div>
+                                          <div class="inline-block"><img src="img/logo.png" alt=""></div>
                                         </div>
                                       </div>
                                       <nav class="vnav__menu vak xs-12 md-6" id="navigation">
                                         <ul>
-                                          <li class="vnav__item menu-item"><a href="#1">Главная</a></li>
-                                          <li class="vnav__item menu-item"><a href="#2">menuItem_2</a></li>
-                                          <li class="vnav__item menu-item"><a href="#footer">item_3</a></li>
+                                          <li class="menu-item"><a href="index.html">asdasd</a>
+                                          </li>
+                                          <li class="menu-item"><a href="index2.html">Main 2</a>
+                                          </li>
+                                          <li class="menu-item"><a href="index3.html">Main 3</a>
+                                          </li>
+                                          <li class="menu-item">
+                                            <button class="vbtn vbtn_navigation" data-func="vmodal" data-content="#vmodalForm" data-id="ModalID" data-title="test">Button
+                                            </button>
+                                          </li>
                                         </ul>
                                       </nav>
                                       <div class="vak xs-4 md-3 vnav__text" id="js-nav-text">
@@ -40,22 +48,37 @@
                                     </div>
                                   </div>
                 </div>
-    <main class="main-wrapper">
-                  <button class="vbtn vbtn_main" data-func="vmodal" data-content="#vmodalForm" data-id="ModalID" data-title="test">Button
-                  </button>
-    </main>
+    <div class="site" id="page">
+      <header class="site-header">
+        <div class="vcontainer"></div>
+      </header>
+      <div class="site-content" id="content">
+      </div>
+      <footer class="site-footer" id="colophon">
+        <div class="vcontainer"></div>
+      </footer>
+    </div>
+    <button class="vbtn vbtn_large vbtn_brand-1" data-func="vmodal" data-content="#vmodalForm" data-id="ModalID" data-title="test">Large button
+    </button>
+    <div class="vmodal__content" id="vmodalForm">
+      <form class="vform" action="application.php" method="POST">
+        <div class="vform__row vform__row_line vform__row_status"><input class="vform-control" type="text" placeholder="Имя" data-rule="required noNumbers" name="name"/>
+          <div class="vform__line">
+          </div>
+        </div>
+        <div class="vform__row vform__row_line vform__row_status"><input class="vform-control" type="email" placeholder="E-mail" data-rule="required email" name="email"/>
+          <div class="vform__line">
+          </div>
+        </div>
+        <div class="vform__row vform__row_line vform__row_status"><input class="vform-control" type="text" placeholder="Телефон" data-rule="required" name="phone"/>
+          <div class="vform__line">
+          </div>
+        </div>
+        <div class="vform__row text-center">
+          <button class="vform__button vbtn vbtn_main vbtn_large vbtn_brand-1" type="submit">Получить!
+          </button>
+        </div>
+      </form>
+    </div>
   </body>
-  <div class="vmodal__content" id="vmodalForm">
-                <form class="vform" action="application.php" method="POST">
-                                  <div class="vform__row vform__row_line vform__row_status"><input class="vform-control" type="text" placeholder="Имя" data-rule="required noNumbers"/><span class="vform__line"></span>
-                                  </div>
-                                  <div class="vform__row vform__row_line vform__row_status"><input class="vform-control" type="email" placeholder="E-mail" data-rule="required email"/><span class="vform__line"></span>
-                                  </div>
-                                  <div class="vform__row vform__row_line vform__row_status"><input class="vform-control" type="text" placeholder="Телефон" data-rule="required"/><span class="vform__line"></span>
-                                  </div>
-                                  <div class="vform__row text-center">
-                                    <button class="vbtn vbtn_main" type="submit">Получить!</button>
-                                  </div>
-                </form>
-  </div>
 </html>

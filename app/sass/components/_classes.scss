@@ -1,38 +1,13 @@
-.transition{
-  @include transition();
-}
-.pseudo{
-  @include pseudo();
-}
-.d{
-  &-i{
-    display: inline-block;
-  }
-}
-.vertical-image{
-  &:before{
-    content: "";
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;   
-  }
-  img{
-    max-height: 100%;
-    vertical-align: middle;   
-  }
+.inline-block{
+  display: inline-block;
 }
 .size{
   &-zero{
     font-size: 0;
   }
 }
-.outline{
-  &-none{
-    outline: none;
-  }
-}
-.tap-transparent{
-  -webkit-tap-highlight-color: transparent;
+.ovh{
+  overflow: hidden;
 }
 @for $i from 1 through 3{
   .index-#{$i}{
@@ -40,10 +15,26 @@
   }
 }
 .color{
-  &_main{
-    color: setColor(main);
+  &-brand{
+    &-1{
+      color: setColor('brand-1');
+    }
+    &-2{
+      color: setColor('brand-2');
+    }
   }
-  &_black{
-    color: setColor(dark, black);
+  &-black{
+    color: setColor('dark', 'black');
+  }
+}
+
+.bg{
+  &-brand{
+    &-1{
+      background-color: setColor('brand-1');
+    }
+    &-2{
+      background-color: setColor('brand-2');
+    }
   }
 }

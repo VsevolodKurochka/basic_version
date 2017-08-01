@@ -1,14 +1,15 @@
 doctype html
 html(lang="ru")
 	head
-		include mixins
+		include helpers/mixins
 		include bem/index
 		
-		block title
-			+headTitle("Default")
-		block description
-			+headDescription("Project_description")
-		include head
+		block variables
+
+		+add-meta('title', title)
+		+add-meta('description', description)
+
+		include layouts/head
 		-
 			set_bemto_settings({
 				prefix: '',
@@ -17,9 +18,15 @@ html(lang="ru")
 			})
 	body
 		block nav
-			+b.vnav._fixed._fixed-always
+			//- +b.fixed._top
+			+b.vnav._style
 				+e.container.vcontainer__
-					include nav
-		main.main-wrapper
-			block content
-	block dev
+					include layouts/nav
+		div.site#page
+			block header
+				include layouts/header
+			div.site-content#content
+				block content
+			block footer
+				include layouts/footer
+		block dev

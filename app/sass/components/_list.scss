@@ -1,19 +1,18 @@
 .list{
+  list-style: none;
   li{
-    @extend .relative;
+    position: relative;
     &:after{
-      @extend .pseudo;
-      top: 0;
+      @include pseudo();
     }
   }
   &_cancel{
     li{
       padding-left: 30px;
       &:after{
+        top: 0;
         left: 0;
-        width: 37px;
-        height: 37px;
-        //@include bg();
+        @include size(37px);
       }
     }
   }

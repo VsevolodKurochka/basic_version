@@ -2,21 +2,18 @@
 // @include connect-font(ProximaLight,light);
 // @include connect-font(ProximaBold,bold);
 // @include connect-font(ProximaBlack,black);
-.roboto{
+.general-font{
 	font-family: 'Roboto', sans-serif;
 }
-// .rubik{
-// 	font-family: 'Rubik One', sans-serif;
-// }
-.regular{
-	font-weight: 400;
-}
-.light{
-	font-weight: 300;
-}
-.bold{
-	font-weight: 700;
-}
-.black{
-	font-weight: 900;
+$font-weights: (
+	'regular' : 400,
+	'light'   : 300,
+	'bold'    : 700,
+	'black'   : 900
+);
+
+@each $name, $weight in $font-weights{
+	.#{$name}{
+		font-weight: $weight;
+	}
 }

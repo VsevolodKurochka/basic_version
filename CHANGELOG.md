@@ -78,6 +78,7 @@ Year-month-date
 - Добавлены миксины, которые добавляют hover effect ( linkEffect_1, linkEffect_2, linkEffect_3 ), 
 - Мета-теги og:title, og:description
 - Папка ( js/lib ), в которой находятся кем-то написанные скрипты.
+- Классы ( sass/components/classes ) - color main
 
 ### Changed
 - Удалил миксин button, ввиду того, что не используется.
@@ -85,3 +86,23 @@ Year-month-date
 - Файл ( sass/layouts/_nav ) был разбит на части и перенесен в папку ( layouts/nav ) для более быстрого редактирования.
 - Запрещено любое пользовательское масштабирование ( maximum-scale=1.0 )
 - Пункты li сделаны как в WP, с классом menu-item.
+
+## [0.0.5] - 2017-06-01
+### Fixed
+- 
+
+### Added
+- + страница 404.
+- + файл ./app/includes/helpers/data , в котором будут массивы с нужными данными. Например - навигация.
+- + файл footer
+- + стили для checkbox & radio.
+- + папка components/button
+- + миксин для обычного инпута.
+- + два брендовые цвета.
+- + плейсхолдер %vtitle-default.
+- + Папка с навигацией.
+
+### Changed
+- Изменены названия миксинов app/includes/helpers/mixins.
+- - Брейкпоинт (lgBiggest)
+- - ненужные @extend со всех файлов.
