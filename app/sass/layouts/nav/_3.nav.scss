@@ -18,6 +18,9 @@
 			outline: none;
 		}
 	}
+	&__menu{
+		-webkit-overflow-scrolling:touch;
+	}
 	@include resp-min(md){
 		&__text{
 			text-align: right;
@@ -68,6 +71,7 @@
 					z-index: z('default');
 					overflow-y: auto;
 					transform: translateZ(0) translateX(-120%);
+					will-change: transform;
 					@include transition($tr-dur: 0.3s);
 					@extend %vnav-resp;
 					&_active{
@@ -79,8 +83,8 @@
 					&:after{
 						@include pseudo();
 						right: 0;
-						top: -13px;
-						height: 55px;
+						top: 0;
+						height: 56px;
 						width: 55px;
 						background-color: #2f3c8f;
 						z-index: -1;
@@ -89,7 +93,7 @@
 					}
 					&-links{
 						position: absolute;
-						top: 42px;
+						top: 56px;
 						right: 0;
 						min-width: 180px;
 						padding: 15px;

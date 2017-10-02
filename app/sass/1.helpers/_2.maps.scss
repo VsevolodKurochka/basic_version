@@ -1,9 +1,9 @@
 /// Settings grid.
 $grid-system: (
-	menuExists            : true,
+	menuExists 						: true,
 	columns 							: 12,
-	flex                  : true,
-	columnName            : "vak",
+	flex 									: true,
+	columnName 						: "vak",
 	width 								: 100%,
 	gutter 								: 15px
 );

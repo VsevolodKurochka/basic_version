@@ -10,7 +10,14 @@ mixin add-meta(name, value)
 		meta(property="description" content=value)
 		meta(property="og:description" content=value)
 mixin menu-item(isLink,href, name)
-	li(class="menu-item")
+
+	- var menuItemClass = '';
+	if wordpress
+		- menuItemClass = 'menu-item';
+	else
+		- menuItemClass = 'vnav__menu-item'; 
+
+	li(class=menuItemClass)
 		if isLink === 'true'
 			a( href=href )=name
 		else

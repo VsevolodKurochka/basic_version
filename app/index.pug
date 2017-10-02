@@ -3,19 +3,25 @@ block variables
 	- var title = "Main page";
 	- var description = "description";
 block content
-	
+	<?php echo '21' ?>
 block dev
-	+b.BUTTON.vbtn._large._brand-1(data-func="vmodal" data-content="#vmodalForm" data-id="ModalID" data-title="test") Large button
-	.vmodal__content#vmodalForm
-		+b.FORM.vform(action="application.php" method="POST")
-			+e.row._line._status
-				+b.INPUT.vform-control(type="text" placeholder="Имя" data-rule="required noNumbers" name="name")
-				+e.line
-			+e.row._line._status
-				+b.INPUT.vform-control(type="email" placeholder="E-mail" data-rule="required email" name="email")
-				+e.line
-			+e.row._line._status
-				+b.INPUT.vform-control(type="text" placeholder="Телефон" data-rule="required" name="phone")
-				+e.line
-			+e.row.text-center
-				+e.BUTTON.button.vbtn._main._large._brand-1(type="submit") Получить!
+	+b.BUTTON.vbtn._large._border-brand-1.effect._bounce-top(data-action="vmodal" data-open="#form") Large button
+	+b.vmodal#form
+		+e.box._default
+			+e.header
+				+e.P.title GET
+				+e.BUTTON.close(data-close="vmodal") &times;
+			+e.body
+				+b.FORM.vform._block(action="mail.php" method="POST")
+					+e.content
+						+e.row._line
+							+b.INPUT.vform-control(type="text" placeholder="Имя" name="name")
+							+e.SPAN.line
+						+e.row._line
+							+b.INPUT.vform-control(type="text" placeholder="E-mail" name="email")
+							+e.SPAN.line
+						+e.row._line
+							+b.INPUT.vform-control(type="text" placeholder="Телефон" name="phone")
+							+e.SPAN.line
+						+e.row._btn
+							+b.BUTTON.vbtn._block._large._brand-1.effect._bounce-top(type="submit") Получить

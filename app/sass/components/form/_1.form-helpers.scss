@@ -12,9 +12,10 @@
 	@include placeholder{
 		@include transition();
 	}
-	&:focus{
-		@include placeholder{
-			color: transparent;
-		}
+}
+@mixin rowOffset(){
+	margin-bottom: 15px;
+	&:last-child{
+		margin-bottom: 0;
 	}
 }

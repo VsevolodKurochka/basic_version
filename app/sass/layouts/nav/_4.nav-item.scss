@@ -1,6 +1,6 @@
-.menu-item{
+.#{$nav-item-name}{
 	display: block;
-	@extend %vnav-transitionDef;
+	@include transition();
 	a{
 		display: block;
 		position: relative;

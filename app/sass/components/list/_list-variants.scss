@@ -1,12 +1,5 @@
-.list{
-  list-style: none;
-  li{
-    position: relative;
-    &:after{
-      @include pseudo();
-    }
-  }
-  &_cancel{
+.#{$list-name}{
+	&_cancel{
     li{
       padding-left: 30px;
       &:after{
