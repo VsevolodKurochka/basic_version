@@ -1,9 +1,7 @@
 extends includes/layout
 block variables
-	- var title = "Main page";
-	- var description = "description";
+	+add-meta('Title', 'Description', 'localhost', 'img/header.jpg')
 block content
-	<?php echo '21' ?>
 block dev
 	+b.BUTTON.vbtn._large._border-brand-1.effect._bounce-top(data-action="vmodal" data-open="#form") Large button
 	+b.vmodal#form

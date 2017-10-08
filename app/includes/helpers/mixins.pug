@@ -2,13 +2,24 @@ mixin connect-link(src)
 	link(href=src rel="stylesheet")
 mixin connect-script(src)
 	script(src=src)
-mixin add-meta(name, value)
-	if name === 'title'
-		title=value
-		meta(property="og:title" content=value)
-	else if name === 'description'
-		meta(property="description" content=value)
-		meta(property="og:description" content=value)
+
+mixin add-meta(title, description, url, image)
+	title=title
+	meta(name="application-name" content=title)
+	meta(property="og:title" content=title)
+	meta(itemprop="headline" content=title)
+	meta(property="og:site_name" content=title)
+
+	meta(itemprop="description" content=description)
+	meta(property="og:description" content=description)
+
+	meta(property="og:url" content=url)
+	meta(property="og:type" content="website")
+
+	meta(property="og:image" content=image)
+	meta(itemprop="image" content=image)
+	
+
 mixin menu-item(isLink,href, name)
 
 	- var menuItemClass = '';

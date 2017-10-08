@@ -431,6 +431,7 @@ a, button {
   COLUMNS
 ----------------------------------------------------------------------------- */
 .vcontainer {
+  position: relative;
   margin-left: auto;
   margin-right: auto;
   min-height: 1px;
