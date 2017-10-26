@@ -1,0 +1,12 @@
+extends layout
+block variables
+	+add-meta('Unit Test - Title')
+block intro
+	+intro('Title', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos ipsa repellat quia totam ab doloribus!')
+block content
+	+e.SECTION.section
+		+title('Title variations')
+		+b.H4.title-xs Title XS
+		+b.H3.title-sm Title SM
+		+b.H2.title-md Title MD
+		+b.H1.title-lg Title LG

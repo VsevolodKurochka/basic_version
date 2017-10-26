@@ -1,0 +1,26 @@
+extends layout
+block variables
+	+add-meta('Unit Test - Index')
+block intro
+	+intro('Buttons', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos ipsa repellat quia totam ab doloribus!')
+block content
+	+e.section
+		+title('Button "Sizes":')
+		+b.BUTTON.vbtn Default button
+		+b.BUTTON.vbtn._size-lg Large button
+	+e.section
+		+title('Button "Colors":')
+		+b.BUTTON.vbtn._white White button
+		+b.BUTTON.vbtn._brand-1 Brand-1 button
+	+e.section
+		+title('Button "Border":')
+		+b.BUTTON.vbtn._border-brand-1 Button border-brand-1
+	+e.section
+		+title('Button "Hover effect":')
+		+b.BUTTON.vbtn._brand-1._brand-1-simple Button "Simple"
+		+b.BUTTON.vbtn._brand-1.veffect._line.left.top Button "Line"
+		+b.BUTTON.vbtn._brand-1.veffect._skew Button "Skew"
+		+b.BUTTON.vbtn._brand-1.veffect._shutter-y-out Button "Shutter Y out"
+		+b.BUTTON.vbtn._brand-1.veffect._shutter-x-out Button "Shutter X out"
+		+b.BUTTON.vbtn._brand-1.veffect._bounce-top Button "Bounce Top"
+		+b.BUTTON.vbtn._brand-1.veffect._bounce-bottom Button "Bounce Bottom"

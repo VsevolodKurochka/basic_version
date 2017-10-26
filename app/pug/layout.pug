@@ -1,0 +1,20 @@
+doctype html
+html(lang="ru")
+	head
+		include bem/index
+		include helpers/config
+		include helpers/mixins
+		include helpers/data
+		
+		
+		block variables
+
+		include layouts/head
+		
+	body
+		block nav
+		.site#page
+			block header
+			.site-content#content
+				block content
+			block footer

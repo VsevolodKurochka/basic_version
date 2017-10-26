@@ -19,14 +19,14 @@ var gulp 								= require('gulp'),
 		
 // Define sourses object
 var sourses = {
-	sass: 'app/sass/**/*.scss',
-	css: 'app/css/style.css',
+	sass: 'app/assets/sass/**/*.scss',
+	css: 'app/assets/css/style.css',
 	pug: 'app/**/*.pug',
-	scripts: 'app/js/**/*.js',
-	es6: 'app/es6/**/*.js',
-	fonts: 'app/fonts/**/*',
-	img: 'app/img/*',
-	html: 'app/*.html',
+	scripts: 'app/assets/js/**/*.js',
+	es6: 'app/assets/es6/**/*.js',
+	fonts: 'app/assets/fonts/**/*',
+	img: 'app/assets/img/**/*',
+	html: 'app/**/*.html',
 	php: 'app/**/*.php',
 	default: 'app/'
 };
@@ -53,16 +53,14 @@ gulp.task('sass', function(){
 		.pipe(autoprefixer(
 			{browsers: ['last 5 versions']}
 		))
-		.pipe(gulp.dest('app/css'))
+		.pipe(gulp.dest('app/assets/css'))
 		.pipe(browserSync.reload({stream: true}))
 });
 
 gulp.task('pug', function() {
 	return gulp.src(sourses.pug)
 		.pipe(
-			pug({
-				pretty: true
-			}).on('error', notify.onError(function (error) {
+			pug().on('error', notify.onError(function (error) {
 				return 'ERROR. \n' + error;
 			}))
 		)
@@ -73,7 +71,7 @@ gulp.task('pug', function() {
 });
 
 gulp.task('htmlbeautify', function() {
-  gulp.src('app/*.html')
+  gulp.src('app/**/*.html')
     .pipe(htmlbeautify())
     .pipe(gulp.dest('app/'))
 });
@@ -85,7 +83,7 @@ gulp.task('babel', function(){
 		})).on('error', notify.onError(function (error) {
 				return 'ERROR. \n' + error;
 			}))
-		.pipe(gulp.dest('app/js'));
+		.pipe(gulp.dest('app/assets/js'));
 });
 
 gulp.task('browser-sync', function(){
@@ -93,7 +91,6 @@ gulp.task('browser-sync', function(){
 		server: {
 			baseDir: 'app'
 		},
-		//proxy: 'basic.template',
 		notify: false
 	});
 });
@@ -101,6 +98,7 @@ gulp.task('browser-sync', function(){
 gulp.task('watch', ['browser-sync', 'pug', 'sass', 'babel', 'htmlbeautify'] ,function(){
 	gulp.watch(sourses.sass, ['sass']);
 	gulp.watch(sourses.html, browserSync.reload);
+	//gulp.watch(sourses.html, 'htmlbeautify');
 	gulp.watch(sourses.js, browserSync.reload);
 	gulp.watch(sourses.pug, ['pug']);
 	gulp.watch(sourses.es6, ['babel']);

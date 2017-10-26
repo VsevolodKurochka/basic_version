@@ -1,25 +1,11 @@
-extends includes/layout
+extends pug/layout
 block variables
-	+add-meta('Title', 'Description', 'localhost', 'img/header.jpg')
+	+add-meta('Index', 'Description')
+block nav
+	include pug/layouts/nav
+block header
+	include pug/layouts/header
+block footer
+	include pug/layouts/footer
 block content
-block dev
-	+b.BUTTON.vbtn._large._border-brand-1.effect._bounce-top(data-action="vmodal" data-open="#form") Large button
-	+b.vmodal#form
-		+e.box._default
-			+e.header
-				+e.P.title GET
-				+e.BUTTON.close(data-close="vmodal") &times;
-			+e.body
-				+b.FORM.vform._block(action="mail.php" method="POST")
-					+e.content
-						+e.row._line
-							+b.INPUT.vform-control(type="text" placeholder="Имя" name="name")
-							+e.SPAN.line
-						+e.row._line
-							+b.INPUT.vform-control(type="text" placeholder="E-mail" name="email")
-							+e.SPAN.line
-						+e.row._line
-							+b.INPUT.vform-control(type="text" placeholder="Телефон" name="phone")
-							+e.SPAN.line
-						+e.row._btn
-							+b.BUTTON.vbtn._block._large._brand-1.effect._bounce-top(type="submit") Получить
+	include pug/sections/intro

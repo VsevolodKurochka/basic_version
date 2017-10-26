@@ -1,0 +1,36 @@
+doctype html
+html(lang="ru")
+	head
+		// Include generals options
+		include ../pug/bem/index
+		include ../pug/helpers/config
+		include ../pug/helpers/mixins
+		include ../pug/helpers/data
+		
+		// Include options only for docs
+		include helpers/mixins
+		+css('/assets/css/docs/docs.css')
+		
+		block variables
+
+		include ../pug/layouts/head
+		
+	body
+		+b.SECTION.vdocs
+			+e.intro
+				.vcontainer
+					block intro
+			.vcontainer
+				.vrow
+					+e.content.vcol-12.vcol-sm-8
+						block content
+					+e.sidebar.vcol-12.vcol-sm-4
+						+e.P.sidebar-title Available elements
+						+e.UL.sidebar-list
+							+e.LI.sidebar-list-item
+								+e.A.sidebar-list-item-link(href="button.html") Buttons
+							+e.LI.sidebar-list-item
+								+e.A.sidebar-list-item-link(href="modal.html") Modal
+							+e.LI.sidebar-list-item
+								+e.A.sidebar-list-item-link(href="title.html") Title
+		block footer
